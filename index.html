@@ -1,1 +1,77 @@
-<!--Ana Sayfa-->
+/*Test amaçlı dosya, gerçek içeriği yansıtmaz.*/
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KampüsCÜ | UI Standartları</title>
+    
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/components.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-icerik">
+            <h1 style="margin:0; color: var(--ana-renk);">KampüsCÜ</h1>
+            <div>
+                <strong>İlanlar</strong> | Giriş Yap
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+            
+            <div style="flex: 1; min-width: 300px;">
+                <h2>Öğrenci Girişi</h2>
+                <div class="kart">
+                    <div class="form-alani">
+                        <label>Öğrenci Maili</label>
+                        <input type="email" placeholder="@ogrenci.cumhuriyet.edu.tr">
+                    </div>
+                    <div class="form-alani">
+                        <label>Şifre</label>
+                        <input type="password" placeholder="••••••••">
+                    </div>
+                    <button class="buton">Giriş Yap</button>
+                </div>
+            </div>
+
+            <div style="flex: 2; min-width: 300px;">
+                <h2>Son İlanlar</h2>
+                <div class="ilan-izgarasi">
+                    
+                    <article class="kart">
+                        <div class="kart-resim-alani">Resim Alanı</div>
+                        <h3>Diferansiyel Notları</h3>
+                        <p>Vize ve final çıkmış sorular dahil.</p>
+                        <div class="fiyat-etiketi">150 TL</div>
+                    </article>
+
+                    <article class="kart">
+                        <div class="kart-resim-alani">Resim Alanı</div>
+                        <h3>Ev Arkadaşı Aranıyor</h3>
+                        <p>KYK yakını, faturalar ortak.</p>
+                        <div class="fiyat-etiketi">İletişime Geç</div>
+                    </article>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            CÜ Yazılım Ekibi © 2026 - Tüm Standartlar Belirlenmiştir.
+        </div>
+    </footer>
+
+</body>
+</html>

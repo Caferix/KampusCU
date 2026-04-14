@@ -1,1 +1,21 @@
 /*Reset ve global element stilleri*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tüm sitenin genel görünümü variables.css'den çekilir */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--arkaplan);
+    color: var(--metin-renk);
+    line-height: 1.6; /* Satır aralığı, okunabilirliği artırır */
+}
+
+/* Başlıklara standart bir alt boşluk verelim */
+h1, h2, h3 {
+    margin-bottom: 10px;
+    color: var(--koyu-renk);
+}

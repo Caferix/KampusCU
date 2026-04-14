@@ -1,1 +1,67 @@
 /*Butonlar, kartlar, form elemanları*/
+
+/* --- KART TASARIMI --- */
+.kart {
+    background-color: var(--kutu-arkaplan);
+    border-radius: var(--kutu-yari-cap);
+    padding: var(--standart-bosluk);
+    box-shadow: var(--hafif-golge);
+    border: 1px solid var(--kenarlik-renk);
+}
+
+/* Resim olmadığı durumlarda kartın çökmemesi için gri yer tutucu kutu */
+.kart-resim-alani {
+    width: 100%;
+    height: 180px;
+    background-color: #e9ecef;
+    border-radius: calc(var(--kutu-yari-cap) - 2px);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+}
+
+.fiyat-etiketi {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--ana-renk);
+    margin-top: 10px;
+}
+
+/* --- BUTON TASARIMI --- */
+.buton {
+    background-color: var(--ana-renk);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--kutu-yari-cap);
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%; /* Bulunduğu kabı tam kaplar */
+    transition: opacity 0.2s;
+}
+
+.buton:hover {
+    opacity: 0.8; /* Fareyle üzerine gelince hafif soluklaşır */
+}
+
+/* --- FORM (GİRİŞ/KAYIT) TASARIMI --- */
+.form-alani {
+    margin-bottom: 15px;
+}
+
+.form-alani label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.form-alani input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--kenarlik-renk);
+    border-radius: var(--kutu-yari-cap);
+    font-family: inherit;
+}

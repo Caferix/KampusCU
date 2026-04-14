@@ -1,1 +1,19 @@
 /* Renkler, fontlar, spacing (Tüm ekip buradan beslenecek)*/
+
+:root {
+    /* --- 1. RENK PALETİ (Bunları kafana göre değiştir, anında siteye yansır) --- */
+    --ana-renk: #A93226;       /* Butonlar, linkler ve önemli vurgular için CÜ kırmızısı */
+    --koyu-renk: #2C3E50;      /* Başlıklar ve footer arka planı için tok bir lacivert/siyah */
+    --metin-renk: #333333;     /* Okunabilir gövde metni rengi */
+    --arkaplan: #F8F9FA;       /* Sitenin genel arka planı (Tam beyaz göz yorar, hafif gri iyidir) */
+    --kutu-arkaplan: #FFFFFF;  /* İlan kartlarının ve formların arka planı (Beyaz) */
+    --kenarlik-renk: #E1E8ED;  /* İnce çizgiler ve input kenarlıkları için açık gri */
+
+    /* --- 2. ÖLÇÜLER VE BOŞLUKLAR (Sitenin iskelet ölçüleri) --- */
+    --max-genislik: 1100px;    /* Sitenin sağdan soldan ne kadar genişleyeceği */
+    --kutu-yari-cap: 8px;      /* Kartların ve butonların köşe yuvarlaklığı (0 yaparsan köşeli olur) */
+    --standart-bosluk: 20px;   /* İki kutu veya iki eleman arasındaki nefes alma boşluğu */
+    
+    /* --- 3. EFEKTLER --- */
+    --hafif-golge: 0 4px 6px rgba(0,0,0,0.05); /* Kartların altındaki o hafif 3D hissiyatı */
+}
