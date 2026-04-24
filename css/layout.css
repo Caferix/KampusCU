@@ -1,41 +1,166 @@
-/*Grid/Flex yapıları (Navbar, Footer, Main Container)*/
+/* ============================================================
+   layout.css — Navbar, Footer, Container, Grid yapıları
+   ============================================================ */
 
-
-/* İçeriği ortalayan ve maksimum genişliği belirleyen ana taşıyıcı */
+/* --- CONTAINER --- */
 .container {
     max-width: var(--max-genislik);
     margin: 0 auto;
     padding: 0 var(--standart-bosluk);
 }
 
-/* Üst Menü (Navbar) Yerleşimi */
+/* --- HEADER / NAVBAR --- */
 .header {
     background-color: var(--kutu-arkaplan);
-    border-bottom: 3px solid var(--ana-renk); /* Kırmızı şerit */
+    border-bottom: 3px solid var(--ana-renk);
     padding: 15px 0;
-    margin-bottom: 40px; /* Header altı boşluk */
+    margin-bottom: var(--space-xl);
     box-shadow: var(--hafif-golge);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .nav-icerik {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--space-lg);
 }
 
-/* İlanları 3'lü veya 4'lü sütunlar halinde otomatik dizen Grid Sistemi */
-.ilan-izgarasi {
-    display: grid;
-    /* Ekran küçülürse otomatik alt alta atar, minimum 280px genişlik verir */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--standart-bosluk); /* Kartlar arası boşluk */
+.nav-logo {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--ana-renk);
+    text-decoration: none;
 }
 
-/* Sayfa altı yerleşimi */
+.nav-linkler {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.nav-linkler a {
+    color: var(--metin-renk);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--kutu-yari-cap);
+    transition: background-color var(--gecis), color var(--gecis);
+}
+
+.nav-linkler a:hover,
+.nav-linkler a.aktif {
+    background-color: var(--arkaplan);
+    color: var(--ana-renk);
+    opacity: 1;
+}
+
+.nav-kullanici {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+/* --- FOOTER --- */
 .footer {
     background-color: var(--koyu-renk);
     color: white;
     text-align: center;
-    padding: 30px 0;
-    margin-top: 60px;
+    padding: var(--space-xl) 0;
+    margin-top: var(--space-2xl);
+    font-size: var(--text-sm);
+}
+
+.footer a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer a:hover {
+    color: white;
+    opacity: 1;
+}
+
+/* --- SAYFA BAŞLIĞI ALANI --- */
+.sayfa-basligi {
+    margin-bottom: var(--space-xl);
+}
+
+.sayfa-basligi h1 {
+    margin-bottom: var(--space-xs);
+}
+
+.sayfa-basligi p {
+    color: var(--metin-soluk);
+    font-size: var(--text-sm);
+}
+
+/* --- IZGARA SİSTEMİ --- */
+
+/* 3'lü kart ızgarası — ilanlar, etkinlikler */
+.izgara-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--standart-bosluk);
+}
+
+/* 2'li ızgara — duyurular */
+.izgara-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: var(--standart-bosluk);
+}
+
+/* Yan yana iki kolon: içerik + kenar çubuğu */
+.duzey-kenar {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: var(--space-xl);
+    align-items: start;
+}
+
+/* Eski isim, geriye dönük uyumluluk */
+.ilan-izgarasi {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--standart-bosluk);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .nav-linkler {
+        display: none; /* Mobil menü JS ile açılır */
+    }
+
+    .nav-linkler.acik {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--kutu-arkaplan);
+        padding: var(--space-md);
+        box-shadow: var(--orta-golge);
+        border-top: 1px solid var(--kenarlik-renk);
+    }
+
+    .duzey-kenar {
+        grid-template-columns: 1fr;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+/* Hamburger butonu masaüstünde gizli */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: var(--text-xl);
+    color: var(--metin-renk);
 }

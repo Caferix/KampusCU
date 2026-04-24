@@ -1,19 +1,57 @@
-/* Renkler, fontlar, spacing (Tüm ekip buradan beslenecek)*/
+/* ============================================================
+   variables.css — Tüm ekip buradan beslenecek, başka yerde
+   sabit renk/boyut/boşluk değeri YAZILMAZ.
+   ============================================================ */
 
 :root {
-    /* --- 1. RENK PALETİ (Bunları kafana göre değiştir, anında siteye yansır) --- */
-    --ana-renk: #A93226;       /* Butonlar, linkler ve önemli vurgular için CÜ kırmızısı */
-    --koyu-renk: #2C3E50;      /* Başlıklar ve footer arka planı için tok bir lacivert/siyah */
-    --metin-renk: #333333;     /* Okunabilir gövde metni rengi */
-    --arkaplan: #F8F9FA;       /* Sitenin genel arka planı (Tam beyaz göz yorar, hafif gri iyidir) */
-    --kutu-arkaplan: #FFFFFF;  /* İlan kartlarının ve formların arka planı (Beyaz) */
-    --kenarlik-renk: #E1E8ED;  /* İnce çizgiler ve input kenarlıkları için açık gri */
 
-    /* --- 2. ÖLÇÜLER VE BOŞLUKLAR (Sitenin iskelet ölçüleri) --- */
-    --max-genislik: 1100px;    /* Sitenin sağdan soldan ne kadar genişleyeceği */
-    --kutu-yari-cap: 8px;      /* Kartların ve butonların köşe yuvarlaklığı (0 yaparsan köşeli olur) */
-    --standart-bosluk: 20px;   /* İki kutu veya iki eleman arasındaki nefes alma boşluğu */
-    
-    /* --- 3. EFEKTLER --- */
-    --hafif-golge: 0 4px 6px rgba(0,0,0,0.05); /* Kartların altındaki o hafif 3D hissiyatı */
+    /* --- 1. RENK PALETİ --- */
+    --ana-renk:          #A93226;   /* CÜ kırmızısı — buton, link, vurgu */
+    --ana-renk-hover:    #8B1A10;   /* Hover durumu için koyu tonu */
+    --koyu-renk:         #2C3E50;   /* Başlıklar ve footer */
+    --metin-renk:        #333333;   /* Gövde metni */
+    --metin-soluk:       #6B7280;   /* İkincil / yardımcı metin */
+    --arkaplan:          #F8F9FA;   /* Sayfa arka planı */
+    --kutu-arkaplan:     #FFFFFF;   /* Kart ve form arka planı */
+    --kenarlik-renk:     #E1E8ED;   /* Çizgiler ve input kenarlıkları */
+
+    /* Durum renkleri */
+    --basari:            #16A34A;
+    --hata:              #DC2626;
+    --uyari:             #D97706;
+    --bilgi:             #2563EB;
+
+    /* Durum arka planları (toast/alert için) */
+    --basari-bg:         #F0FDF4;
+    --hata-bg:           #FEF2F2;
+    --uyari-bg:          #FFFBEB;
+    --bilgi-bg:          #EFF6FF;
+
+    /* --- 2. TİPOGRAFİ SCALE --- */
+    --text-xs:           0.75rem;   /* 12px — küçük etiket, zaman damgası */
+    --text-sm:           0.875rem;  /* 14px — yardımcı metin, placeholder */
+    --text-base:         1rem;      /* 16px — gövde metni */
+    --text-lg:           1.125rem;  /* 18px — kart başlığı */
+    --text-xl:           1.375rem;  /* 22px — bölüm başlığı */
+    --text-2xl:          1.75rem;   /* 28px — sayfa başlığı */
+
+    /* --- 3. BOŞLUK SCALE --- */
+    --space-xs:          4px;
+    --space-sm:          8px;
+    --space-md:          16px;
+    --space-lg:          24px;
+    --space-xl:          40px;
+    --space-2xl:         64px;
+
+    /* --- 4. ÖLÇÜLER --- */
+    --max-genislik:      1100px;
+    --kutu-yari-cap:     8px;
+    --standart-bosluk:   20px;      /* Geriye dönük uyumluluk için korundu */
+
+    /* --- 5. EFEKTLER --- */
+    --hafif-golge:       0 2px 8px rgba(0, 0, 0, 0.07);
+    --orta-golge:        0 4px 16px rgba(0, 0, 0, 0.12);
+
+    /* --- 6. GEÇİŞLER --- */
+    --gecis:             0.2s ease;
 }

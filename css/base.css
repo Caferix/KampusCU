@@ -1,4 +1,6 @@
-/*Reset ve global element stilleri*/
+/* ============================================================
+   base.css — Reset ve global element stilleri
+   ============================================================ */
 
 * {
     margin: 0;
@@ -6,16 +8,33 @@
     box-sizing: border-box;
 }
 
-/* Tüm sitenin genel görünümü variables.css'den çekilir */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--arkaplan);
     color: var(--metin-renk);
-    line-height: 1.6; /* Satır aralığı, okunabilirliği artırır */
+    font-size: var(--text-base);
+    line-height: 1.6;
 }
 
-/* Başlıklara standart bir alt boşluk verelim */
-h1, h2, h3 {
-    margin-bottom: 10px;
-    color: var(--koyu-renk);
+h1 { font-size: var(--text-2xl); color: var(--koyu-renk); margin-bottom: var(--space-sm); }
+h2 { font-size: var(--text-xl);  color: var(--koyu-renk); margin-bottom: var(--space-sm); }
+h3 { font-size: var(--text-lg);  color: var(--koyu-renk); margin-bottom: var(--space-sm); }
+
+a {
+    color: var(--ana-renk);
+    text-decoration: none;
+    transition: opacity var(--gecis);
+}
+
+a:hover {
+    opacity: 0.75;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
 }
