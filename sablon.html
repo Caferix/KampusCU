@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayfa Adı — Kampüs</title>
+
+    <!-- CSS sırası önemli, değiştirme -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <!-- Sayfana özel CSS buraya gelir: -->
+    <!-- <link rel="stylesheet" href="css/ilanlar.css"> -->
+</head>
+<body>
+
+    <!-- NAVBAR — dokunma, layout.css ile stillendi -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav-icerik">
+                <a href="index.html" class="nav-logo">🎓 Kampüs</a>
+
+                <ul class="nav-linkler" id="navMenu">
+                    <li><a href="ads.html">İlanlar</a></li>
+                    <li><a href="events.html">Etkinlikler</a></li>
+                    <li><a href="announcements.html">Duyurular</a></li>
+                    <li><a href="map.html">Mekanlar</a></li>
+                </ul>
+
+                <!-- auth.js bu alana kullanıcı bilgisini/giriş butonunu yazar -->
+                <div class="nav-kullanici" id="navKullanici"></div>
+
+                <!-- Mobil hamburger -->
+                <button class="hamburger" id="hamburger" aria-label="Menüyü aç">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SAYFA İÇERİĞİ -->
+    <main class="container">
+
+        <!-- Sayfa başlığı -->
+        <div class="sayfa-basligi">
+            <h1>Sayfa Başlığı</h1>
+            <p>Kısa açıklama buraya gelir</p>
+        </div>
+
+        <!-- İçerik buraya -->
+
+    </main>
+
+    <!-- FOOTER — dokunma -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Kampüs · Sivas Cumhuriyet Üniversitesi </p>
+        </div>
+    </footer>
+
+    <!-- Toast bildirimi kapsayıcısı — ui.js kullanır -->
+    <div class="toast-kapsayici" id="toastKapsayici"></div>
+
+    <!-- JS sırası önemli -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <!-- Sayfana özel JS buraya gelir: -->
+    <!-- <script src="js/ilanlar.js"></script> -->
+
+    <!-- Hamburger menü — tüm sayfalarda çalışır -->
+    <script>
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('navMenu').classList.toggle('acik');
+        });
+    </script>
+
+</body>
+</html>

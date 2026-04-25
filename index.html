@@ -1,1 +1,506 @@
-<!--Ana Sayfa-->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Sayfa — KampüsCÜ</title>
+
+    <!-- CSS sırası önemli, değiştirme -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav-icerik">
+                <a href="index.html" class="nav-logo">🎓 KampüsCÜ</a>
+
+                <ul class="nav-linkler" id="navMenu">
+                    <li><a href="ads.html">İlanlar</a></li>
+                    <li><a href="events.html">Etkinlikler</a></li>
+                    <li><a href="announcements.html">Duyurular</a></li>
+                    <li><a href="map.html">Mekanlar</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                </ul>
+
+                <!-- Giriş yapılmamış durum — auth.js bu alanı günceller -->
+                <div class="nav-kullanici" id="navKullanici">
+                    <button class="buton kucuk" onclick="modalAc('girisModal')">Giriş Yap</button>
+                </div>
+
+                <!-- Giriş yapılmış durum örneği (auth.js tarafından yazılır):
+                <div class="nav-kullanici">
+                    <div class="avatar kucuk">AY</div>
+                    <a href="profile.html" class="buton ikincil kucuk">Profilim</a>
+                </div>
+                -->
+
+                <button class="hamburger" id="hamburger" aria-label="Menüyü aç">☰</button>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- ==================== HERO (tam genişlik, container dışında) ==================== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-icerik">
+                <div>
+                    <h1 class="hero-baslik">
+                        Kampüste her şey<br>
+                        <span>bir yerde.</span>
+                    </h1>
+                    <p class="hero-aciklama">
+                        İlan ver, etkinlik keşfet, duyuruları takip et.
+                        Üniversite hayatının tüm dijital merkezi.
+                    </p>
+                    <div class="hero-butonlar">
+                        <a href="ads.html" class="buton">📋 İlanlara Bak</a>
+                        <a href="events.html" class="buton ikincil">🎉 Etkinlikler</a>
+                    </div>
+                </div>
+
+                <div class="hero-istatistikler">
+                    <div class="hero-stat">
+                        <strong>248</strong>
+                        <span>Aktif İlan</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>14</strong>
+                        <span>Bu Hafta Etkinlik</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>1.2k</strong>
+                        <span>Üye</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== ANA İÇERİK ==================== -->
+    <main class="container">
+
+        <!-- Duyuru bandı — önemli duyuru varsa js ile gösterilir -->
+        <div class="duyuru-bandi" id="duyuruBandi">
+            <span>📢</span>
+            <span>
+                <strong>Kayıt dönemi başladı!</strong>
+                2025–2026 Güz dönemi ders kayıtları 15 Temmuz'da başlıyor.
+            </span>
+            <a href="announcements.html">Tümünü gör →</a>
+        </div>
+
+        <!-- ---- HIZLI ERİŞİM ---- -->
+        <section>
+            <div class="bolum-basligi">
+                <h2>Ne arıyorsun?</h2>
+            </div>
+
+            <div class="hizli-erisim">
+                <a href="ads.html?kategori=satis" class="hizli-kart">
+                    <span class="hizli-kart-ikon">🛍️</span>
+                    <strong class="hizli-kart-ad">Al / Sat</strong>
+                    <span class="hizli-kart-aciklama">İkinci el eşya</span>
+                </a>
+                <a href="ads.html?kategori=ev-arkadas" class="hizli-kart">
+                    <span class="hizli-kart-ikon">🏠</span>
+                    <strong class="hizli-kart-ad">Ev Arkadaşı</strong>
+                    <span class="hizli-kart-aciklama">Birlikte kiralık</span>
+                </a>
+                <a href="ads.html?kategori=is-arkadas" class="hizli-kart">
+                    <span class="hizli-kart-ikon">💼</span>
+                    <strong class="hizli-kart-ad">Çalışma Arkadaşı</strong>
+                    <span class="hizli-kart-aciklama">Proje & ödev</span>
+                </a>
+                <a href="ads.html?kategori=kayip" class="hizli-kart">
+                    <span class="hizli-kart-ikon">🔍</span>
+                    <strong class="hizli-kart-ad">Kayıp & Buluntu</strong>
+                    <span class="hizli-kart-aciklama">Eşyamı arıyorum</span>
+                </a>
+                <a href="events.html" class="hizli-kart">
+                    <span class="hizli-kart-ikon">🎭</span>
+                    <strong class="hizli-kart-ad">Etkinlikler</strong>
+                    <span class="hizli-kart-aciklama">Konser, seminer…</span>
+                </a>
+                <a href="map.html" class="hizli-kart">
+                    <span class="hizli-kart-ikon">📍</span>
+                    <strong class="hizli-kart-ad">Mekanlar</strong>
+                    <span class="hizli-kart-aciklama">Kampüs haritası</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ---- SON İLANLAR + KENAR ÇUBUĞU ---- -->
+        <div class="duzey-kenar">
+
+            <!-- SOL: SON İLANLAR -->
+            <section>
+                <div class="bolum-basligi">
+                    <h2>Son İlanlar</h2>
+                    <a href="ads.html" class="buton ikincil kucuk">Tümünü Gör</a>
+                </div>
+
+                <!-- Sekme filtresi -->
+                <div class="sekme-grubu" id="ilanSekmeler">
+                    <button class="sekme aktif" data-kategori="hepsi">Tümü</button>
+                    <button class="sekme" data-kategori="satis">Satılık</button>
+                    <button class="sekme" data-kategori="ev-arkadas">Ev Arkadaşı</button>
+                    <button class="sekme" data-kategori="is-arkadas">Çalışma Arkadaşı</button>
+                    <button class="sekme" data-kategori="kayip">Kayıp</button>
+                </div>
+
+                <!-- ilanlar.js bu ızgarayı Firestore'dan doldurur -->
+                <div class="izgara-3" id="ilanListesi">
+
+                    <!-- ÖRNEK: Fotoğraflı satılık -->
+                    <div class="kart tiklanabilir">
+                        <div class="kart-resim-alani">
+                            <img src="https://placehold.co/400x200/e9ecef/999?text=Fotograf" alt="MacBook">
+                        </div>
+                        <span class="etiket satis">Satılık</span>
+                        <h3 class="kart-baslik">MacBook Pro 2020</h3>
+                        <p class="kart-metin">M1 çip, 8GB RAM, 256GB SSD. Kutusunda, faturalı.</p>
+                        <div class="kart-alt">
+                            <span class="fiyat-etiketi">18.500 ₺</span>
+                            <div class="kart-kullanici">
+                                <div class="avatar kucuk">AY</div>
+                                <span class="kart-kullanici-zaman">2 saat önce</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ÖRNEK: Emoji placeholder'lı ev arkadaşı -->
+                    <div class="kart tiklanabilir">
+                        <div class="kart-resim-alani">🏠</div>
+                        <span class="etiket ev-arkadas">Ev Arkadaşı</span>
+                        <h3 class="kart-baslik">Balcalı'da Ev Arkadaşı</h3>
+                        <p class="kart-metin">3+1 daire, 2 kişi arıyoruz. Eşyalı, faturalar dahil.</p>
+                        <div class="kart-alt">
+                            <span class="fiyat-etiketi">4.500 ₺/ay</span>
+                            <div class="kart-kullanici">
+                                <div class="avatar kucuk">ZK</div>
+                                <span class="kart-kullanici-zaman">5 saat önce</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ÖRNEK: Çalışma arkadaşı -->
+                    <div class="kart tiklanabilir">
+                        <div class="kart-resim-alani">📚</div>
+                        <span class="etiket is-arkadas">Çalışma Arkadaşı</span>
+                        <h3 class="kart-baslik">Bitirme Projesi Arkadaşı</h3>
+                        <p class="kart-metin">Mobil uygulama projesi, React Native bilgisi olan arıyorum.</p>
+                        <div class="kart-alt">
+                            <span class="fiyat-etiketi">Ücretsiz</span>
+                            <div class="kart-kullanici">
+                                <div class="avatar kucuk">MT</div>
+                                <span class="kart-kullanici-zaman">dün</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ÖRNEK: Fotoğraflı satılık -->
+                    <div class="kart tiklanabilir">
+                        <div class="kart-resim-alani">
+                            <img src="https://placehold.co/400x200/e9ecef/999?text=Fotograf" alt="Bisiklet">
+                        </div>
+                        <span class="etiket satis">Satılık</span>
+                        <h3 class="kart-baslik">Dağ Bisikleti</h3>
+                        <p class="kart-metin">26" jant, 21 vites, çift amortisör. Az kullanılmış.</p>
+                        <div class="kart-alt">
+                            <span class="fiyat-etiketi">3.200 ₺</span>
+                            <div class="kart-kullanici">
+                                <div class="avatar kucuk">EC</div>
+                                <span class="kart-kullanici-zaman">2 gün önce</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ÖRNEK: Kayıp -->
+                    <div class="kart tiklanabilir">
+                        <div class="kart-resim-alani">🔍</div>
+                        <span class="etiket kayip">Kayıp</span>
+                        <h3 class="kart-baslik">Siyah Anahtarlık Kayıp</h3>
+                        <p class="kart-metin">Mühendislik fakültesi yakınında kaybettim. Bulan iletişime geçsin.</p>
+                        <div class="kart-alt">
+                            <span class="fiyat-etiketi">Ödül var</span>
+                            <div class="kart-kullanici">
+                                <div class="avatar kucuk">BÇ</div>
+                                <span class="kart-kullanici-zaman">3 saat önce</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ÖRNEK: Fotoğraflı satılık -->
+                    <div class="kart tiklanabilir">
+                        <div class="kart-resim-alani">
+                            <img src="https://placehold.co/400x200/e9ecef/999?text=Fotograf" alt="Kitaplar">
+                        </div>
+                        <span class="etiket satis">Satılık</span>
+                        <h3 class="kart-baslik">Mühendislik Kitapları</h3>
+                        <p class="kart-metin">3. sınıf ders kitapları, temiz. Hepsi birden veya ayrı ayrı.</p>
+                        <div class="kart-alt">
+                            <span class="fiyat-etiketi">850 ₺</span>
+                            <div class="kart-kullanici">
+                                <div class="avatar kucuk">DK</div>
+                                <span class="kart-kullanici-zaman">4 gün önce</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /ilanListesi -->
+
+                <!-- ilanlar.js gösterir/gizler -->
+                <div class="yukleniyor" id="ilanYukleniyor" style="display:none;">
+                    <div class="spinner"></div>
+                </div>
+                <div class="bos-durum" id="ilanBosDurum" style="display:none;">
+                    <div class="bos-durum-ikon">📭</div>
+                    <p>Bu kategoride henüz ilan yok.</p>
+                </div>
+
+            </section>
+
+
+            <!-- SAĞ: KENAR ÇUBUĞU -->
+            <aside class="kenar-cubugu">
+
+                <!-- Yaklaşan etkinlikler -->
+                <div class="kenar-blok">
+                    <div class="kenar-blok-baslik">🎭 Yaklaşan Etkinlikler</div>
+
+                    <a href="events.html" class="etkinlik-satir">
+                        <div class="etkinlik-tarih-kutu">
+                            <strong>18</strong><span>Tem</span>
+                        </div>
+                        <div class="etkinlik-bilgi">
+                            <strong>Yazılım Kulübü Hackathon</strong>
+                            <span>Müh. B-101 · 10:00</span>
+                        </div>
+                    </a>
+                    <a href="events.html" class="etkinlik-satir">
+                        <div class="etkinlik-tarih-kutu">
+                            <strong>20</strong><span>Tem</span>
+                        </div>
+                        <div class="etkinlik-bilgi">
+                            <strong>Açık Hava Sinema Gecesi</strong>
+                            <span>Merkezi Çim · 21:00</span>
+                        </div>
+                    </a>
+                    <a href="events.html" class="etkinlik-satir">
+                        <div class="etkinlik-tarih-kutu">
+                            <strong>22</strong><span>Tem</span>
+                        </div>
+                        <div class="etkinlik-bilgi">
+                            <strong>Kariyer Günleri 2025</strong>
+                            <span>Kongre Merkezi · 09:00</span>
+                        </div>
+                    </a>
+                    <a href="events.html" class="etkinlik-satir">
+                        <div class="etkinlik-tarih-kutu">
+                            <strong>25</strong><span>Tem</span>
+                        </div>
+                        <div class="etkinlik-bilgi">
+                            <strong>Akustik Bahar Konseri</strong>
+                            <span>Amfi Tiyatro · 19:30</span>
+                        </div>
+                    </a>
+
+                    <div class="kenar-blok-alt">
+                        <a href="events.html" class="buton ikincil tam kucuk">Tüm Etkinlikler</a>
+                    </div>
+                </div>
+
+                <!-- Son duyurular -->
+                <div class="kenar-blok">
+                    <div class="kenar-blok-baslik">📢 Son Duyurular</div>
+
+                    <a href="announcements.html" class="duyuru-satir">
+                        <strong>Yaz Okulu Kayıtları Başladı</strong>
+                        <time>15 Temmuz 2025</time>
+                    </a>
+                    <a href="announcements.html" class="duyuru-satir">
+                        <strong>Kütüphane Çalışma Saatleri Değişti</strong>
+                        <time>13 Temmuz 2025</time>
+                    </a>
+                    <a href="announcements.html" class="duyuru-satir">
+                        <strong>Kampüs İçi Ulaşım Güncellendi</strong>
+                        <time>10 Temmuz 2025</time>
+                    </a>
+                    <a href="announcements.html" class="duyuru-satir">
+                        <strong>Burs Başvuruları için Son Gün</strong>
+                        <time>8 Temmuz 2025</time>
+                    </a>
+
+                    <div class="kenar-blok-alt">
+                        <a href="announcements.html" class="buton ikincil tam kucuk">Tüm Duyurular</a>
+                    </div>
+                </div>
+
+                <!-- İlan ver CTA -->
+                <div class="kenar-cta">
+                    <div class="kenar-cta-ikon">📝</div>
+                    <h3>İlan ver</h3>
+                    <p>Ücretsiz ilan ver, binlerce öğrenciye ulaş.</p>
+                    <a href="ads.html" class="buton tam">Hemen Başla</a>
+                </div>
+
+            </aside>
+
+        </div><!-- /duzey-kenar -->
+
+
+        <!-- ---- KAMPANYALAR & İNDİRİMLER ---- -->
+        <section>
+            <div class="bolum-basligi">
+                <h2>Kampanyalar & İndirimler</h2>
+                <a href="announcements.html?kategori=indirim" class="buton ikincil kucuk">Tümünü Gör</a>
+            </div>
+
+            <div class="kampanya-izgarasi">
+                <div class="kampanya-kart yesil" data-emoji="🍕">
+                    <div>
+                        <strong>Kampüs Kafeterya</strong>
+                        <p>Öğrenci kartıyla tüm yemeklerde %15 indirim. Her gün geçerli.</p>
+                    </div>
+                    <a href="announcements.html">Detaylar →</a>
+                </div>
+                <div class="kampanya-kart mavi" data-emoji="📚">
+                    <div>
+                        <strong>Üniversite Kitabevi</strong>
+                        <p>Ders kitaplarında dönem boyunca %20 indirim. Öğrenci kimliği ile.</p>
+                    </div>
+                    <a href="announcements.html">Detaylar →</a>
+                </div>
+                <div class="kampanya-kart turuncu" data-emoji="🏋️">
+                    <div>
+                        <strong>Kampüs Spor Salonu</strong>
+                        <p>Yaz dönemi üyeliği 3 ay boyunca yarı fiyatına. Sınırlı kontenjan.</p>
+                    </div>
+                    <a href="announcements.html">Detaylar →</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ---- GİRİŞ YAPILMAMIŞ BANNER ---- -->
+        <!-- auth.js giriş yapılınca: document.getElementById('girisBanner').style.display = 'none' -->
+        <div class="giris-banner" id="girisBanner">
+            <div>
+                <h3>Topluluğa katıl</h3>
+                <p>İlan vermek, etkinliklere yorum yapmak ve daha fazlası için giriş yap.</p>
+            </div>
+            <div class="giris-banner-butonlar">
+                <button class="buton ikincil" onclick="modalAc('girisModal')">Giriş Yap</button>
+                <button class="buton" onclick="modalAc('girisModal')">Google ile Kayıt</button>
+            </div>
+        </div>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 KampüsCÜ · Sivas Cumhuriyet Üniversitesi Bilgisayar Mühendisliği Ekibi</p>
+            <p>
+                <a href="about.html">Hakkımızda</a> ·
+                <a href="#">İletişim</a> ·
+                <a href="#">Gizlilik</a>
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- Toast kapsayıcısı — ui.js kullanır -->
+    <div class="toast-kapsayici" id="toastKapsayici"></div>
+
+
+    <!-- ==================== GİRİŞ MODALİ ==================== -->
+    <div class="modal-arkaplan" id="girisModal">
+        <div class="modal-kutu">
+            <button class="modal-kapat" onclick="modalKapat('girisModal')">✕</button>
+
+            <h2>Giriş Yap</h2>
+            <p class="kart-metin">Kampüs topluluğuna katıl</p>
+
+            <button class="buton tam" id="googleGirisBtn">
+                🔵 Google ile Devam Et
+            </button>
+
+            <p class="kart-metin" style="text-align:center; margin: var(--space-md) 0;">
+                veya e-posta ile
+            </p>
+
+            <div class="form-alani">
+                <label for="girisEmail">E-posta</label>
+                <input type="email" id="girisEmail" placeholder="ornek@cu.edu.tr">
+            </div>
+            <div class="form-alani">
+                <label for="girisSifre">Şifre</label>
+                <input type="password" id="girisSifre" placeholder="••••••••">
+            </div>
+
+            <button class="buton tam" id="emailGirisBtn">Giriş Yap</button>
+
+        </div>
+    </div>
+
+
+    <!-- ==================== JS ==================== -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/ilanlar.js"></script>
+
+    <script>
+        /* Hamburger — tüm sayfalarda aynı */
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('navMenu').classList.toggle('acik');
+        });
+
+        /* Modal yardımcıları — ui.js hazır olunca oraya taşı */
+        function modalAc(id) {
+            document.getElementById(id).classList.add('acik');
+        }
+        function modalKapat(id) {
+            document.getElementById(id).classList.remove('acik');
+        }
+        document.querySelectorAll('.modal-arkaplan').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) modalKapat(this.id);
+            });
+        });
+
+        /* Sekme filtresi — ilanlar.js hazır olunca oraya taşı */
+        document.querySelectorAll('#ilanSekmeler .sekme').forEach(sekme => {
+            sekme.addEventListener('click', function() {
+                document.querySelectorAll('#ilanSekmeler .sekme')
+                    .forEach(s => s.classList.remove('aktif'));
+                this.classList.add('aktif');
+                /* ilanlar.js: filtrele(this.dataset.kategori) */
+            });
+        });
+
+        /* Toast örneği — ui.js hazır olunca: toast('Hoş geldin!', 'bilgi') */
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const kapsayici = document.getElementById('toastKapsayici');
+                const toast = document.createElement('div');
+                toast.className = 'toast bilgi';
+                toast.textContent = '👋 Kampüs\'e hoş geldin!';
+                kapsayici.appendChild(toast);
+                setTimeout(() => toast.remove(), 3500);
+            }, 800);
+        });
+    </script>
+
+</body>
+</html>
