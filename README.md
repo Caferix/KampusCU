@@ -11,7 +11,7 @@
 2. [Teknoloji Stack'i](#teknoloji-stacki)
 3. [Dosya Yapısı](#dosya-yapısı)
 4. [Kurulum](#kurulum)
-5. [CSS Sistemi — Sayfalar Arası Uyum İçin Kritik](#css-sistemi-sayfalar-arasi-uyum-için-kritik)
+5. [CSS Sistemi — Sayfalar Arası Uyum İçin Kritik](#css-sistemi)
 6. [Sayfalar ve Sorumluluklar](#sayfalar-ve-sorumluluklar)
 7. [Yeni Sayfaya Nasıl Başlanır](#yeni-sayfaya-nasıl-başlanır)
 8. [Git Çalışma Kuralları](#git-çalışma-kuralları)
@@ -112,7 +112,7 @@ Daha iyi geliştirme deneyimi için VS Code'da **Live Server** eklentisini kur:
 
 ---
 
-## CSS Sistemi — Sayfalar Arası Uyum İçin Kritik
+## CSS Sistemi — Sayfalar Arası Uyum İçin Kritik <a name="css-sistemi"></a>
 
 Bu projenin en önemli kuralı: **Hiçbir yerde sabit renk, boyut veya boşluk değeri yazılmaz.**
 
