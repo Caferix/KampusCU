@@ -6,281 +6,585 @@
     <meta name="description" content="Sivas Cumhuriyet Üniversitesi kampüs etkinlikleri — kulüp etkinlikleri, konserler, seminerler ve daha fazlası.">
     <title>Etkinlikler — KampüsCÜ</title>
 
-    <!-- Ortak CSS -->
+    <!-- CSS sırası önemli, değiştirme -->
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/components.css">
-
-    <!-- Sayfaya özel CSS -->
     <link rel="stylesheet" href="../css/events.css">
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <a href="../index.html" class="navbar-logo">KampüsCÜ</a>
-        <ul class="navbar-menu">
-            <li><a href="../index.html">Ana Sayfa</a></li>
-            <li><a href="ads.html">İlanlar</a></li>
-            <li><a href="events.html" class="aktif">Etkinlikler</a></li>
-            <li><a href="announcements.html">Duyurular</a></li>
-            <li><a href="map.html">Mekanlar</a></li>
-            <li><a href="about.html">Hakkımızda</a></li>
-            <li><a href="profile.html">Profil</a></li>
-        </ul>
-    </nav>
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav-icerik">
+                <a href="../index.html" class="nav-logo">🎓 KampüsCÜ</a>
 
-    <!-- Ana İçerik -->
-    <main class="ana-icerik">
+                <ul class="nav-linkler" id="navMenu">
+                    <li><a href="ads.html">İlanlar</a></li>
+                    <li><a href="events.html" class="aktif">Etkinlikler</a></li>
+                    <li><a href="announcements.html">Duyurular</a></li>
+                    <li><a href="map.html">Mekanlar</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                </ul>
 
-        <!-- Sayfa Başlığı -->
+                <div class="nav-kullanici" id="navKullanici">
+                    <a href="auth.html" class="buton kucuk">Giriş Yap</a>
+                </div>
+
+                <button class="hamburger" id="hamburger" aria-label="Menüyü aç">☰</button>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- ==================== ANA İÇERİK ==================== -->
+    <main class="container">
+
+        <!-- Sayfa başlığı -->
         <div class="sayfa-basligi">
             <h1>Etkinlikler</h1>
             <p>Kampüste ve şehirde neler oluyor? Etkinlikleri keşfet, kaçırma!</p>
         </div>
 
-        <!-- Sekme Filtresi: Yaklaşan / Geçmiş -->
-        <div class="sekme-grubu">
-            <button class="sekme aktif" data-filtre="tumu">Tümü</button>
-            <button class="sekme" data-filtre="yaklasan">Yaklaşan</button>
-            <button class="sekme" data-filtre="gecmis">Geçmiş</button>
+        <!-- Filtre + arama çubuğu -->
+        <div class="etkinlik-arac-cubugu">
+            <div class="sekme-grubu">
+                <button class="sekme aktif" data-filtre="tumu">Tümü</button>
+                <button class="sekme" data-filtre="yaklasan">Yaklaşan</button>
+                <button class="sekme" data-filtre="gecmis">Geçmiş</button>
+            </div>
+
+            <div class="arama-kutusu">
+                <input type="search" id="etkinlikArama" placeholder="Etkinlik ara...">
+                <button type="button" aria-label="Ara">🔎</button>
+            </div>
         </div>
 
-        <!-- Yükleniyor -->
-        <div class="yukleniyor" id="yukleniyor" style="display: none;">
-            <div class="spinner"></div>
-        </div>
+        <p class="etkinlik-ozet" id="etkinlikOzet">Toplam 19 etkinlik gösteriliyor.</p>
 
-        <!-- Etkinlik Kartları -->
-        <div class="izgara-3" id="etkinlik-listesi">
+        <!-- Etkinlik kartları -->
+        <div class="izgara-3" id="etkinlikListesi">
 
-            <!-- ===== Yaklaşan Etkinlikler ===== -->
+            <!-- ======== YAKLAŞAN ETKİNLİKLER ======== -->
 
-            <!-- Etkinlik 1 -->
-            <div class="kart tiklanabilir" data-durum="yaklasan">
-                <div class="etkinlik-tarih-kutusu">
-                    <span class="etkinlik-gun">03</span>
-                    <span class="etkinlik-ay">Mayıs</span>
+            <article class="kart tiklanabilir etkinlik-kart" data-durum="yaklasan">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">03</span>
+                        <span class="etkinlik-ay">Mayıs</span>
+                    </div>
+                    <span class="etiket etkinlik">Seminer</span>
                 </div>
-                <span class="etiket etkinlik">Seminer</span>
                 <h3 class="kart-baslik">Yapay Zeka ve Gelecek Semineri</h3>
-                <p class="kart-metin">Bilgisayar Mühendisliği bölümü tarafından düzenlenen yapay zeka semineri. Alanında uzman konuşmacılar ile geleceğin teknolojileri masaya yatırılıyor.</p>
-                <div class="etkinlik-detay">
-                    <span class="etkinlik-bilgi"><strong>Saat:</strong> 14:00 – 16:00</span>
-                    <span class="etkinlik-bilgi"><strong>Konum:</strong> Mühendislik Fakültesi Konferans Salonu</span>
-                    <span class="etkinlik-bilgi"><strong>Kulüp:</strong> Bilgisayar Kulübü</span>
-                </div>
+                <p class="kart-metin">Bilgisayar Mühendisliği bölümünden alanında uzman konuşmacılarla geleceğin teknolojileri masaya yatırılıyor.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 14:00 – 16:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Mühendislik Fakültesi Konferans Salonu</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Bilgisayar Kulübü</li>
+                </ul>
                 <div class="kart-alt">
-                    <button class="buton kucuk">Detayları Gör</button>
+                    <span class="etkinlik-katilimci">42 kişi katılıyor</span>
+                    <button class="buton kucuk">Katıl</button>
                 </div>
-            </div>
+            </article>
 
-            <!-- Etkinlik 2 -->
-            <div class="kart tiklanabilir" data-durum="yaklasan">
-                <div class="etkinlik-tarih-kutusu">
-                    <span class="etkinlik-gun">08</span>
-                    <span class="etkinlik-ay">Mayıs</span>
+            <article class="kart tiklanabilir etkinlik-kart" data-durum="yaklasan">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">08</span>
+                        <span class="etkinlik-ay">Mayıs</span>
+                    </div>
+                    <span class="etiket etkinlik">Konser</span>
                 </div>
-                <span class="etiket etkinlik">Konser</span>
                 <h3 class="kart-baslik">Bahar Şenliği Konseri</h3>
-                <p class="kart-metin">Öğrenci Konseyi'nin düzenlediği bahar şenliği kapsamında açık hava konseri. Kampüs amfi tiyatroda unutulmaz bir gece sizi bekliyor.</p>
-                <div class="etkinlik-detay">
-                    <span class="etkinlik-bilgi"><strong>Saat:</strong> 19:00 – 23:00</span>
-                    <span class="etkinlik-bilgi"><strong>Konum:</strong> Kampüs Amfi Tiyatro</span>
-                    <span class="etkinlik-bilgi"><strong>Kulüp:</strong> Öğrenci Konseyi</span>
-                </div>
+                <p class="kart-metin">Bahar şenliği kapsamında açık hava konseri. Kampüs amfi tiyatroda unutulmaz bir gece.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 19:00 – 23:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Kampüs Amfi Tiyatro</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Öğrenci Konseyi</li>
+                </ul>
                 <div class="kart-alt">
-                    <button class="buton kucuk">Detayları Gör</button>
+                    <span class="etkinlik-katilimci">315 kişi katılıyor</span>
+                    <button class="buton kucuk">Katıl</button>
                 </div>
-            </div>
+            </article>
 
-            <!-- Etkinlik 3 -->
-            <div class="kart tiklanabilir" data-durum="yaklasan">
-                <div class="etkinlik-tarih-kutusu">
-                    <span class="etkinlik-gun">10</span>
-                    <span class="etkinlik-ay">Mayıs</span>
+            <article class="kart tiklanabilir etkinlik-kart" data-durum="yaklasan">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">10</span>
+                        <span class="etkinlik-ay">Mayıs</span>
+                    </div>
+                    <span class="etiket etkinlik">Spor</span>
                 </div>
-                <span class="etiket etkinlik">Spor</span>
                 <h3 class="kart-baslik">Kampüs Koşusu</h3>
-                <p class="kart-metin">Spor Kulübü organizasyonuyla 5 km'lik kampüs koşusu. Tüm öğrencilere açık, kayıt ücretsiz. Katılımcılara hatıra tişört hediye.</p>
-                <div class="etkinlik-detay">
-                    <span class="etkinlik-bilgi"><strong>Saat:</strong> 09:00 – 11:00</span>
-                    <span class="etkinlik-bilgi"><strong>Konum:</strong> Ana Kampüs Yürüyüş Yolu</span>
-                    <span class="etkinlik-bilgi"><strong>Kulüp:</strong> Spor Kulübü</span>
-                </div>
+                <p class="kart-metin">5 km'lik kampüs koşusu. Tüm öğrencilere açık, kayıt ücretsiz. Katılımcılara hatıra tişört hediye.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 09:00 – 11:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Ana Kampüs Yürüyüş Yolu</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Spor Kulübü</li>
+                </ul>
                 <div class="kart-alt">
-                    <button class="buton kucuk">Detayları Gör</button>
+                    <span class="etkinlik-katilimci">128 kişi katılıyor</span>
+                    <button class="buton kucuk">Katıl</button>
                 </div>
-            </div>
+            </article>
 
-            <!-- Etkinlik 4 -->
-            <div class="kart tiklanabilir" data-durum="yaklasan">
-                <div class="etkinlik-tarih-kutusu">
-                    <span class="etkinlik-gun">14</span>
-                    <span class="etkinlik-ay">Mayıs</span>
+            <article class="kart tiklanabilir etkinlik-kart" data-durum="yaklasan">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">14</span>
+                        <span class="etkinlik-ay">Mayıs</span>
+                    </div>
+                    <span class="etiket etkinlik">Sergi</span>
                 </div>
-                <span class="etiket etkinlik">Sergi</span>
                 <h3 class="kart-baslik">Fotoğrafçılık Sergisi</h3>
-                <p class="kart-metin">Fotoğrafçılık Kulübü üyelerinin yıl boyunca çektiği en iyi kareler Güzel Sanatlar Galerisi'nde sergileniyor. Sergi bir hafta açık.</p>
-                <div class="etkinlik-detay">
-                    <span class="etkinlik-bilgi"><strong>Saat:</strong> 10:00 – 17:00</span>
-                    <span class="etkinlik-bilgi"><strong>Konum:</strong> Güzel Sanatlar Galerisi</span>
-                    <span class="etkinlik-bilgi"><strong>Kulüp:</strong> Fotoğrafçılık Kulübü</span>
-                </div>
+                <p class="kart-metin">Fotoğrafçılık Kulübü üyelerinin yıl boyunca çektiği en iyi kareler Güzel Sanatlar Galerisi'nde sergileniyor.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 10:00 – 17:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Güzel Sanatlar Galerisi</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Fotoğrafçılık Kulübü</li>
+                </ul>
                 <div class="kart-alt">
-                    <button class="buton kucuk">Detayları Gör</button>
+                    <span class="etkinlik-katilimci">76 kişi katılıyor</span>
+                    <button class="buton kucuk">Katıl</button>
                 </div>
-            </div>
+            </article>
 
-            <!-- Etkinlik 5 -->
-            <div class="kart tiklanabilir" data-durum="yaklasan">
-                <div class="etkinlik-tarih-kutusu">
-                    <span class="etkinlik-gun">20</span>
-                    <span class="etkinlik-ay">Mayıs</span>
+            <article class="kart tiklanabilir etkinlik-kart" data-durum="yaklasan">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">20</span>
+                        <span class="etkinlik-ay">Mayıs</span>
+                    </div>
+                    <span class="etiket etkinlik">Panel</span>
                 </div>
-                <span class="etiket etkinlik">Panel</span>
                 <h3 class="kart-baslik">Girişimcilik Paneli</h3>
-                <p class="kart-metin">Sivas'tan çıkmış başarılı girişimciler deneyimlerini paylaşıyor. Soru-cevap bölümüyle interaktif bir panel sizi bekliyor.</p>
-                <div class="etkinlik-detay">
-                    <span class="etkinlik-bilgi"><strong>Saat:</strong> 13:00 – 15:00</span>
-                    <span class="etkinlik-bilgi"><strong>Konum:</strong> İİBF Konferans Salonu</span>
-                    <span class="etkinlik-bilgi"><strong>Kulüp:</strong> Girişimcilik Kulübü</span>
-                </div>
+                <p class="kart-metin">Sivas'tan çıkmış başarılı girişimciler deneyimlerini paylaşıyor. Soru-cevap bölümüyle interaktif bir panel.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 13:00 – 15:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> İİBF Konferans Salonu</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Girişimcilik Kulübü</li>
+                </ul>
                 <div class="kart-alt">
-                    <button class="buton kucuk">Detayları Gör</button>
+                    <span class="etkinlik-katilimci">58 kişi katılıyor</span>
+                    <button class="buton kucuk">Katıl</button>
                 </div>
-            </div>
+            </article>
 
-            <!-- Etkinlik 6 -->
-            <div class="kart tiklanabilir" data-durum="yaklasan">
-                <div class="etkinlik-tarih-kutusu">
-                    <span class="etkinlik-gun">25</span>
-                    <span class="etkinlik-ay">Mayıs</span>
+            <article class="kart tiklanabilir etkinlik-kart" data-durum="yaklasan">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">25</span>
+                        <span class="etkinlik-ay">Mayıs</span>
+                    </div>
+                    <span class="etiket etkinlik">Atölye</span>
                 </div>
-                <span class="etiket etkinlik">Atölye</span>
-                <h3 class="kart-baslik">Kitap Okuma ve Tartışma Etkinliği</h3>
+                <h3 class="kart-baslik">Kitap Okuma ve Tartışma</h3>
                 <p class="kart-metin">Edebiyat Kulübü'nün aylık kitap buluşması. Bu ay gündemde Sabahattin Ali'nin "Kürk Mantolu Madonna" eseri var.</p>
-                <div class="etkinlik-detay">
-                    <span class="etkinlik-bilgi"><strong>Saat:</strong> 15:00 – 17:00</span>
-                    <span class="etkinlik-bilgi"><strong>Konum:</strong> Merkez Kütüphane Toplantı Odası</span>
-                    <span class="etkinlik-bilgi"><strong>Kulüp:</strong> Edebiyat Kulübü</span>
-                </div>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 15:00 – 17:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Merkez Kütüphane Toplantı Odası</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Edebiyat Kulübü</li>
+                </ul>
                 <div class="kart-alt">
-                    <button class="buton kucuk">Detayları Gör</button>
+                    <span class="etkinlik-katilimci">23 kişi katılıyor</span>
+                    <button class="buton kucuk">Katıl</button>
                 </div>
-            </div>
+            </article>
 
-            <!-- ===== Geçmiş Etkinlikler ===== -->
+            <!-- ======== GEÇMİŞ ETKİNLİKLER ======== -->
 
-            <!-- Geçmiş 1 -->
-            <div class="kart tiklanabilir gecmis-kart" data-durum="gecmis">
-                <div class="etkinlik-tarih-kutusu">
-                    <span class="etkinlik-gun">10</span>
-                    <span class="etkinlik-ay">Nisan</span>
+            <article class="kart tiklanabilir etkinlik-kart gecmis-kart" data-durum="gecmis">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">10</span>
+                        <span class="etkinlik-ay">Nisan</span>
+                    </div>
+                    <span class="etiket etkinlik">Turnuva</span>
                 </div>
-                <span class="etiket etkinlik">Turnuva</span>
                 <h3 class="kart-baslik">Satranç Turnuvası</h3>
-                <p class="kart-metin">Satranç Kulübü'nün düzenlediği fakülteler arası satranç turnuvası. 64 öğrencinin katılımıyla gerçekleşti.</p>
-                <div class="etkinlik-detay">
-                    <span class="etkinlik-bilgi"><strong>Saat:</strong> 10:00 – 18:00</span>
-                    <span class="etkinlik-bilgi"><strong>Konum:</strong> Öğrenci Merkezi</span>
-                    <span class="etkinlik-bilgi"><strong>Kulüp:</strong> Satranç Kulübü</span>
-                </div>
+                <p class="kart-metin">Fakülteler arası satranç turnuvası. 64 öğrencinin katılımıyla gerçekleşti.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 10:00 – 18:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Öğrenci Merkezi</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Satranç Kulübü</li>
+                </ul>
                 <div class="kart-alt">
-                    <button class="buton kucuk ikincil">Sonuçları Gör</button>
+                    <span class="etkinlik-katilimci">Tamamlandı</span>
+                    <button class="buton ikincil kucuk">Sonuçları Gör</button>
                 </div>
-            </div>
+            </article>
 
-            <!-- Geçmiş 2 -->
-            <div class="kart tiklanabilir gecmis-kart" data-durum="gecmis">
-                <div class="etkinlik-tarih-kutusu">
-                    <span class="etkinlik-gun">05</span>
-                    <span class="etkinlik-ay">Nisan</span>
+            <article class="kart tiklanabilir etkinlik-kart gecmis-kart" data-durum="gecmis">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">05</span>
+                        <span class="etkinlik-ay">Nisan</span>
+                    </div>
+                    <span class="etiket etkinlik">Kariyer</span>
                 </div>
-                <span class="etiket etkinlik">Kariyer</span>
                 <h3 class="kart-baslik">Kariyer Günleri 2026</h3>
-                <p class="kart-metin">20'den fazla firma ile birebir mülakat imkanı sunan kariyer fuarı. Staj ve iş başvuruları yerinde alındı.</p>
-                <div class="etkinlik-detay">
-                    <span class="etkinlik-bilgi"><strong>Saat:</strong> 09:00 – 17:00</span>
-                    <span class="etkinlik-bilgi"><strong>Konum:</strong> Kongre Merkezi</span>
-                    <span class="etkinlik-bilgi"><strong>Kulüp:</strong> Kariyer Merkezi</span>
-                </div>
+                <p class="kart-metin">20'den fazla firma ile birebir mülakat imkânı sunan kariyer fuarı. Staj ve iş başvuruları yerinde alındı.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 09:00 – 17:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Kongre Merkezi</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Kariyer Merkezi</li>
+                </ul>
                 <div class="kart-alt">
-                    <button class="buton kucuk ikincil">Sonuçları Gör</button>
+                    <span class="etkinlik-katilimci">Tamamlandı</span>
+                    <button class="buton ikincil kucuk">Sonuçları Gör</button>
                 </div>
-            </div>
+            </article>
 
-            <!-- Geçmiş 3 -->
-            <div class="kart tiklanabilir gecmis-kart" data-durum="gecmis">
-                <div class="etkinlik-tarih-kutusu">
-                    <span class="etkinlik-gun">28</span>
-                    <span class="etkinlik-ay">Mart</span>
+            <article class="kart tiklanabilir etkinlik-kart gecmis-kart" data-durum="gecmis">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">28</span>
+                        <span class="etkinlik-ay">Mart</span>
+                    </div>
+                    <span class="etiket etkinlik">Tiyatro</span>
                 </div>
-                <span class="etiket etkinlik">Tiyatro</span>
                 <h3 class="kart-baslik">Tiyatro Gösterisi: "Bir Garip"</h3>
                 <p class="kart-metin">Tiyatro Kulübü'nün dönem sonu gösterisi. Oğuz Atay'ın eserinden uyarlanan oyun büyük ilgi gördü.</p>
-                <div class="etkinlik-detay">
-                    <span class="etkinlik-bilgi"><strong>Saat:</strong> 19:00 – 21:00</span>
-                    <span class="etkinlik-bilgi"><strong>Konum:</strong> Kültür Merkezi</span>
-                    <span class="etkinlik-bilgi"><strong>Kulüp:</strong> Tiyatro Kulübü</span>
-                </div>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 19:00 – 21:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Kültür Merkezi</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Tiyatro Kulübü</li>
+                </ul>
                 <div class="kart-alt">
-                    <button class="buton kucuk ikincil">Sonuçları Gör</button>
+                    <span class="etkinlik-katilimci">Tamamlandı</span>
+                    <button class="buton ikincil kucuk">Sonuçları Gör</button>
                 </div>
-            </div>
+            </article>
+
+            <!-- ======== EK YAKLAŞAN ETKİNLİKLER ======== -->
+
+            <article class="kart tiklanabilir etkinlik-kart" data-durum="yaklasan">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">02</span>
+                        <span class="etkinlik-ay">Haziran</span>
+                    </div>
+                    <span class="etiket etkinlik">Hackathon</span>
+                </div>
+                <h3 class="kart-baslik">48 Saat Yazılım Hackathonu</h3>
+                <p class="kart-metin">Yazılım Kulübü'nün düzenlediği kampüs içi hackathon. Ödüllü, takım halinde, akşam yemeği ikram ediliyor.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 18:00 – 18:00 (+2 gün)</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Mühendislik Fakültesi B Blok</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Yazılım Kulübü</li>
+                </ul>
+                <div class="kart-alt">
+                    <span class="etkinlik-katilimci">87 kişi katılıyor</span>
+                    <button class="buton kucuk">Katıl</button>
+                </div>
+            </article>
+
+            <article class="kart tiklanabilir etkinlik-kart" data-durum="yaklasan">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">05</span>
+                        <span class="etkinlik-ay">Haziran</span>
+                    </div>
+                    <span class="etiket etkinlik">Workshop</span>
+                </div>
+                <h3 class="kart-baslik">Robotik Kodlama Atölyesi</h3>
+                <p class="kart-metin">Sıfırdan Arduino ile robotik kodlama. Malzemeler kulüp tarafından sağlanıyor, sadece kayıt yeterli.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 13:00 – 17:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Teknokent Atölye Salonu</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Robotik Kulübü</li>
+                </ul>
+                <div class="kart-alt">
+                    <span class="etkinlik-katilimci">34 kişi katılıyor</span>
+                    <button class="buton kucuk">Katıl</button>
+                </div>
+            </article>
+
+            <article class="kart tiklanabilir etkinlik-kart" data-durum="yaklasan">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">08</span>
+                        <span class="etkinlik-ay">Haziran</span>
+                    </div>
+                    <span class="etiket etkinlik">Sosyal</span>
+                </div>
+                <h3 class="kart-baslik">Mezunlar Buluşması</h3>
+                <p class="kart-metin">Sivas Cumhuriyet Üniversitesi mezunlarıyla öğrencileri buluşturan networking etkinliği. Kahve & atıştırmalık dahil.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 18:30 – 21:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Rektörlük Bahçesi</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Mezunlar Derneği</li>
+                </ul>
+                <div class="kart-alt">
+                    <span class="etkinlik-katilimci">192 kişi katılıyor</span>
+                    <button class="buton kucuk">Katıl</button>
+                </div>
+            </article>
+
+            <article class="kart tiklanabilir etkinlik-kart" data-durum="yaklasan">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">12</span>
+                        <span class="etkinlik-ay">Haziran</span>
+                    </div>
+                    <span class="etiket etkinlik">Konferans</span>
+                </div>
+                <h3 class="kart-baslik">Sürdürülebilirlik Konferansı</h3>
+                <p class="kart-metin">Çevre Mühendisliği bölümünden 5 farklı uzman konuşmacıyla iklim değişikliği ve sürdürülebilir kampüs üzerine konuşmalar.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 10:00 – 16:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Atatürk Konferans Salonu</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Çevre Kulübü</li>
+                </ul>
+                <div class="kart-alt">
+                    <span class="etkinlik-katilimci">66 kişi katılıyor</span>
+                    <button class="buton kucuk">Katıl</button>
+                </div>
+            </article>
+
+            <article class="kart tiklanabilir etkinlik-kart" data-durum="yaklasan">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">15</span>
+                        <span class="etkinlik-ay">Haziran</span>
+                    </div>
+                    <span class="etiket etkinlik">Konser</span>
+                </div>
+                <h3 class="kart-baslik">Müzik Kulübü Akustik Gece</h3>
+                <p class="kart-metin">Öğrencilerden oluşan akustik müzik grubunun mini konseri. Türkçe & yabancı şarkılardan oluşan repertuvar.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 20:00 – 22:30</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Kampüs Kafe Terası</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Müzik Kulübü</li>
+                </ul>
+                <div class="kart-alt">
+                    <span class="etkinlik-katilimci">141 kişi katılıyor</span>
+                    <button class="buton kucuk">Katıl</button>
+                </div>
+            </article>
+
+            <article class="kart tiklanabilir etkinlik-kart" data-durum="yaklasan">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">18</span>
+                        <span class="etkinlik-ay">Haziran</span>
+                    </div>
+                    <span class="etiket etkinlik">Gezi</span>
+                </div>
+                <h3 class="kart-baslik">Kapadokya Doğa Yürüyüşü</h3>
+                <p class="kart-metin">Doğa Sporları Kulübü organizasyonuyla 1 günlük Kapadokya gezisi. Otobüs ve rehber dahil, kayıt sınırlı.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 06:00 – 22:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Kalkış: Merkez Kampüs</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Doğa Sporları Kulübü</li>
+                </ul>
+                <div class="kart-alt">
+                    <span class="etkinlik-katilimci">45 kişi katılıyor</span>
+                    <button class="buton kucuk">Katıl</button>
+                </div>
+            </article>
+
+            <article class="kart tiklanabilir etkinlik-kart" data-durum="yaklasan">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">22</span>
+                        <span class="etkinlik-ay">Haziran</span>
+                    </div>
+                    <span class="etiket etkinlik">Yarışma</span>
+                </div>
+                <h3 class="kart-baslik">Münazara Şampiyonası Finali</h3>
+                <p class="kart-metin">Dönem boyunca süren münazara turnuvasının final gecesi. İzleyici olarak katılım serbest, jüri puanlamaya açık.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 18:00 – 21:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Hukuk Fakültesi Moot Court</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Münazara Kulübü</li>
+                </ul>
+                <div class="kart-alt">
+                    <span class="etkinlik-katilimci">78 kişi katılıyor</span>
+                    <button class="buton kucuk">Katıl</button>
+                </div>
+            </article>
+
+            <!-- ======== EK GEÇMİŞ ETKİNLİKLER ======== -->
+
+            <article class="kart tiklanabilir etkinlik-kart gecmis-kart" data-durum="gecmis">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">22</span>
+                        <span class="etkinlik-ay">Mart</span>
+                    </div>
+                    <span class="etiket etkinlik">Yarışma</span>
+                </div>
+                <h3 class="kart-baslik">Bilgi Yarışması: Kampüs Kupası</h3>
+                <p class="kart-metin">Fakülteler arası bilgi yarışması. 8 takımın kıyasıya yarıştığı eğlenceli bir gece oldu.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 19:00 – 22:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Öğrenci Kongre Salonu</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Genel Kültür Kulübü</li>
+                </ul>
+                <div class="kart-alt">
+                    <span class="etkinlik-katilimci">Tamamlandı</span>
+                    <button class="buton ikincil kucuk">Sonuçları Gör</button>
+                </div>
+            </article>
+
+            <article class="kart tiklanabilir etkinlik-kart gecmis-kart" data-durum="gecmis">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">15</span>
+                        <span class="etkinlik-ay">Mart</span>
+                    </div>
+                    <span class="etiket etkinlik">Workshop</span>
+                </div>
+                <h3 class="kart-baslik">CV Hazırlama Atölyesi</h3>
+                <p class="kart-metin">Kariyer Merkezi tarafından düzenlenen profesyonel CV hazırlama eğitimi. 3 İK uzmanının canlı incelemesi yapıldı.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 14:00 – 17:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Kariyer Merkezi Eğitim Salonu</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Kariyer Merkezi</li>
+                </ul>
+                <div class="kart-alt">
+                    <span class="etkinlik-katilimci">Tamamlandı</span>
+                    <button class="buton ikincil kucuk">Sonuçları Gör</button>
+                </div>
+            </article>
+
+            <article class="kart tiklanabilir etkinlik-kart gecmis-kart" data-durum="gecmis">
+                <div class="etkinlik-ust">
+                    <div class="etkinlik-tarih-kutusu">
+                        <span class="etkinlik-gun">08</span>
+                        <span class="etkinlik-ay">Mart</span>
+                    </div>
+                    <span class="etiket etkinlik">Sosyal</span>
+                </div>
+                <h3 class="kart-baslik">8 Mart Dünya Kadınlar Günü Paneli</h3>
+                <p class="kart-metin">Üniversitemizin kadın akademisyenlerinin yer aldığı kapsamlı panel. Toplumsal cinsiyet eşitliği üzerine konuşuldu.</p>
+                <ul class="etkinlik-detay">
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">🕒</span> 11:00 – 13:00</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">📍</span> Edebiyat Fakültesi Konferans Salonu</li>
+                    <li class="etkinlik-bilgi"><span class="etkinlik-ikon">👥</span> Kadın Çalışmaları Kulübü</li>
+                </ul>
+                <div class="kart-alt">
+                    <span class="etkinlik-katilimci">Tamamlandı</span>
+                    <button class="buton ikincil kucuk">Sonuçları Gör</button>
+                </div>
+            </article>
 
         </div>
 
-        <!-- Boş Durum -->
-        <div class="bos-durum" id="bos-durum" style="display: none;">
+        <!-- Boş durum -->
+        <div class="bos-durum" id="bosDurum" style="display: none;">
             <div class="bos-durum-ikon">📅</div>
             <p>Bu kategoride etkinlik bulunamadı.</p>
         </div>
 
     </main>
 
-    <!-- Footer -->
+
+    <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
-        <p>&copy; 2026 KampüsCÜ — Sivas Cumhuriyet Üniversitesi Öğrenci Platformu</p>
+        <div class="container">
+            <p>&copy; 2026 KampüsCÜ — Sivas Cumhuriyet Üniversitesi Öğrenci Platformu</p>
+        </div>
     </footer>
 
-    <!-- Sekme Filtreleme -->
+
+    <!-- ==================== SCRIPTS ==================== -->
     <script>
+        // Hamburger menü
+        document.getElementById('hamburger').addEventListener('click', function () {
+            document.getElementById('navMenu').classList.toggle('acik');
+        });
+
+        // Sekme + arama filtreleme
         document.addEventListener('DOMContentLoaded', function () {
             var sekmeler = document.querySelectorAll('.sekme');
-            var kartlar = document.querySelectorAll('#etkinlik-listesi .kart');
-            var bosDurum = document.getElementById('bos-durum');
-            var liste = document.getElementById('etkinlik-listesi');
+            var liste = document.getElementById('etkinlikListesi');
+            var bosDurum = document.getElementById('bosDurum');
+            var ozet = document.getElementById('etkinlikOzet');
+            var aramaInput = document.getElementById('etkinlikArama');
+
+            var aktifFiltre = 'tumu';
+            var aktifArama = '';
+
+            // Türkçe ay → sayı haritası (sıralama için)
+            var ayHarita = {
+                'Ocak': 1, 'Şubat': 2, 'Mart': 3, 'Nisan': 4,
+                'Mayıs': 5, 'Haziran': 6, 'Temmuz': 7, 'Ağustos': 8,
+                'Eylül': 9, 'Ekim': 10, 'Kasım': 11, 'Aralık': 12
+            };
+
+            // Karttan sıralanabilir tarih değeri üret (ay*100 + gün)
+            function tarihDegeri(kart) {
+                var gun = parseInt(kart.querySelector('.etkinlik-gun').textContent, 10) || 0;
+                var ayMetin = kart.querySelector('.etkinlik-ay').textContent.trim();
+                var ay = ayHarita[ayMetin] || 0;
+                return ay * 100 + gun;
+            }
+
+            // Tüm kartları tarihe göre sırala:
+            // - Yaklaşan etkinlikler önce, tarih artan (yakın olan üstte)
+            // - Geçmiş etkinlikler sonra, tarih artan (eski → yeni)
+            var tumKartlar = Array.prototype.slice.call(
+                liste.querySelectorAll('.etkinlik-kart')
+            );
+            tumKartlar.sort(function (a, b) {
+                var dA = a.getAttribute('data-durum');
+                var dB = b.getAttribute('data-durum');
+                if (dA !== dB) {
+                    return dA === 'yaklasan' ? -1 : 1;
+                }
+                return tarihDegeri(a) - tarihDegeri(b);
+            });
+            tumKartlar.forEach(function (kart) { liste.appendChild(kart); });
+
+            var kartlar = tumKartlar;
+
+            function uygula() {
+                var gorunen = 0;
+                kartlar.forEach(function (kart) {
+                    var durum = kart.getAttribute('data-durum');
+                    var baslik = kart.querySelector('.kart-baslik').textContent.toLowerCase();
+                    var aciklama = kart.querySelector('.kart-metin').textContent.toLowerCase();
+
+                    var filtreUyar = (aktifFiltre === 'tumu' || durum === aktifFiltre);
+                    var aramaUyar = (aktifArama === '' || baslik.includes(aktifArama) || aciklama.includes(aktifArama));
+
+                    if (filtreUyar && aramaUyar) {
+                        kart.style.display = '';
+                        gorunen++;
+                    } else {
+                        kart.style.display = 'none';
+                    }
+                });
+
+                if (gorunen === 0) {
+                    bosDurum.style.display = '';
+                    liste.style.display = 'none';
+                    ozet.textContent = 'Sonuç bulunamadı.';
+                } else {
+                    bosDurum.style.display = 'none';
+                    liste.style.display = '';
+                    ozet.textContent = 'Toplam ' + gorunen + ' etkinlik gösteriliyor.';
+                }
+            }
 
             sekmeler.forEach(function (sekme) {
                 sekme.addEventListener('click', function () {
-                    // Aktif sekmeyi güncelle
                     sekmeler.forEach(function (s) { s.classList.remove('aktif'); });
                     sekme.classList.add('aktif');
-
-                    var filtre = sekme.getAttribute('data-filtre');
-                    var gorunenSayisi = 0;
-
-                    kartlar.forEach(function (kart) {
-                        var durum = kart.getAttribute('data-durum');
-                        if (filtre === 'tumu' || durum === filtre) {
-                            kart.style.display = '';
-                            gorunenSayisi++;
-                        } else {
-                            kart.style.display = 'none';
-                        }
-                    });
-
-                    // Boş durum kontrolü
-                    if (gorunenSayisi === 0) {
-                        bosDurum.style.display = '';
-                        liste.style.display = 'none';
-                    } else {
-                        bosDurum.style.display = 'none';
-                        liste.style.display = '';
-                    }
+                    aktifFiltre = sekme.getAttribute('data-filtre');
+                    uygula();
                 });
+            });
+
+            aramaInput.addEventListener('input', function () {
+                aktifArama = aramaInput.value.trim().toLowerCase();
+                uygula();
             });
         });
     </script>
