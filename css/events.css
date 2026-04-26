@@ -1,0 +1,66 @@
+/* events.css — Sadece etkinlikler sayfasına özel stiller */
+/* components.css veya layout.css'de olan bir şeyi BURAYA YAZMA */
+
+/* ===== Etkinlik Tarih Kutusu ===== */
+.etkinlik-tarih-kutusu {
+    background-color: var(--ana-renk);
+    color: var(--kutu-arkaplan);
+    text-align: center;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--space-md);
+    display: inline-block;
+}
+
+.etkinlik-gun {
+    display: block;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.etkinlik-ay {
+    display: block;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: var(--space-xs);
+}
+
+/* ===== Etkinlik Detay Bilgileri ===== */
+.etkinlik-detay {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.etkinlik-bilgi {
+    font-size: var(--text-sm);
+    color: var(--metin-soluk);
+}
+
+.etkinlik-bilgi strong {
+    color: var(--metin-renk);
+}
+
+/* ===== Geçmiş Etkinlik Kartları ===== */
+.gecmis-kart {
+    opacity: 0.7;
+}
+
+.gecmis-kart:hover {
+    opacity: 1;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .etkinlik-tarih-kutusu {
+        padding: var(--space-xs) var(--space-sm);
+    }
+
+    .etkinlik-gun {
+        font-size: var(--text-xl);
+    }
+}
