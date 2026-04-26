@@ -1,56 +1,27 @@
-/* Sayfanın genel arka planı */
-body {
-    background-color: #f0f2f5;
-    font-family: sans-serif;
+/* auth.css — Sayfaya özel yerleşim */
+
+.auth-kapsayici {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    align-items: flex-start;
+    gap: var(--space-xl);
+    padding-top: var(--space-2xl);
+    flex-wrap: wrap; /* Mobilde alt alta gelmesi için */
 }
 
-/* Beyaz kartın tasarımı */
-.kutu {
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    display: flex;
-    gap: 30px;
+.auth-kart {
+    flex: 1;
+    min-width: 320px;
+    max-width: 450px;
 }
 
-/* Giriş ve Kayıt alanlarının iç düzeni */
-.form-alanı {
-    display: flex;
-    flex-direction: column;
-    width: 250px;
+.auth-kart h2 {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    color: var(--ana-renk);
 }
 
-h2 { color: #1c1e21; text-align: center; }
-
-/* Yazı yazılan kutucuklar */
-input {
-    margin: 10px 0;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    outline: none;
-}
-
-/* Buton tasarımı */
-button {
-    background-color: #0866ff;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover { background-color: #0550cc; }
-
-.çizgi {
-    width: 1px;
-    background-color: #ddd;
+/* Sayfa arka planını variables'dan alıyoruz */
+body {
+    background-color: var(--arkaplan);
 }
