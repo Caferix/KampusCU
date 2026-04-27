@@ -1,0 +1,254 @@
+/* ============================================================
+   about.css — Sadece hakkımızda sayfasına özel stiller
+   components.css veya layout.css'de olan bir şeyi BURAYA YAZMA
+   ============================================================ */
+
+/* ----- PROJE TANITIM ALANI ----- */
+.tanitim-alani {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.tanitim-metin p {
+    color: var(--metin-soluk);
+    margin-bottom: var(--space-md);
+    line-height: 1.8;
+}
+
+/* Tanıtım butonlarının sarmalayıcısı — inline style yerine */
+.tanitim-butonlar {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    margin-top: var(--space-lg);
+}
+
+.tanitim-vurgu {
+    background: linear-gradient(135deg, var(--koyu-renk), #1a252f);
+    border-radius: var(--kutu-yari-cap);
+    padding: var(--space-xl);
+    color: white;
+}
+
+.tanitim-vurgu-baslik {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-lg);
+}
+
+.istatistik-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+}
+
+.istatistik-kutu {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--kutu-yari-cap);
+    padding: var(--space-md);
+    text-align: center;
+}
+
+.istatistik-rakam {
+    display: block;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+    margin-bottom: var(--space-xs);
+}
+
+.istatistik-aciklama {
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ----- AYRAÇ ----- */
+.bolum-ayrac {
+    border: none;
+    border-top: 1px solid var(--kenarlik-renk);
+    margin: 0 0 var(--space-2xl);
+}
+
+/* ----- VİZYON & MİSYON ----- */
+.vizyon-misyon {
+    margin-bottom: var(--space-2xl);
+}
+
+/* Vizyon/Misyon kartlarındaki h3 üst boşluğu — inline style yerine */
+.vizyon-misyon .kart-baslik {
+    margin-top: var(--space-sm);
+}
+
+/* ----- TEKNOLOJİLER ----- */
+.teknolojiler {
+    margin-bottom: var(--space-2xl);
+}
+
+/* ----- PLATFORM ÖZELLİKLERİ ----- */
+.ozellikler {
+    margin-bottom: var(--space-2xl);
+}
+
+/*
+    .ozellik-karti: .kart üzerine ekleniyor.
+    Buton aşağıda sabitlensin diye flex column + space-between kullanıyoruz.
+    Bu sayede tüm kartların butonu aynı hizada durur.
+*/
+.ozellik-karti {
+    display: flex;
+    flex-direction: column;
+}
+
+.ozellik-karti .kart-metin {
+    flex: 1; /* Metni büyütür, butonu her zaman alta iter */
+    margin-bottom: var(--space-md);
+}
+
+.ozellik-ikon {
+    font-size: 2rem;
+    margin-bottom: var(--space-sm);
+    display: block;
+}
+
+/* ----- SSS (ACCORDION) ----- */
+.sss {
+    margin-bottom: var(--space-2xl);
+}
+
+.sss-liste {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+/*
+    <details> HTML'in yerleşik accordion etiketi.
+    Tarayıcı destekli — JS olmadan da açılıp kapanır.
+    Biz sadece görselini düzenliyoruz.
+*/
+.sss-madde {
+    background-color: var(--kutu-arkaplan);
+    border: 1px solid var(--kenarlik-renk);
+    border-radius: var(--kutu-yari-cap);
+    overflow: hidden;
+    transition: border-color var(--gecis);
+}
+
+.sss-madde[open] {
+    border-color: var(--ana-renk);
+}
+
+/*
+    <summary> tıklanabilir başlık kısmı.
+    list-style: none — tarayıcının eklediği üçgeni kaldırır.
+    Yerine kendi .sss-ok okunu koyuyoruz.
+*/
+.sss-soru {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
+    font-weight: 600;
+    font-size: var(--text-base);
+    color: var(--koyu-renk);
+    cursor: pointer;
+    list-style: none;
+    gap: var(--space-md);
+}
+
+/* Firefox için */
+.sss-soru::-webkit-details-marker { display: none; }
+
+.sss-soru:hover {
+    background-color: var(--arkaplan);
+}
+
+.sss-ok {
+    font-size: var(--text-xs);
+    color: var(--metin-soluk);
+    flex-shrink: 0;
+    transition: transform var(--gecis);
+}
+
+/* Açıkken ok yukarı döner */
+.sss-madde[open] .sss-ok {
+    transform: rotate(180deg);
+}
+
+.sss-cevap {
+    padding: 0 var(--space-lg) var(--space-md);
+    color: var(--metin-soluk);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    border-top: 1px solid var(--kenarlik-renk);
+    padding-top: var(--space-md);
+}
+
+/* ----- İLETİŞİM BÖLÜMÜ ----- */
+.iletisim-alani {
+    background: var(--koyu-renk);
+    border-radius: var(--kutu-yari-cap);
+    padding: var(--space-xl);
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.iletisim-alani h2 {
+    color: white;
+    margin-bottom: var(--space-sm);
+}
+
+.iletisim-alani p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.iletisim-butonlar {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.iletisim-butonlar .buton.ikincil {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: white;
+}
+
+.iletisim-butonlar .buton.ikincil:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* ----- MODAL AYRAÇ METNİ ----- */
+/* "veya e-posta ile" metni — inline style yerine */
+.modal-ayrac-metin {
+    text-align: center;
+    margin: var(--space-md) 0;
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 768px) {
+    .tanitim-alani {
+        grid-template-columns: 1fr;
+    }
+
+    .istatistik-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .istatistik-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

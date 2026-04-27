@@ -1,1 +1,404 @@
-<!--Hakkımızda Sayfası-->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda — KampüsCÜ</title>
+    <meta name="description" content="KampüsCÜ projesi hakkında bilgi edinin. Sivas Cumhuriyet Üniversitesi öğrencileri tarafından öğrenciler için geliştirildi.">
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/about.css">
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav-icerik">
+                <a href="../index.html" class="nav-logo">🎓 KampüsCÜ</a>
+
+                <ul class="nav-linkler" id="navMenu">
+                    <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li><a href="../pages/ads.html">İlanlar</a></li>
+                    <li><a href="../pages/events.html">Etkinlikler</a></li>
+                    <li><a href="../pages/announcements.html">Duyurular</a></li>
+                    <li><a href="../pages/map.html">Mekanlar</a></li>
+                    <li><a href="../pages/about.html" class="aktif" aria-current="page">Hakkımızda</a></li>
+                </ul>
+
+                <div class="nav-kullanici" id="navKullanici">
+                    <button class="buton kucuk" onclick="modalAc('girisModal')">Giriş Yap</button>
+                </div>
+
+                <button class="hamburger" id="hamburger" aria-label="Menüyü aç">☰</button>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- ==================== ANA İÇERİK ==================== -->
+    <main class="container">
+
+        <div class="sayfa-basligi">
+            <h1>Hakkımızda</h1>
+            <p>KampüsCÜ'yü tanıyın, özelliklerini keşfedin</p>
+        </div>
+
+
+        <!-- ---- 1. BÖLÜM: PROJE TANITIMI ---- -->
+        <section aria-label="Proje hakkında">
+            <div class="tanitim-alani">
+
+                <div class="tanitim-metin">
+                    <h2>KampüsCÜ nedir?</h2>
+                    <p>
+                        KampüsCÜ, Sivas Cumhuriyet Üniversitesi öğrencilerinin
+                        birbirleriyle ve kampüs yaşamıyla kolayca bağlantı
+                        kurabilmesi için tasarlanmış bir dijital platformdur.
+                    </p>
+                    <p>
+                        İkinci el eşya alıp satabilir, ev ya da çalışma arkadaşı
+                        arayabilir, kulüp etkinliklerini takip edebilir, kampüs
+                        duyurularını ve indirimleri tek yerden görebilirsin.
+                    </p>
+                    <p>
+                        Proje, İnternet Teknolojileri dersi kapsamında
+                        Bilgisayar Mühendisliği öğrencileri tarafından
+                        geliştirilmiştir.
+                    </p>
+
+                    <!-- .tanitim-butonlar about.css'de tanımlı -->
+                    <div class="tanitim-butonlar">
+                        <a href="../pages/ads.html" class="buton">İlanlara Bak</a>
+                        <a href="../pages/events.html" class="buton ikincil">Etkinlikleri Keşfet</a>
+                    </div>
+                </div>
+
+                <div class="tanitim-vurgu">
+                    <p class="tanitim-vurgu-baslik">Platforma genel bakış</p>
+                    <div class="istatistik-grid">
+                        <div class="istatistik-kutu">
+                            <strong class="istatistik-rakam">248</strong>
+                            <span class="istatistik-aciklama">Aktif İlan</span>
+                        </div>
+                        <div class="istatistik-kutu">
+                            <strong class="istatistik-rakam">14</strong>
+                            <span class="istatistik-aciklama">Etkinlik</span>
+                        </div>
+                        <div class="istatistik-kutu">
+                            <strong class="istatistik-rakam">1.2k</strong>
+                            <span class="istatistik-aciklama">Üye</span>
+                        </div>
+                        <div class="istatistik-kutu">
+                            <strong class="istatistik-rakam">6</strong>
+                            <span class="istatistik-aciklama">Kategori</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ---- AYRAÇ ---- -->
+        <!-- .bolum-ayrac about.css'de tanımlı -->
+        <hr class="bolum-ayrac">
+
+
+        <!-- ---- 2. BÖLÜM: VİZYON & MİSYON ---- -->
+        <!-- .vizyon-misyon about.css'de tanımlı — margin-bottom oraya taşındı -->
+        <section aria-label="Vizyon ve misyon" class="vizyon-misyon">
+            <div class="bolum-basligi">
+                <h2>Vizyon & Misyon</h2>
+            </div>
+
+            <div class="izgara-2">
+
+                <div class="kart">
+                    <span class="etiket duyuru">Vizyonumuz</span>
+                    <!-- .vizyon-misyon .kart-baslik → margin-top about.css'de -->
+                    <h3 class="kart-baslik">
+                        Kampüs yaşamının dijital merkezi
+                    </h3>
+                    <p class="kart-metin">
+                        Sivas Cumhuriyet Üniversitesi öğrencilerinin kampüs
+                        yaşamını kolaylaştıran, öğrenciler arasındaki iletişimi
+                        güçlendiren ve üniversite topluluğunu bir araya getiren
+                        Türkiye'nin örnek kampüs platformu olmak.
+                    </p>
+                </div>
+
+                <div class="kart">
+                    <span class="etiket is-arkadas">Misyonumuz</span>
+                    <h3 class="kart-baslik">
+                        Öğrenciden öğrenciye, ücretsiz
+                    </h3>
+                    <p class="kart-metin">
+                        Öğrencilerin ihtiyaçlarını merkeze alarak; ilan vermekten
+                        etkinlik keşfetmeye, duyuru takibinden kampüs rehberine
+                        kadar tüm ihtiyaçlarını tek çatı altında, tamamen ücretsiz
+                        ve erişilebilir biçimde sunmak.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ---- 3. BÖLÜM: PLATFORM ÖZELLİKLERİ ---- -->
+        <!--
+            Her kart bir platform özelliğini temsil ediyor.
+            Kart içindeki link ilgili sayfaya yönlendiriyor — SEO ve UX için iyi.
+            .izgara-3 layout.css'den geliyor, 3'lü grid sağlar.
+        -->
+        <section aria-label="Platform özellikleri" class="ozellikler">
+            <div class="bolum-basligi">
+                <h2>Neler Yapabilirsin?</h2>
+            </div>
+
+            <div class="izgara-3">
+
+                <div class="kart ozellik-karti">
+                    <div class="ozellik-ikon" aria-hidden="true">🛍️</div>
+                    <h3 class="kart-baslik">İlan Ver & Keşfet</h3>
+                    <p class="kart-metin">
+                        İkinci el eşya sat, ev veya çalışma arkadaşı ara,
+                        kayıp eşyanı bul. Kategorilere göre filtrele.
+                    </p>
+                    <a href="../pages/ads.html" class="buton ikincil kucuk">İlanlara Git →</a>
+                </div>
+
+                <div class="kart ozellik-karti">
+                    <div class="ozellik-ikon" aria-hidden="true">🎭</div>
+                    <h3 class="kart-baslik">Etkinlikleri Takip Et</h3>
+                    <p class="kart-metin">
+                        Kulüp etkinlikleri, konserler, seminerler ve
+                        kampüs aktivitelerini tek yerden takip et.
+                    </p>
+                    <a href="../pages/events.html" class="buton ikincil kucuk">Etkinliklere Git →</a>
+                </div>
+
+                <div class="kart ozellik-karti">
+                    <div class="ozellik-ikon" aria-hidden="true">📢</div>
+                    <h3 class="kart-baslik">Duyurulardan Haberdar Ol</h3>
+                    <p class="kart-metin">
+                        Üniversite duyuruları, indirimler, kampanyalar
+                        ve akademik haberler sende olsun.
+                    </p>
+                    <a href="../pages/announcements.html" class="buton ikincil kucuk">Duyurulara Git →</a>
+                </div>
+
+                <div class="kart ozellik-karti">
+                    <div class="ozellik-ikon" aria-hidden="true">📍</div>
+                    <h3 class="kart-baslik">Kampüsü Keşfet</h3>
+                    <p class="kart-metin">
+                        Kütüphane, kafeterya, fakülteler ve kampüs
+                        mekanlarını harita üzerinde bul.
+                    </p>
+                    <a href="../pages/map.html" class="buton ikincil kucuk">Haritaya Git →</a>
+                </div>
+
+                <div class="kart ozellik-karti">
+                    <div class="ozellik-ikon" aria-hidden="true">🔍</div>
+                    <h3 class="kart-baslik">Hızlı Arama</h3>
+                    <p class="kart-metin">
+                        İstediğin içeriği başlık veya kategoriye göre
+                        anında filtrele, zaman kaybetme.
+                    </p>
+                    <a href="../pages/ads.html" class="buton ikincil kucuk">Aramaya Başla →</a>
+                </div>
+
+                <div class="kart ozellik-karti">
+                    <div class="ozellik-ikon" aria-hidden="true">🆓</div>
+                    <h3 class="kart-baslik">Tamamen Ücretsiz</h3>
+                    <p class="kart-metin">
+                        Tüm özellikler öğrenciler için ücretsiz.
+                        Kayıt ol, hemen kullanmaya başla.
+                    </p>
+                    <a href="../pages/ads.html" class="buton kucuk">Hemen Başla →</a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ---- 4. BÖLÜM: SSS ---- -->
+        <!--
+            Accordion yapısı: her soru bir <details> etiketi.
+            <details> ve <summary> HTML'in yerleşik accordion'ı —
+            JS yazmadan açılıp kapanır.
+            Ama biz JS ile de kontrol ediyoruz: aynı anda sadece bir tane açık kalsın.
+        -->
+        <section aria-label="Sık sorulan sorular" class="sss">
+            <div class="bolum-basligi">
+                <h2>Sık Sorulan Sorular</h2>
+            </div>
+
+            <div class="sss-liste">
+
+                <!--
+                    <details>: tıklanınca içeriği gösterir/gizler — tarayıcı desteklidir.
+                    <summary>: her zaman görünen başlık kısmı.
+                    open attribute: sayfada açık başlamak için eklenir.
+                -->
+                <details class="sss-madde" open>
+                    <summary class="sss-soru">
+                        KampüsCÜ'yü kimler kullanabilir?
+                        <span class="sss-ok" aria-hidden="true">▼</span>
+                    </summary>
+                    <p class="sss-cevap">
+                        KampüsCÜ, Sivas Cumhuriyet Üniversitesi öğrencilerine
+                        yönelik tasarlanmıştır. Tüm öğrenciler ücretsiz olarak
+                        platforma erişebilir ve içerik paylaşabilir.
+                    </p>
+                </details>
+
+                <details class="sss-madde">
+                    <summary class="sss-soru">
+                        İlan vermek için ne gerekiyor?
+                        <span class="sss-ok" aria-hidden="true">▼</span>
+                    </summary>
+                    <p class="sss-cevap">
+                        İlan vermek için platforma giriş yapman yeterli.
+                        Giriş yaptıktan sonra İlanlar sayfasından "İlan Ver"
+                        butonuna tıklayarak birkaç adımda ilanını oluşturabilirsin.
+                    </p>
+                </details>
+
+                <details class="sss-madde">
+                    <summary class="sss-soru">
+                        Platform ücretli mi?
+                        <span class="sss-ok" aria-hidden="true">▼</span>
+                    </summary>
+                    <p class="sss-cevap">
+                        Hayır, KampüsCÜ tamamen ücretsizdir. İlan vermek,
+                        etkinlik takip etmek ve duyuruları görüntülemek dahil
+                        tüm özellikler ücretsiz olarak sunulmaktadır.
+                    </p>
+                </details>
+
+                <details class="sss-madde">
+                    <summary class="sss-soru">
+                        Yanlış veya uygunsuz bir ilanı nasıl bildirebilirim?
+                        <span class="sss-ok" aria-hidden="true">▼</span>
+                    </summary>
+                    <p class="sss-cevap">
+                        Uygunsuz içerik gördüğünde iletişim bölümünden
+                        bize ulaşabilirsin. İletilen şikayetler en kısa
+                        sürede değerlendirilir.
+                    </p>
+                </details>
+
+                <details class="sss-madde">
+                    <summary class="sss-soru">
+                        Etkinliğimi platforma nasıl eklerim?
+                        <span class="sss-ok" aria-hidden="true">▼</span>
+                    </summary>
+                    <p class="sss-cevap">
+                        Kulüp temsilcileri ve öğrenci toplulukları
+                        Etkinlikler sayfasından etkinlik ekleyebilir.
+                        Giriş yaptıktan sonra "Etkinlik Ekle" butonunu
+                        kullanabilirsin.
+                    </p>
+                </details>
+
+                <details class="sss-madde">
+                    <summary class="sss-soru">
+                        Şifremi unuttum, ne yapmalıyım?
+                        <span class="sss-ok" aria-hidden="true">▼</span>
+                    </summary>
+                    <p class="sss-cevap">
+                        Google ile giriş yapıyorsan şifre sorunu yaşamazsın.
+                        E-posta ile giriş yapıyorsan giriş ekranındaki
+                        "Şifremi Unuttum" bağlantısını kullanabilirsin.
+                    </p>
+                </details>
+
+            </div>
+        </section>
+
+
+        <!-- ---- 5. BÖLÜM: İLETİŞİM ---- -->
+        <section aria-label="İletişim">
+            <div class="iletisim-alani">
+                <h2>İletişime Geç</h2>
+                <p>
+                    Proje hakkında soru, öneri veya geri bildiriminiz için
+                    bize ulaşabilirsiniz.
+                </p>
+                <div class="iletisim-butonlar">
+                    <a href="mailto:iletisim@kampus.com" class="buton">
+                        ✉️ Mail Gönder
+                    </a>
+                    <a href="https://github.com/" target="_blank" rel="noopener" class="buton ikincil">
+                        GitHub →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 KampüsCÜ · Sivas Cumhuriyet Üniversitesi Bilgisayar Mühendisliği</p>
+            <p>
+                <a href="../pages/about.html">Hakkımızda</a> ·
+                <a href="mailto:iletisim@kampus.com">İletişim</a> ·
+                <a href="#">Gizlilik</a>
+            </p>
+        </div>
+    </footer>
+
+    <div class="toast-kapsayici" id="toastKapsayici"></div>
+
+    <!-- Giriş modali -->
+    <div class="modal-arkaplan" id="girisModal" role="dialog" aria-modal="true" aria-labelledby="girisModalBaslik">
+        <div class="modal-kutu">
+            <button class="modal-kapat" onclick="modalKapat('girisModal')">✕</button>
+            <h2 id="girisModalBaslik">Giriş Yap</h2>
+            <p class="kart-metin">KampüsCÜ topluluğuna katıl</p>
+            <button class="buton tam" id="googleGirisBtn">🔵 Google ile Devam Et</button>
+            <!-- .modal-ayrac-metin about.css'de tanımlı -->
+            <p class="kart-metin modal-ayrac-metin">veya e-posta ile</p>
+            <div class="form-alani">
+                <label for="girisEmail">E-posta</label>
+                <input type="email" id="girisEmail" placeholder="ornek@cumhuriyet.edu.tr">
+            </div>
+            <div class="form-alani">
+                <label for="girisSifre">Şifre</label>
+                <input type="password" id="girisSifre" placeholder="••••••••">
+            </div>
+            <button class="buton tam" id="emailGirisBtn">Giriş Yap</button>
+        </div>
+    </div>
+
+
+    <!-- ==================== JS ==================== -->
+    <script>
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('navMenu').classList.toggle('acik');
+        });
+
+        function modalAc(id) {
+            document.getElementById(id).classList.add('acik');
+        }
+
+        function modalKapat(id) {
+            document.getElementById(id).classList.remove('acik');
+        }
+
+        document.querySelectorAll('.modal-arkaplan').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) modalKapat(this.id);
+            });
+        });
+    </script>
+
+</body>
+</html>
