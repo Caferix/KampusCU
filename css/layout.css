@@ -151,8 +151,39 @@
     }
 
     .hamburger {
-        display: block;
+    display: none; /* Masaüstünde gizle */
+}
+
+/* Medya sorgusunun İÇİNE ekle (@media (max-width: 768px)) */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block !important; /* Mobilde görünür yap */
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: var(--ana-renk);
+        cursor: pointer;
     }
+
+    /* Linklerin mobildeki yerleşimi */
+    .nav-linkler {
+        display: none; /* Varsayılan kapalı */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    /* Butona basınca JS ile eklenen klas */
+    .nav-linkler.acik {
+        display: flex !important;
+    }
+}
 }
 
 /* Hamburger butonu masaüstünde gizli */
