@@ -1,0 +1,92 @@
+/* profile.css — Kullanıcı profili sayfasına özel stiller */
+
+/* Sayfa giriş alanı */
+
+.profil-basligi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.profil-ozet,
+.profil-detaylari,
+.benim-ilanlarim {
+    margin-bottom: var(--space-xl);
+}
+
+.profil-karti {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.profil-bilgileri {
+    flex: 1;
+}
+
+.profil-bilgileri p {
+    color: var(--metin-soluk);
+    font-size: var(--text-sm);
+}
+
+.profil-istatistikleri .kart {
+    text-align: center;
+}
+
+.istatistik-sayi {
+    color: var(--ana-renk);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+}
+
+.ilan-listesi {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.profil-ilan-karti {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.profil-ilan-bilgileri {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    color: var(--metin-soluk);
+    font-size: var(--text-xs);
+    margin-top: var(--space-sm);
+}
+
+.profil-ilan-aksiyonlari {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .profil-basligi,
+    .profil-karti,
+    .profil-ilan-karti {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profil-basligi .buton,
+    .profil-karti .buton,
+    .profil-ilan-aksiyonlari,
+    .profil-ilan-aksiyonlari .buton {
+        width: 100%;
+    }
+
+    .profil-ilan-aksiyonlari {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

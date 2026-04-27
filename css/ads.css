@@ -1,0 +1,66 @@
+/* ads.css — İlanlar sayfasına özel stiller */
+
+/* Sayfa giriş alanı */
+
+.ilan-basligi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.ilan-filtreleri {
+    margin-bottom: var(--space-xl);
+}
+
+.ilan-filtreleri .bolum-basligi {
+    margin-bottom: var(--space-md);
+}
+
+.ilan-filtreleri .arama-kutusu {
+    margin-bottom: var(--space-lg);
+}
+
+.ilanlar-alani {
+    margin-bottom: var(--space-xl);
+}
+
+.ilan-detaylari {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    color: var(--metin-soluk);
+    font-size: var(--text-xs);
+    margin-top: var(--space-md);
+}
+
+.modal-arkaplan:target {
+    display: flex;
+}
+
+.modal-aciklama {
+    color: var(--metin-soluk);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+    .ilan-basligi {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ilan-basligi .buton {
+        width: 100%;
+    }
+
+    .kart-alt {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+    }
+
+    .kart-alt .buton {
+        width: 100%;
+    }
+}

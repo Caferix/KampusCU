@@ -1,1 +1,271 @@
 <!--Kullanıcı Profil Sayfası-->
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="KampüsCÜ kullanıcı profili sayfası. Öğrenciler profil bilgilerini ve kendi ilanlarını sembolik olarak görüntüleyebilir.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Profili — KampüsCÜ</title>
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-icerik">
+            <a href="../index.html" class="nav-logo" aria-label="KampüsCÜ ana sayfasına git">
+                KampüsCÜ
+            </a>
+
+            <nav class="nav-linkler" aria-label="Ana menü">
+                <a href="../index.html">Ana Sayfa</a>
+                <a href="ads.html">İlanlar</a>
+                <a href="events.html">Etkinlikler</a>
+                <a href="map.html">Mekanlar</a>
+                <a href="about.html">Hakkımızda</a>
+                <a href="profile.html" class="aktif" aria-current="page">Profil</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="sayfa-basligi profil-basligi">
+            <div>
+                <h1>Kullanıcı Profili</h1>
+                <p>
+                    Bu sayfa, öğrencinin temel profil bilgilerini ve KampüsCÜ üzerinde oluşturduğu
+                    sembolik ilanları görüntülemek için hazırlanmıştır.
+                </p>
+            </div>
+
+            <a href="ads.html#ilan-modal" class="buton">Yeni İlan Ekle</a>
+        </section>
+
+        <section class="profil-ozet" aria-labelledby="profil-ozet-baslik">
+            <article class="kart profil-karti">
+                <div class="avatar buyuk" aria-hidden="true">ES</div>
+
+                <div class="profil-bilgileri">
+                    <h2 id="profil-ozet-baslik">Elif Su</h2>
+                    <p>Bilgisayar Mühendisliği Öğrencisi</p>
+                    <p>elifsu@cumhuriyet.edu.tr</p>
+                </div>
+
+                <button type="button" class="buton ikincil">Profili Düzenle</button>
+            </article>
+
+            <div class="izgara-3 profil-istatistikleri" aria-label="Kullanıcı istatistikleri">
+                <article class="kart">
+                    <h3>Aktif İlan</h3>
+                    <p class="istatistik-sayi" id="aktif-ilan-sayisi">2</p>
+                </article>
+
+                <article class="kart">
+                    <h3>Kaydedilen İlan</h3>
+                    <p class="istatistik-sayi">4</p>
+                </article>
+
+                <article class="kart">
+                    <h3>Tamamlanan İşlem</h3>
+                    <p class="istatistik-sayi">1</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="profil-detaylari" aria-labelledby="profil-detay-baslik">
+            <div class="bolum-basligi">
+                <div>
+                    <h2 id="profil-detay-baslik">Profil Bilgileri</h2>
+                    <p>Kullanıcının KampüsCÜ üzerinde görünen temel bilgileri aşağıda listelenmiştir.</p>
+                </div>
+            </div>
+
+            <div class="izgara-2">
+                <article class="kart">
+                    <h3>Bölüm</h3>
+                    <p>Bilgisayar Mühendisliği</p>
+                </article>
+
+                <article class="kart">
+                    <h3>Sınıf</h3>
+                    <p>2. Sınıf</p>
+                </article>
+
+                <article class="kart">
+                    <h3>İlgi Alanları</h3>
+                    <p>Web tasarımı, yapay zeka, veri bilimi</p>
+                </article>
+
+                <article class="kart">
+                    <h3>Konum</h3>
+                    <p>Sivas Cumhuriyet Üniversitesi</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="benim-ilanlarim" aria-labelledby="benim-ilanlarim-baslik">
+            <div class="bolum-basligi">
+                <div>
+                    <h2 id="benim-ilanlarim-baslik">Benim İlanlarım</h2>
+                    <p>Kullanıcının oluşturduğu örnek ilanlar bu alanda görüntülenir.</p>
+                </div>
+            </div>
+
+            <div class="ilan-listesi" id="profil-ilan-listesi">
+                <article class="kart profil-ilan-karti">
+                    <div>
+                        <span class="etiket satis">Satılık</span>
+                        <h3 class="kart-baslik">Ders Kitapları</h3>
+                        <p class="kart-metin">
+                            Algoritma, veritabanı ve ayrık matematik dersleri için kullanılan kitaplar satılıktır.
+                        </p>
+
+                        <div class="profil-ilan-bilgileri">
+                            <span>Durum: Yayında</span>
+                            <span>Fiyat: 500 ₺</span>
+                        </div>
+                    </div>
+
+                    <div class="profil-ilan-aksiyonlari">
+                        <a href="ads.html" class="buton ikincil kucuk">İlanı Gör</a>
+                        <button type="button" class="buton tehlike kucuk">İlanı Sil</button>
+                    </div>
+                </article>
+
+                <article class="kart profil-ilan-karti">
+                    <div>
+                        <span class="etiket is-arkadas">Çalışma Arkadaşı</span>
+                        <h3 class="kart-baslik">Algoritma Çalışma Grubu</h3>
+                        <p class="kart-metin">
+                            Vize öncesi algoritma analizi çalışmak için çalışma arkadaşı aranmaktadır.
+                        </p>
+
+                        <div class="profil-ilan-bilgileri">
+                            <span>Durum: Yayında</span>
+                            <span>Fiyat: Ücretsiz</span>
+                        </div>
+                    </div>
+
+                    <div class="profil-ilan-aksiyonlari">
+                        <a href="ads.html" class="buton ikincil kucuk">İlanı Gör</a>
+                        <button type="button" class="buton tehlike kucuk">İlanı Sil</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="bos-durum" aria-labelledby="profil-not-baslik">
+            <div class="bos-durum-ikon" aria-hidden="true">ℹ️</div>
+            <h2 id="profil-not-baslik">Bilgilendirme</h2>
+            <p>
+                Profil sayfası bu proje kapsamında sembolik olarak hazırlanmıştır. Gerçek kullanıcı verileri
+                ilerleyen aşamalarda JavaScript veya backend bağlantısı ile geliştirilebilir.
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 KampüsCÜ. Sivas Cumhuriyet Üniversitesi öğrencileri için hazırlanmıştır.</p>
+        </div>
+    </footer>
+
+    <script>
+        const LOCAL_STORAGE_KEY = "kampuscu_kullanici_ilanlari";
+        const profilIlanListesi = document.querySelector("#profil-ilan-listesi");
+        const aktifIlanSayisi = document.querySelector("#aktif-ilan-sayisi");
+
+        const kategoriAdlari = {
+            "satis": "Satılık",
+            "kiralik": "Kiralık",
+            "ev-arkadas": "Ev Arkadaşı",
+            "is-arkadas": "Çalışma Arkadaşı",
+            "kayip": "Kayıp"
+        };
+
+        function guvenliMetin(metin) {
+            return String(metin)
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;")
+                .replaceAll("'", "&#039;");
+        }
+
+        function kayitliIlanlariGetir() {
+            const veriler = localStorage.getItem(LOCAL_STORAGE_KEY);
+            return veriler ? JSON.parse(veriler) : [];
+        }
+
+        function kayitliIlanlariKaydet(ilanlar) {
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(ilanlar));
+        }
+
+        function profilIlanKartiOlustur(ilan) {
+            const kategoriAdi = kategoriAdlari[ilan.kategori] || "İlan";
+
+            const ilanKart = document.createElement("article");
+            ilanKart.className = "kart profil-ilan-karti";
+            ilanKart.dataset.id = ilan.id;
+
+            ilanKart.innerHTML = `
+                <div>
+                    <span class="etiket ${guvenliMetin(ilan.kategori)}">${guvenliMetin(kategoriAdi)}</span>
+                    <h3 class="kart-baslik">${guvenliMetin(ilan.baslik)}</h3>
+                    <p class="kart-metin">${guvenliMetin(ilan.aciklama)}</p>
+
+                    <div class="profil-ilan-bilgileri">
+                        <span>Durum: Yayında</span>
+                        <span>Fiyat: ${guvenliMetin(ilan.fiyat)}</span>
+                        <span>Konum: ${guvenliMetin(ilan.konum)}</span>
+                    </div>
+                </div>
+
+                <div class="profil-ilan-aksiyonlari">
+                    <a href="ads.html" class="buton ikincil kucuk">İlanı Gör</a>
+                    <button type="button" class="buton tehlike kucuk kullanici-ilan-sil">İlanı Sil</button>
+                </div>
+            `;
+
+            return ilanKart;
+        }
+
+        function profilIlanlariniYukle() {
+            const kayitliIlanlar = kayitliIlanlariGetir();
+
+            kayitliIlanlar.forEach(function (ilan) {
+                profilIlanListesi.prepend(profilIlanKartiOlustur(ilan));
+            });
+
+            aktifIlanSayisi.textContent = 2 + kayitliIlanlar.length;
+        }
+
+        profilIlanListesi.addEventListener("click", function (event) {
+            const silButonu = event.target.closest(".kullanici-ilan-sil");
+
+            if (!silButonu) {
+                return;
+            }
+
+            const ilanKarti = silButonu.closest(".profil-ilan-karti");
+            const ilanId = ilanKarti.dataset.id;
+
+            const kalanIlanlar = kayitliIlanlariGetir().filter(function (ilan) {
+                return ilan.id !== ilanId;
+            });
+
+            kayitliIlanlariKaydet(kalanIlanlar);
+            ilanKarti.remove();
+
+            aktifIlanSayisi.textContent = 2 + kalanIlanlar.length;
+        });
+
+        profilIlanlariniYukle();
+    </script>
+</body>
+</html>
