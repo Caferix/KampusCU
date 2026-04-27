@@ -1,0 +1,27 @@
+/* auth.css — Sayfaya özel yerleşim */
+
+.auth-kapsayici {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--space-xl);
+    padding-top: var(--space-2xl);
+    flex-wrap: wrap; /* Mobilde alt alta gelmesi için */
+}
+
+.auth-kart {
+    flex: 1;
+    min-width: 320px;
+    max-width: 450px;
+}
+
+.auth-kart h2 {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    color: var(--ana-renk);
+}
+
+/* Sayfa arka planını variables'dan alıyoruz */
+body {
+    background-color: var(--arkaplan);
+}
