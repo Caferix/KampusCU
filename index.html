@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
 
     <!-- ==================== NAVBAR ==================== -->
@@ -24,7 +26,7 @@
                     <li><a href="ads.html">İlanlar</a></li>
                     <li><a href="pages/events.html">Etkinlikler</a></li>
                     <li><a href="announcements.html">Duyurular</a></li>
-                    <li><a href="map.html">Mekanlar</a></li>
+                    <li><a href="pages/map.html">Mekanlar</a></li>
                     <li><a href="about.html">Hakkımızda</a></li>
                 </ul>
 
@@ -474,14 +476,14 @@
             document.getElementById(id).classList.remove('acik');
         }
         document.querySelectorAll('.modal-arkaplan').forEach(modal => {
-            modal.addEventListener('click', function(e) {
+            modal.addEventListener('click', function (e) {
                 if (e.target === this) modalKapat(this.id);
             });
         });
 
         /* Sekme filtresi — ilanlar.js hazır olunca oraya taşı */
         document.querySelectorAll('#ilanSekmeler .sekme').forEach(sekme => {
-            sekme.addEventListener('click', function() {
+            sekme.addEventListener('click', function () {
                 document.querySelectorAll('#ilanSekmeler .sekme')
                     .forEach(s => s.classList.remove('aktif'));
                 this.classList.add('aktif');
@@ -503,4 +505,5 @@
     </script>
 
 </body>
+
 </html>
