@@ -1,1 +1,285 @@
-<!--Mekanlar Sayfası-->
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mekanlar — KampüsCÜ</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/map.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav-icerik">
+                <a href="../index.html" class="nav-logo">🎓 KampüsCÜ</a>
+                <ul class="nav-linkler" id="navMenu">
+                    <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li><a href="ads.html">İlanlar</a></li>
+                    <li><a href="events.html">Etkinlikler</a></li>
+                    <li><a href="announcements.html">Duyurular</a></li>
+                    <li><a href="map.html" class="aktif">Mekanlar</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                </ul>
+                <div class="nav-kullanici">
+                    <button class="buton kucuk">Giriş Yap</button>
+                </div>
+                <button class="hamburger" id="hamburger">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <header class="sayfa-basligi">
+        <div class="container">
+            <h1>Kampüs Mekanları</h1>
+            <p>Sivas Cumhuriyet Üniversitesi yerleşkesini keşfedin ve yol tarifi alın.</p>
+        </div>
+    </header>
+
+    <div class="duzey-kenar container">
+        <main>
+            <div class="kart harita-konteyner">
+                <iframe id="kampusHarita"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3066.386!2d37.025!3d39.71!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDQyJzM2LjAiTiAzN8KwMDEnMzAuMCJF!5e0!3m2!1str!2str!4v1700000000000"
+                    width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+                <a href="https://www.google.com/maps?q=39.7136,37.0250" target="_blank" class="harita-ust-buton">
+                    Haritalar'da aç
+                </a>
+            </div>
+        </main>
+
+        <aside>
+            <div class="sekme-grubu">
+                <button class="sekme" onclick="filtrele('fakulte', this)">Fakülteler</button>
+                <button class="sekme" onclick="filtrele('sosyal', this)">Sosyal Alanlar</button>
+                <button class="sekme" onclick="filtrele('yemek', this)">Yemek</button>
+            </div>
+
+            <div class="mekan-listesi">
+                <div class="kart tiklanabilir fakulte">
+                    <h3 class="kart-baslik">Mühendislik Fakültesi</h3>
+                    <p class="kart-metin">Bilgisayar, Yazılım, Makine ve İnşaat mühendisliği bölümleri.</p>
+                    <div class="kart-alt">
+                        <span class="etiket bilgi">Fakülte</span>
+                        <div class="buton-grubu">
+                            <button class="buton kucuk ikincil" onclick="haritaOdakla('39.7062', '37.0294')">Haritada
+                                Gör</button>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Cumhuriyet+Üniversitesi+Mühendislik+Fakültesi"
+                                target="_blank" class="buton kucuk">Yol Tarifi</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kart tiklanabilir fakulte">
+                    <h3 class="kart-baslik">Tıp Fakültesi</h3>
+                    <p class="kart-metin">Eğitim binaları ve Üniversite Hastanesi ana yerleşkesi.</p>
+                    <div class="kart-alt">
+                        <span class="etiket bilgi">Sağlık & Eğitim</span>
+                        <div class="buton-grubu">
+                            <button class="buton kucuk ikincil" onclick="haritaOdakla('39.7077', '37.0305')">Haritada
+                                Gör</button>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Cumhuriyet+Üniversitesi+Tıp+Fakültesi"
+                                target="_blank" class="buton kucuk">Yol Tarifi</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kart tiklanabilir fakulte">
+                    <h3 class="kart-baslik">İktisadi ve İdari Bilimler</h3>
+                    <p class="kart-metin">İşletme, İktisat ve Kamu Yönetimi bölümleri.</p>
+                    <div class="kart-alt">
+                        <span class="etiket bilgi">Fakülte</span>
+                        <div class="buton-grubu">
+                            <button class="buton kucuk ikincil" onclick="haritaOdakla('39.7082', '37.0320')">Haritada
+                                Gör</button>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Cumhuriyet+Üniversitesi+İİBF"
+                                target="_blank" class="buton kucuk">Yol Tarifi</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kart tiklanabilir fakulte">
+                    <h3 class="kart-baslik">Edebiyat Fakültesi</h3>
+                    <p class="kart-metin">Sosyal bilimler, Tarih ve Türk Dili bölümleri.</p>
+                    <div class="kart-alt">
+                        <span class="etiket bilgi">Fakülte</span>
+                        <div class="buton-grubu">
+                            <button class="buton kucuk ikincil" onclick="haritaOdakla('39.7051', '37.0254')">Haritada
+                                Gör</button>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Cumhuriyet+Üniversitesi+Edebiyat+Fakültesi"
+                                target="_blank" class="buton kucuk">Yol Tarifi</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kart tiklanabilir fakulte">
+                    <h3 class="kart-baslik">Hukuk Fakültesi</h3>
+                    <p class="kart-metin">Adalet ve hukuk eğitiminin verildiği modern yerleşke.</p>
+                    <div class="kart-alt">
+                        <span class="etiket bilgi">Fakülte</span>
+                        <div class="buton-grubu">
+                            <button class="buton kucuk ikincil" onclick="haritaOdakla('39.7083', '37.0332')">Haritada
+                                Gör</button>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Cumhuriyet+Üniversitesi+Hukuk+Fakültesi"
+                                target="_blank" class="buton kucuk">Yol Tarifi</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kart tiklanabilir fakulte">
+                    <h3 class="kart-baslik">Diş Hekimliği Fakültesi</h3>
+                    <p class="kart-metin">Diş sağlığı eğitim binaları ve uygulama hastanesi.</p>
+                    <div class="kart-alt">
+                        <span class="etiket bilgi">Sağlık & Eğitim</span>
+                        <div class="buton-grubu">
+                            <button class="buton kucuk ikincil" onclick="haritaOdakla('39.7099', '37.0346')">Haritada
+                                Gör</button>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Cumhuriyet+Üniversitesi+Diş+Hekimliği"
+                                target="_blank" class="buton kucuk">Yol Tarifi</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kart tiklanabilir fakulte">
+                    <h3 class="kart-baslik">İletişim Fakültesi</h3>
+                    <p class="kart-metin">Gazetecilik, Radyo TV ve Sinema bölümleri.</p>
+                    <div class="kart-alt">
+                        <span class="etiket bilgi">Fakülte</span>
+                        <div class="buton-grubu">
+                            <button class="buton kucuk ikincil" onclick="haritaOdakla('39.7013', '37.0201')">Haritada
+                                Gör</button>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Cumhuriyet+Üniversitesi+İletişim+Fakültesi"
+                                target="_blank" class="buton kucuk">Yol Tarifi</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kart tiklanabilir fakulte">
+                    <h3 class="kart-baslik">İlahiyat Fakültesi</h3>
+                    <p class="kart-metin">Kampüs camii yakınındaki geniş akademik yerleşke.</p>
+                    <div class="kart-alt">
+                        <span class="etiket bilgi">Fakülte</span>
+                        <div class="buton-grubu">
+                            <button class="buton kucuk ikincil" onclick="haritaOdakla('39.7035', '37.0295')">Haritada
+                                Gör</button>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Cumhuriyet+Üniversitesi+İlahiyat+Fakültesi"
+                                target="_blank" class="buton kucuk">Yol Tarifi</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kart tiklanabilir sosyal">
+                    <h3 class="kart-baslik">Merkezi Kütüphane</h3>
+                    <p class="kart-metin">Geniş kütüphane, çalışma salonları ve grup odaları.</p>
+                    <div class="kart-alt">
+                        <span class="etiket duyuru">Açık</span>
+                        <div class="buton-grubu">
+                            <button class="buton kucuk ikincil" onclick="haritaOdakla('39.7022', '37.0205')">Haritada
+                                Gör</button>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.7022,37.0205" target="_blank"
+                                class="buton kucuk">Yol Tarifi</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kart tiklanabilir sosyal">
+                    <h3 class="kart-baslik">Akropol Kafe</h3>
+                    <p class="kart-metin">Geniş bahçesi ve canlı müzik etkinlikleriyle popüler sosyal alan.</p>
+                    <div class="kart-alt">
+                        <span class="etiket bilgi">Kafe & Sosyal</span>
+                        <div class="buton-grubu">
+                            <button class="buton kucuk ikincil" onclick="haritaOdakla('39.7075', '37.0279')">Haritada
+                                Gör</button>
+                            <a href="https://www.google.com/maps/dir//Akropol+Cafe" target="_blank"
+                                class="buton kucuk">Yol Tarifi</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kart tiklanabilir sosyal">
+                    <h3 class="kart-baslik">Albatros Kafe</h3>
+                    <p class="kart-metin">Göl kenarına yakın konumuyla huzurlu bir dinlenme noktası.</p>
+                    <div class="kart-alt">
+                        <span class="etiket bilgi">Kafe & Manzara</span>
+                        <div class="buton-grubu">
+                            <button class="buton kucuk ikincil" onclick="haritaOdakla('39.7110', '37.0300')">Haritada
+                                Gör</button>
+                            <a href="https://www.google.com/maps/dir//Albatros+Cafe+Sivas" target="_blank"
+                                class="buton kucuk">Yol Tarifi</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kart tiklanabilir sosyal">
+                    <h3 class="kart-baslik">Espresso Lab</h3>
+                    <p class="kart-metin">Nitelikli kahve çeşitleri ve modern çalışma ortamı.</p>
+                    <div class="kart-alt">
+                        <span class="etiket bilgi">Yeni Nesil Kahve</span>
+                        <div class="buton-grubu">
+                            <button class="buton kucuk ikincil" onclick="haritaOdakla('39.7069', '37.0273')">Haritada
+                                Gör</button>
+                            <a href="https://www.google.com/maps/dir//Espressolab+Sivas+Cumhuriyet+Üniversitesi"
+                                target="_blank" class="buton kucuk">Yol Tarifi</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="kart tiklanabilir yemek">
+                    <h3 class="kart-baslik">Merkezi Yemekhane</h3>
+                    <p class="kart-metin">Öğrenci dostu sıcak yemek servisi noktası.</p>
+                    <div class="kart-alt">
+                        <span class="etiket indirim">Yemek</span>
+                        <div class="buton-grubu">
+                            <button class="buton kucuk ikincil" onclick="haritaOdakla('39.7069', '37.0260')">Haritada
+                                Gör</button>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.7145,37.0300" target="_blank"
+                                class="buton kucuk">Yol Tarifi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        function haritaOdakla(enlem, boylam) {
+            const iframe = document.getElementById('kampusHarita');
+            // 'q' parametresi pini tam koordinata çiviler, 'z=17' ise bina seviyesinde zoom yapar
+            const yeniUrl = `https://www.google.com/maps?q=${enlem},${boylam}&hl=tr&z=17&output=embed`;
+            iframe.src = yeniUrl;
+
+            if (window.innerWidth < 992) {
+                iframe.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        // Sekme Filtreleme Fonksiyonu
+        function filtrele(kategori, buton) {
+            // Aktif buton stilini güncelle
+            document.querySelectorAll('.sekme').forEach(s => s.classList.remove('aktif'));
+            buton.classList.add('aktif');
+
+            // Kartları göster/gizle
+            const kartlar = document.querySelectorAll('.mekan-listesi .kart');
+            kartlar.forEach(kart => {
+                if (kategori === 'tumu' || kart.classList.contains(kategori)) {
+                    kart.style.display = 'block';
+                } else {
+                    kart.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 KampüsCÜ. Sivas Cumhuriyet Üniversitesi öğrencileri için hazırlanmıştır.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
