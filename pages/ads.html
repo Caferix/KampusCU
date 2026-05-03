@@ -18,17 +18,30 @@
 
     <header class="header">
         <div class="container nav-icerik">
-            <a href="../index.html" class="nav-logo" aria-label="KampüsCÜ ana sayfasına git">
-                KampüsCÜ
-            </a>
+            <nav class="nav-icerik">
+                <a href="index.html" class="nav-logo">🎓 KampüsCÜ</a>
 
-            <nav class="nav-linkler" aria-label="Ana menü">
-                <a href="../index.html">Ana Sayfa</a>
-                <a href="ads.html" class="aktif" aria-current="page">İlanlar</a>
-                <a href="events.html">Etkinlikler</a>
-                <a href="map.html">Mekanlar</a>
-                <a href="about.html">Hakkımızda</a>
-                <a href="profile.html">Profil</a>
+                <ul class="nav-linkler" id="navMenu">
+                    <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li><a href="events.html">Etkinlikler</a></li>
+                    <li><a href="announcements.html">Duyurular</a></li>
+                    <li><a href="map.html">Mekanlar</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                </ul>
+
+                <!-- Giriş yapılmamış durum — auth.js bu alanı günceller -->
+                <div class="nav-kullanici" id="navKullanici">
+                    <button class="buton kucuk" onclick="modalAc('girisModal')">Giriş Yap</button>
+                </div>
+
+                <!-- Giriş yapılmış durum örneği (auth.js tarafından yazılır):
+                <div class="nav-kullanici">
+                    <div class="avatar kucuk">AY</div>
+                    <a href="profile.html" class="buton ikincil kucuk">Profilim</a>
+                </div>
+                -->
+
+                <button class="hamburger" id="hamburger" aria-label="Menüyü aç">☰</button>
             </nav>
         </div>
     </header>
@@ -347,7 +360,12 @@
 
     <footer class="footer">
         <div class="container">
-            <p>© 2026 KampüsCÜ. Sivas Cumhuriyet Üniversitesi öğrencileri için hazırlanmıştır.</p>
+            <p>© 2026 KampüsCÜ · Sivas Cumhuriyet Üniversitesi Bilgisayar Mühendisliği Ekibi</p>
+            <p>
+                <a href="pages/about.html">Hakkımızda</a> ·
+                <a href="#">İletişim</a> ·
+                <a href="#">Gizlilik</a>
+            </p>
         </div>
     </footer>
 
