@@ -127,65 +127,6 @@
     gap: var(--standart-bosluk);
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-    .nav-linkler {
-        display: none; /* Mobil menü JS ile açılır */
-    }
-
-    .nav-linkler.acik {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: var(--kutu-arkaplan);
-        padding: var(--space-md);
-        box-shadow: var(--orta-golge);
-        border-top: 1px solid var(--kenarlik-renk);
-    }
-
-    .duzey-kenar {
-        grid-template-columns: 1fr;
-    }
-
-    .hamburger {
-    display: none; /* Masaüstünde gizle */
-}
-
-/* Medya sorgusunun İÇİNE ekle (@media (max-width: 768px)) */
-@media (max-width: 768px) {
-    .hamburger {
-        display: block !important; /* Mobilde görünür yap */
-        background: none;
-        border: none;
-        font-size: 28px;
-        color: var(--ana-renk);
-        cursor: pointer;
-    }
-
-    /* Linklerin mobildeki yerleşimi */
-    .nav-linkler {
-        display: none; /* Varsayılan kapalı */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: white;
-        flex-direction: column;
-        padding: 20px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        z-index: 1000;
-    }
-
-    /* Butona basınca JS ile eklenen klas */
-    .nav-linkler.acik {
-        display: flex !important;
-    }
-}
-}
-
 /* Hamburger butonu masaüstünde gizli */
 .hamburger {
     display: none;
@@ -194,4 +135,35 @@
     cursor: pointer;
     font-size: var(--text-xl);
     color: var(--metin-renk);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .nav-linkler {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--kutu-arkaplan);
+        flex-direction: column;
+        padding: var(--space-md);
+        box-shadow: var(--orta-golge);
+        border-top: 1px solid var(--kenarlik-renk);
+        z-index: 1000;
+    }
+
+    .nav-linkler.acik {
+        display: flex;
+    }
+
+    .duzey-kenar {
+        grid-template-columns: 1fr;
+    }
+
+    .hamburger {
+        display: block;
+        font-size: 28px;
+        color: var(--ana-renk);
+    }
 }

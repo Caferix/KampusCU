@@ -17,18 +17,27 @@
 <body>
 
     <header class="header">
-        <div class="container nav-icerik">
-            <a href="../index.html" class="nav-logo" aria-label="KampüsCÜ ana sayfasına git">
-                KampüsCÜ
-            </a>
+        <div class="container">
+            <nav class="nav-icerik">
+                <a href="../index.html" class="nav-logo" aria-label="KampüsCÜ ana sayfasına git">
+                    🎓 KampüsCÜ
+                </a>
 
-            <nav class="nav-linkler" aria-label="Ana menü">
-                <a href="../index.html">Ana Sayfa</a>
-                <a href="ads.html">İlanlar</a>
-                <a href="events.html">Etkinlikler</a>
-                <a href="map.html">Mekanlar</a>
-                <a href="about.html">Hakkımızda</a>
-                <a href="profile.html" class="aktif" aria-current="page">Profil</a>
+                <ul class="nav-linkler" id="navMenu" aria-label="Ana menü">
+                    <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li><a href="ads.html">İlanlar</a></li>
+                    <li><a href="events.html">Etkinlikler</a></li>
+                    <li><a href="announcements.html">Duyurular</a></li>
+                    <li><a href="map.html">Mekanlar</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="profile.html" class="aktif" aria-current="page">Profil</a></li>
+                </ul>
+
+                <div class="nav-kullanici" id="navKullanici">
+                    <button class="buton kucuk">Giriş Yap</button>
+                </div>
+
+                <button class="hamburger" id="hamburger" aria-label="Menüyü aç">☰</button>
             </nav>
         </div>
     </header>
@@ -266,6 +275,10 @@
         });
 
         profilIlanlariniYukle();
+
+        document.getElementById('hamburger').addEventListener('click', function () {
+            document.getElementById('navMenu').classList.toggle('acik');
+        });
     </script>
 </body>
 </html>

@@ -17,12 +17,13 @@
 <body>
 
     <header class="header">
-        <div class="container nav-icerik">
+        <div class="container">
             <nav class="nav-icerik">
-                <a href="index.html" class="nav-logo">🎓 KampüsCÜ</a>
+                <a href="../index.html" class="nav-logo">🎓 KampüsCÜ</a>
 
                 <ul class="nav-linkler" id="navMenu">
                     <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li><a href="ads.html" class="aktif" aria-current="page">İlanlar</a></li>
                     <li><a href="events.html">Etkinlikler</a></li>
                     <li><a href="announcements.html">Duyurular</a></li>
                     <li><a href="map.html">Mekanlar</a></li>
@@ -362,7 +363,7 @@
         <div class="container">
             <p>© 2026 KampüsCÜ · Sivas Cumhuriyet Üniversitesi Bilgisayar Mühendisliği Ekibi</p>
             <p>
-                <a href="pages/about.html">Hakkımızda</a> ·
+                <a href="about.html">Hakkımızda</a> ·
                 <a href="#">İletişim</a> ·
                 <a href="#">Gizlilik</a>
             </p>
@@ -621,6 +622,10 @@
         });
 
         kayitliIlanlariSayfayaYukle();
+
+        document.getElementById('hamburger').addEventListener('click', function () {
+            document.getElementById('navMenu').classList.toggle('acik');
+        });
     </script>
 </body>
 </html>
