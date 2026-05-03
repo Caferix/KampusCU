@@ -1,0 +1,119 @@
+/* map.css — Muhammed */
+
+.duzey-kenar {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+    align-items: start;
+}
+
+/* Harita Tasarımı */
+.harita-konteyner {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--kenarlik-renk);
+    border-radius: var(--space-sm);
+    box-shadow: var(--golge-sm);
+}
+
+.harita-ust-buton {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: white;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+}
+
+main iframe {
+    width: 100%;
+    height: 550px;
+    border: none;
+    display: block;
+}
+
+/* Filtre Sekmeleri */
+.sekme-grubu {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.sekme {
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: var(--text-sm);
+    color: var(--metin-renk);
+    transition: all 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.sekme.aktif {
+    color: var(--ana-renk);
+    border-bottom-color: var(--ana-renk);
+    font-weight: bold;
+}
+
+/* Mekan Listesi */
+.mekan-listesi {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    max-height: 700px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.kart.tiklanabilir {
+    border: 1px solid var(--kenarlik-renk);
+    padding: var(--space-md);
+    background-color: var(--kutu-arkaplan);
+    transition: transform 0.2s;
+}
+
+.kart.tiklanabilir:hover {
+    transform: translateY(-3px);
+    border-color: var(--ana-renk);
+}
+
+.kart-alt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-sm);
+}
+
+.buton-grubu {
+    display: flex;
+    gap: 8px;
+}
+
+.buton.ikincil {
+    background-color: transparent;
+    border: 1px solid var(--ana-renk);
+    color: var(--ana-renk);
+}
+
+.buton.ikincil:hover {
+    background-color: var(--ana-renk);
+    color: white;
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 992px) {
+    .duzey-kenar {
+        grid-template-columns: 1fr;
+    }
+}
