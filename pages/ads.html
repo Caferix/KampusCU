@@ -1,5 +1,3 @@
-<!--İlanlar Sayfası-->
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -17,29 +15,23 @@
 <body>
 
     <header class="header">
-        <div class="container nav-icerik">
+        <div class="container">
             <nav class="nav-icerik">
-                <a href="index.html" class="nav-logo">🎓 KampüsCÜ</a>
+                <a href="../index.html" class="nav-logo" aria-label="KampüsCÜ ana sayfasına git">Kampüs<span class="logo-vurgu">CÜ</span></a>
 
                 <ul class="nav-linkler" id="navMenu">
                     <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li><a href="ads.html" class="aktif" aria-current="page">İlanlar</a></li>
                     <li><a href="events.html">Etkinlikler</a></li>
                     <li><a href="announcements.html">Duyurular</a></li>
                     <li><a href="map.html">Mekanlar</a></li>
                     <li><a href="about.html">Hakkımızda</a></li>
                 </ul>
 
-                <!-- Giriş yapılmamış durum — auth.js bu alanı günceller -->
+                <!-- auth.js burayı günceller -->
                 <div class="nav-kullanici" id="navKullanici">
-                    <button class="buton kucuk" onclick="modalAc('girisModal')">Giriş Yap</button>
+                    <a href="auth.html" class="buton kucuk">Giriş Yap</a>
                 </div>
-
-                <!-- Giriş yapılmış durum örneği (auth.js tarafından yazılır):
-                <div class="nav-kullanici">
-                    <div class="avatar kucuk">AY</div>
-                    <a href="profile.html" class="buton ikincil kucuk">Profilim</a>
-                </div>
-                -->
 
                 <button class="hamburger" id="hamburger" aria-label="Menüyü aç">☰</button>
             </nav>
@@ -98,189 +90,7 @@
                 </div>
             </div>
 
-            <div class="izgara-3" id="ilan-listesi">
-                <article
-                    class="kart tiklanabilir"
-                    data-kategori="satis"
-                    data-baslik="Algoritma ve Veri Yapıları Kitabı"
-                    data-kategori-adi="Satılık"
-                    data-fiyat="250 ₺"
-                    data-konum="Mühendislik Fakültesi"
-                    data-tarih="Bugün eklendi"
-                    data-aciklama="Bilgisayar mühendisliği derslerinde kullanılabilecek temiz durumda kaynak kitap."
-                >
-                    <div class="kart-resim-alani" aria-hidden="true">Kitap</div>
-                    <span class="etiket satis">Satılık</span>
-                    <h3 class="kart-baslik">Algoritma ve Veri Yapıları Kitabı</h3>
-                    <p class="kart-metin">Bilgisayar mühendisliği derslerinde kullanılabilecek temiz durumda kaynak kitap.</p>
-
-                    <div class="ilan-detaylari">
-                        <span>Mühendislik Fakültesi</span>
-                        <span>Bugün eklendi</span>
-                    </div>
-
-                    <div class="kart-alt">
-                        <span class="fiyat-etiketi">250 ₺</span>
-                        <button type="button" class="buton kucuk detay-buton">İlanı Gör</button>
-                    </div>
-                </article>
-
-                <article
-                    class="kart tiklanabilir"
-                    data-kategori="kiralik"
-                    data-baslik="Kampüse Yakın Kiralık Oda"
-                    data-kategori-adi="Kiralık"
-                    data-fiyat="3.500 ₺ / ay"
-                    data-konum="Kampüs çevresi"
-                    data-tarih="Bugün eklendi"
-                    data-aciklama="Kampüse yürüme mesafesinde, öğrenciler için uygun, eşyalı kiralık oda."
-                >
-                    <div class="kart-resim-alani" aria-hidden="true">Oda</div>
-                    <span class="etiket kiralik">Kiralık</span>
-                    <h3 class="kart-baslik">Kampüse Yakın Kiralık Oda</h3>
-                    <p class="kart-metin">Kampüse yürüme mesafesinde, öğrenciler için uygun, eşyalı kiralık oda.</p>
-
-                    <div class="ilan-detaylari">
-                        <span>Kampüs çevresi</span>
-                        <span>Bugün eklendi</span>
-                    </div>
-
-                    <div class="kart-alt">
-                        <span class="fiyat-etiketi">3.500 ₺ / ay</span>
-                        <button type="button" class="buton kucuk detay-buton">İlanı Gör</button>
-                    </div>
-                </article>
-
-                <article
-                    class="kart tiklanabilir"
-                    data-kategori="ev-arkadas"
-                    data-baslik="Kampüse Yakın Eve Arkadaş"
-                    data-kategori-adi="Ev Arkadaşı"
-                    data-fiyat="4.000 ₺ / ay"
-                    data-konum="Kampüs çevresi"
-                    data-tarih="1 gün önce eklendi"
-                    data-aciklama="Üniversiteye ulaşımı kolay, düzenli ve sakin bir ev için ev arkadaşı aranmaktadır."
-                >
-                    <div class="kart-resim-alani" aria-hidden="true">Ev</div>
-                    <span class="etiket ev-arkadas">Ev Arkadaşı</span>
-                    <h3 class="kart-baslik">Kampüse Yakın Eve Arkadaş</h3>
-                    <p class="kart-metin">Üniversiteye ulaşımı kolay, düzenli ve sakin bir ev için ev arkadaşı aranmaktadır.</p>
-
-                    <div class="ilan-detaylari">
-                        <span>Kampüs çevresi</span>
-                        <span>1 gün önce eklendi</span>
-                    </div>
-
-                    <div class="kart-alt">
-                        <span class="fiyat-etiketi">4.000 ₺ / ay</span>
-                        <button type="button" class="buton kucuk detay-buton">İlanı Gör</button>
-                    </div>
-                </article>
-
-                <article
-                    class="kart tiklanabilir"
-                    data-kategori="kayip"
-                    data-baslik="Siyah Sırt Çantası Kayboldu"
-                    data-kategori-adi="Kayıp"
-                    data-fiyat="Ödül var"
-                    data-konum="Merkezi Yemekhane"
-                    data-tarih="2 gün önce eklendi"
-                    data-aciklama="Merkezi yemekhane yakınında siyah renkli sırt çantası kaybolmuştur."
-                >
-                    <div class="kart-resim-alani" aria-hidden="true">Çanta</div>
-                    <span class="etiket kayip">Kayıp</span>
-                    <h3 class="kart-baslik">Siyah Sırt Çantası Kayboldu</h3>
-                    <p class="kart-metin">Merkezi yemekhane yakınında siyah renkli sırt çantası kaybolmuştur.</p>
-
-                    <div class="ilan-detaylari">
-                        <span>Merkezi Yemekhane</span>
-                        <span>2 gün önce eklendi</span>
-                    </div>
-
-                    <div class="kart-alt">
-                        <span class="fiyat-etiketi">Ödül var</span>
-                        <button type="button" class="buton kucuk detay-buton">İlanı Gör</button>
-                    </div>
-                </article>
-
-                <article
-                    class="kart tiklanabilir"
-                    data-kategori="is-arkadas"
-                    data-baslik="Algoritma Çalışma Grubu"
-                    data-kategori-adi="Çalışma Arkadaşı"
-                    data-fiyat="Ücretsiz"
-                    data-konum="Merkez Kütüphane"
-                    data-tarih="3 gün önce eklendi"
-                    data-aciklama="Vize öncesi algoritma analizi çalışmak için çalışma arkadaşı aranmaktadır."
-                >
-                    <div class="kart-resim-alani" aria-hidden="true">Not</div>
-                    <span class="etiket is-arkadas">Çalışma Arkadaşı</span>
-                    <h3 class="kart-baslik">Algoritma Çalışma Grubu</h3>
-                    <p class="kart-metin">Vize öncesi algoritma analizi çalışmak için çalışma arkadaşı aranmaktadır.</p>
-
-                    <div class="ilan-detaylari">
-                        <span>Merkez Kütüphane</span>
-                        <span>3 gün önce eklendi</span>
-                    </div>
-
-                    <div class="kart-alt">
-                        <span class="fiyat-etiketi">Ücretsiz</span>
-                        <button type="button" class="buton kucuk detay-buton">İlanı Gör</button>
-                    </div>
-                </article>
-
-                <article
-                    class="kart tiklanabilir"
-                    data-kategori="satis"
-                    data-baslik="Kablosuz Mouse"
-                    data-kategori-adi="Satılık"
-                    data-fiyat="180 ₺"
-                    data-konum="Merkez Kampüs"
-                    data-tarih="4 gün önce eklendi"
-                    data-aciklama="Az kullanılmış, ders ve günlük kullanım için uygun kablosuz mouse satılıktır."
-                >
-                    <div class="kart-resim-alani" aria-hidden="true">Mouse</div>
-                    <span class="etiket satis">Satılık</span>
-                    <h3 class="kart-baslik">Kablosuz Mouse</h3>
-                    <p class="kart-metin">Az kullanılmış, ders ve günlük kullanım için uygun kablosuz mouse satılıktır.</p>
-
-                    <div class="ilan-detaylari">
-                        <span>Merkez Kampüs</span>
-                        <span>4 gün önce eklendi</span>
-                    </div>
-
-                    <div class="kart-alt">
-                        <span class="fiyat-etiketi">180 ₺</span>
-                        <button type="button" class="buton kucuk detay-buton">İlanı Gör</button>
-                    </div>
-                </article>
-
-                <article
-                    class="kart tiklanabilir"
-                    data-kategori="kayip"
-                    data-baslik="Lacivert Mont Bulundu"
-                    data-kategori-adi="Buluntu"
-                    data-fiyat="Buluntu"
-                    data-konum="Fen Fakültesi"
-                    data-tarih="5 gün önce eklendi"
-                    data-aciklama="Fen Fakültesi girişinde unutulan lacivert mont sahibine teslim edilmek üzere bekletilmektedir."
-                >
-                    <div class="kart-resim-alani" aria-hidden="true">Mont</div>
-                    <span class="etiket kayip">Buluntu</span>
-                    <h3 class="kart-baslik">Lacivert Mont Bulundu</h3>
-                    <p class="kart-metin">Fen Fakültesi girişinde unutulan lacivert mont sahibine teslim edilmek üzere bekletilmektedir.</p>
-
-                    <div class="ilan-detaylari">
-                        <span>Fen Fakültesi</span>
-                        <span>5 gün önce eklendi</span>
-                    </div>
-
-                    <div class="kart-alt">
-                        <span class="fiyat-etiketi">Buluntu</span>
-                        <button type="button" class="buton kucuk detay-buton">İlanı Gör</button>
-                    </div>
-                </article>
-            </div>
+            <div class="izgara-3" id="ilan-listesi"></div>
         </section>
 
         <section id="filtre-bos-durum" class="bos-durum" aria-labelledby="bos-ilan-baslik" style="display: none;">
@@ -362,265 +172,18 @@
         <div class="container">
             <p>© 2026 KampüsCÜ · Sivas Cumhuriyet Üniversitesi Bilgisayar Mühendisliği Ekibi</p>
             <p>
-                <a href="pages/about.html">Hakkımızda</a> ·
-                <a href="#">İletişim</a> ·
+                <a href="about.html">Hakkımızda</a> ·
+                <a href="about.html#iletisim">İletişim</a> ·
                 <a href="#">Gizlilik</a>
             </p>
         </div>
     </footer>
 
-    <script>
-        const LOCAL_STORAGE_KEY = "kampuscu_kullanici_ilanlari";
-
-        const sekmeler = document.querySelectorAll(".sekme");
-        const aramaInput = document.querySelector("#ilan-arama");
-        const aramaButon = document.querySelector("#arama-buton");
-        const ilanListesi = document.querySelector("#ilan-listesi");
-        const bosDurum = document.querySelector("#filtre-bos-durum");
-
-        const ilanFormu = document.querySelector("#ilan-formu");
-        const ilanBaslikInput = document.querySelector("#ilan-baslik");
-        const ilanKategoriInput = document.querySelector("#ilan-kategori");
-        const ilanFiyatInput = document.querySelector("#ilan-fiyat");
-        const ilanKonumInput = document.querySelector("#ilan-konum");
-        const ilanAciklamaInput = document.querySelector("#ilan-aciklama");
-
-        const detayModal = document.querySelector("#detay-modal");
-        const detayKapat = document.querySelector("#detay-kapat");
-        const detayKategori = document.querySelector("#detay-kategori");
-        const detayBaslik = document.querySelector("#detay-baslik");
-        const detayAciklama = document.querySelector("#detay-aciklama");
-        const detayKonum = document.querySelector("#detay-konum");
-        const detayTarih = document.querySelector("#detay-tarih");
-        const detayFiyat = document.querySelector("#detay-fiyat");
-        const detayIletisim = document.querySelector("#detay-iletisim");
-
-        const kategoriAdlari = {
-            "satis": "Satılık",
-            "kiralik": "Kiralık",
-            "ev-arkadas": "Ev Arkadaşı",
-            "is-arkadas": "Çalışma Arkadaşı",
-            "kayip": "Kayıp"
-        };
-
-        function guvenliMetin(metin) {
-            return String(metin)
-                .replaceAll("&", "&amp;")
-                .replaceAll("<", "&lt;")
-                .replaceAll(">", "&gt;")
-                .replaceAll('"', "&quot;")
-                .replaceAll("'", "&#039;");
-        }
-
-        function ilanGorselMetniOlustur(baslik, kategori) {
-            const kucukBaslik = baslik.toLowerCase();
-
-            if (kucukBaslik.includes("masa")) {
-                return "Masa";
-            }
-
-            if (kucukBaslik.includes("kitap")) {
-                return "Kitap";
-            }
-
-            if (kucukBaslik.includes("mouse")) {
-                return "Mouse";
-            }
-
-            if (kucukBaslik.includes("oda")) {
-                return "Oda";
-            }
-
-            if (kucukBaslik.includes("ev")) {
-                return "Ev";
-            }
-
-            if (kucukBaslik.includes("çanta") || kucukBaslik.includes("canta")) {
-                return "Çanta";
-            }
-
-            if (kucukBaslik.includes("mont")) {
-                return "Mont";
-            }
-
-            if (kucukBaslik.includes("not")) {
-                return "Not";
-            }
-
-            return kategoriAdlari[kategori] || "İlan";
-        }
-
-        function kayitliIlanlariGetir() {
-            const veriler = localStorage.getItem(LOCAL_STORAGE_KEY);
-            return veriler ? JSON.parse(veriler) : [];
-        }
-
-        function kayitliIlanlariKaydet(ilanlar) {
-            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(ilanlar));
-        }
-
-        function aktifKategoriGetir() {
-            const aktifSekme = document.querySelector(".sekme.aktif");
-            return aktifSekme ? aktifSekme.dataset.filter : "tum";
-        }
-
-        function ilanlariGetir() {
-            return document.querySelectorAll("#ilan-listesi .kart");
-        }
-
-        function ilanlariFiltrele() {
-            const aktifKategori = aktifKategoriGetir();
-            const aramaMetni = aramaInput.value.toLowerCase().trim();
-            let gorunenIlanSayisi = 0;
-
-            ilanlariGetir().forEach(function (ilan) {
-                const kategoriUygun = aktifKategori === "tum" || ilan.dataset.kategori === aktifKategori;
-                const metinUygun = ilan.textContent.toLowerCase().includes(aramaMetni);
-
-                if (kategoriUygun && metinUygun) {
-                    ilan.style.display = "";
-                    gorunenIlanSayisi++;
-                } else {
-                    ilan.style.display = "none";
-                }
-            });
-
-            bosDurum.style.display = gorunenIlanSayisi === 0 ? "block" : "none";
-        }
-
-        function ilanKartiOlustur(ilan) {
-            const kategoriAdi = kategoriAdlari[ilan.kategori] || "İlan";
-            const gorselMetni = ilanGorselMetniOlustur(ilan.baslik, ilan.kategori);
-
-            const ilanKart = document.createElement("article");
-            ilanKart.className = "kart tiklanabilir";
-            ilanKart.dataset.kategori = ilan.kategori;
-            ilanKart.dataset.baslik = ilan.baslik;
-            ilanKart.dataset.kategoriAdi = kategoriAdi;
-            ilanKart.dataset.fiyat = ilan.fiyat;
-            ilanKart.dataset.konum = ilan.konum;
-            ilanKart.dataset.tarih = ilan.tarih;
-            ilanKart.dataset.aciklama = ilan.aciklama;
-            ilanKart.dataset.kullaniciIlani = "true";
-            ilanKart.dataset.id = ilan.id;
-
-            ilanKart.innerHTML = `
-                <div class="kart-resim-alani" aria-hidden="true">${guvenliMetin(gorselMetni)}</div>
-                <span class="etiket ${guvenliMetin(ilan.kategori)}">${guvenliMetin(kategoriAdi)}</span>
-                <h3 class="kart-baslik">${guvenliMetin(ilan.baslik)}</h3>
-                <p class="kart-metin">${guvenliMetin(ilan.aciklama)}</p>
-
-                <div class="ilan-detaylari">
-                    <span>${guvenliMetin(ilan.konum)}</span>
-                    <span>${guvenliMetin(ilan.tarih)}</span>
-                </div>
-
-                <div class="kart-alt">
-                    <span class="fiyat-etiketi">${guvenliMetin(ilan.fiyat)}</span>
-                    <button type="button" class="buton kucuk detay-buton">İlanı Gör</button>
-                </div>
-            `;
-
-            return ilanKart;
-        }
-
-        function kayitliIlanlariSayfayaYukle() {
-            const kayitliIlanlar = kayitliIlanlariGetir();
-
-            kayitliIlanlar.forEach(function (ilan) {
-                ilanListesi.prepend(ilanKartiOlustur(ilan));
-            });
-
-            ilanlariFiltrele();
-        }
-
-        function detayModalAc(ilan) {
-            const kategori = ilan.dataset.kategori;
-            const kategoriAdi = ilan.dataset.kategoriAdi || kategoriAdlari[kategori] || "İlan";
-
-            detayKategori.className = "etiket " + kategori;
-            detayKategori.textContent = kategoriAdi;
-            detayBaslik.textContent = ilan.dataset.baslik;
-            detayAciklama.textContent = ilan.dataset.aciklama;
-            detayKonum.textContent = "Konum: " + ilan.dataset.konum;
-            detayTarih.textContent = ilan.dataset.tarih;
-            detayFiyat.textContent = ilan.dataset.fiyat;
-
-            detayIletisim.textContent = "İletişime Geç";
-            detayModal.classList.add("acik");
-        }
-
-        function detayModalKapat() {
-            detayModal.classList.remove("acik");
-        }
-
-        sekmeler.forEach(function (sekme) {
-            sekme.addEventListener("click", function () {
-                sekmeler.forEach(function (buton) {
-                    buton.classList.remove("aktif");
-                });
-
-                sekme.classList.add("aktif");
-                ilanlariFiltrele();
-            });
-        });
-
-        aramaInput.addEventListener("input", ilanlariFiltrele);
-        aramaButon.addEventListener("click", ilanlariFiltrele);
-
-        ilanListesi.addEventListener("click", function (event) {
-            const detayButonu = event.target.closest(".detay-buton");
-
-            if (!detayButonu) {
-                return;
-            }
-
-            const ilan = detayButonu.closest(".kart");
-            detayModalAc(ilan);
-        });
-
-        detayKapat.addEventListener("click", detayModalKapat);
-
-        detayModal.addEventListener("click", function (event) {
-            if (event.target === detayModal) {
-                detayModalKapat();
-            }
-        });
-
-        detayIletisim.addEventListener("click", function () {
-            detayIletisim.textContent = "İletişim isteği gönderildi";
-        });
-
-        ilanFormu.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            const yeniIlan = {
-                id: Date.now().toString(),
-                baslik: ilanBaslikInput.value.trim(),
-                kategori: ilanKategoriInput.value,
-                fiyat: ilanFiyatInput.value.trim(),
-                konum: ilanKonumInput.value.trim(),
-                aciklama: ilanAciklamaInput.value.trim(),
-                tarih: "Az önce eklendi"
-            };
-
-            if (!yeniIlan.baslik || !yeniIlan.kategori || !yeniIlan.fiyat || !yeniIlan.konum || !yeniIlan.aciklama) {
-                alert("Lütfen tüm ilan alanlarını doldur.");
-                return;
-            }
-
-            const kayitliIlanlar = kayitliIlanlariGetir();
-            kayitliIlanlar.unshift(yeniIlan);
-            kayitliIlanlariKaydet(kayitliIlanlar);
-
-            ilanListesi.prepend(ilanKartiOlustur(yeniIlan));
-            ilanFormu.reset();
-
-            window.location.hash = "";
-            ilanlariFiltrele();
-        });
-
-        kayitliIlanlariSayfayaYukle();
-    </script>
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/ilanlar.js"></script>
+    <script src="../js/common-page.js"></script>
+    <script src="../js/pages/ads-page.js"></script>
 </body>
 </html>

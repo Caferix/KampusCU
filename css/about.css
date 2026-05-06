@@ -1,7 +1,4 @@
-/* ============================================================
-   about.css — Sadece hakkımızda sayfasına özel stiller
-   components.css veya layout.css'de olan bir şeyi BURAYA YAZMA
-   ============================================================ */
+/* about.css — Hakkımızda stilleri */
 
 /* ----- PROJE TANITIM ALANI ----- */
 .tanitim-alani {
@@ -129,11 +126,7 @@
     gap: var(--space-sm);
 }
 
-/*
-    <details> HTML'in yerleşik accordion etiketi.
-    Tarayıcı destekli — JS olmadan da açılıp kapanır.
-    Biz sadece görselini düzenliyoruz.
-*/
+/* SSS: details/summary stilleri */
 .sss-madde {
     background-color: var(--kutu-arkaplan);
     border: 1px solid var(--kenarlik-renk);
@@ -146,11 +139,7 @@
     border-color: var(--ana-renk);
 }
 
-/*
-    <summary> tıklanabilir başlık kısmı.
-    list-style: none — tarayıcının eklediği üçgeni kaldırır.
-    Yerine kendi .sss-ok okunu koyuyoruz.
-*/
+/* Başlık */
 .sss-soru {
     display: flex;
     justify-content: space-between;

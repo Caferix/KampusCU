@@ -16,29 +16,29 @@
     <header class="header">
         <div class="container">
             <nav class="nav-icerik">
-                <a href="../index.html" class="nav-logo">🎓 KampüsCÜ</a>
+                <a href="../index.html" class="nav-logo" aria-label="KampüsCÜ ana sayfasına git">Kampüs<span class="logo-vurgu">CÜ</span></a>
                 <ul class="nav-linkler" id="navMenu">
                     <li><a href="../index.html">Ana Sayfa</a></li>
                     <li><a href="ads.html">İlanlar</a></li>
                     <li><a href="events.html">Etkinlikler</a></li>
                     <li><a href="announcements.html">Duyurular</a></li>
-                    <li><a href="map.html" class="aktif">Mekanlar</a></li>
+                    <li><a href="map.html" class="aktif" aria-current="page">Mekanlar</a></li>
                     <li><a href="about.html">Hakkımızda</a></li>
                 </ul>
-                <div class="nav-kullanici">
-                    <button class="buton kucuk">Giriş Yap</button>
+                <div class="nav-kullanici" id="navKullanici">
+                    <a href="auth.html" class="buton kucuk">Giriş Yap</a>
                 </div>
-                <button class="hamburger" id="hamburger">☰</button>
+                <button class="hamburger" id="hamburger" aria-label="Menüyü aç">☰</button>
             </nav>
         </div>
     </header>
 
-    <header class="sayfa-basligi">
+    <section class="sayfa-basligi">
         <div class="container">
             <h1>Kampüs Mekanları</h1>
             <p>Sivas Cumhuriyet Üniversitesi yerleşkesini keşfedin ve yol tarifi alın.</p>
         </div>
-    </header>
+    </section>
 
     <div class="duzey-kenar container">
         <main>
@@ -247,37 +247,19 @@
         </aside>
     </div>
 
-    <script>
-        function haritaOdakla(enlem, boylam) {
-            const iframe = document.getElementById('kampusHarita');
-            // 'q' parametresi pini tam koordinata çiviler, 'z=17' ise bina seviyesinde zoom yapar
-            const yeniUrl = `https://www.google.com/maps?q=${enlem},${boylam}&hl=tr&z=17&output=embed`;
-            iframe.src = yeniUrl;
-
-            if (window.innerWidth < 992) {
-                iframe.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-        // Sekme Filtreleme Fonksiyonu
-        function filtrele(kategori, buton) {
-            // Aktif buton stilini güncelle
-            document.querySelectorAll('.sekme').forEach(s => s.classList.remove('aktif'));
-            buton.classList.add('aktif');
-
-            // Kartları göster/gizle
-            const kartlar = document.querySelectorAll('.mekan-listesi .kart');
-            kartlar.forEach(kart => {
-                if (kategori === 'tumu' || kart.classList.contains(kategori)) {
-                    kart.style.display = 'block';
-                } else {
-                    kart.style.display = 'none';
-                }
-            });
-        }
-    </script>
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/common-page.js"></script>
+    <script src="../js/pages/map-page.js"></script>
     <footer class="footer">
         <div class="container">
-            <p>© 2026 KampüsCÜ. Sivas Cumhuriyet Üniversitesi öğrencileri için hazırlanmıştır.</p>
+            <p>© 2026 KampüsCÜ · Sivas Cumhuriyet Üniversitesi Bilgisayar Mühendisliği Ekibi</p>
+            <p>
+                <a href="about.html">Hakkımızda</a> ·
+                <a href="about.html#iletisim">İletişim</a> ·
+                <a href="#">Gizlilik</a>
+            </p>
         </div>
     </footer>
 </body>

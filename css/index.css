@@ -1,16 +1,31 @@
-/* ============================================================
-   index.css — Sadece ana sayfaya özel stiller
-   components.css veya layout.css'de olan bir şeyi BURAYA YAZMA.
-   ============================================================ */
+/* index.css — Ana sayfa stilleri */
 
 /* ----- HERO ----- */
 .hero {
-    background: linear-gradient(135deg, var(--koyu-renk) 0%, #1a252f 60%, #3d1a16 100%);
+    background-image:
+        linear-gradient(135deg, var(--koyu-renk) 0%, #1a252f 60%, #3d1a16 100%),
+        url("../assets/img/01_kampüs.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: white;
     padding: var(--space-2xl) 0;
     margin-bottom: var(--space-2xl);
     position: relative;
     overflow: hidden;
+}
+
+@supports (background: color-mix(in srgb, #000 60%, transparent)) {
+    .hero {
+        background-image:
+            linear-gradient(
+                135deg,
+                color-mix(in srgb, var(--koyu-renk) 60%, transparent) 0%,
+                color-mix(in srgb, #1a252f 60%, transparent) 60%,
+                color-mix(in srgb, #3d1a16 60%, transparent) 100%
+            ),
+            url("../assets/img/01_kampüs.jpg");
+    }
 }
 
 .hero::before {
@@ -410,6 +425,33 @@
 .kart-kullanici-zaman {
     font-size: var(--text-xs);
     color: var(--metin-soluk);
+}
+
+/* ----- SON İLANLAR (ANA SAYFA) ----- */
+.home-ilan-kart {
+    padding: var(--space-md);
+}
+
+.home-ilan-kart .kart-resim-alani {
+    height: 120px;
+    margin-bottom: var(--space-sm);
+}
+
+.home-ilan-kart .kart-baslik {
+    font-size: var(--text-base);
+}
+
+.home-ilan-kart .kart-metin {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.home-ilan-kart .kart-alt {
+    margin-top: var(--space-sm);
+    padding-top: var(--space-sm);
 }
 
 /* ----- RESPONSIVE ----- */

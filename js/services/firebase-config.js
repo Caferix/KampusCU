@@ -1,4 +1,4 @@
-// Firebase kongigürasyonu burada olacak, buradan alınıp kullanılacak
+// Firebase ayarları burada (ileride devreye alınacak)
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
