@@ -177,3 +177,96 @@
         })();
     });
 })();
+
+document.addEventListener("DOMContentLoaded", () => {
+    kampanyalariYukle();
+});
+
+async function kampanyalariYukle() {
+    const liste = document.getElementById("kampanyaListesi");
+    const yukleniyor = document.getElementById("kampanyaYukleniyor");
+    const bosDurum = document.getElementById("kampanyaBosDurum");
+
+    if (!liste) return;
+
+    yukleniyor.style.display = "flex";
+    bosDurum.style.display = "none";
+
+    try {
+        const tumDuyurular = await window.duyurulariGetir?.();
+
+        if (!tumDuyurular) throw new Error("Veri alınamadı");
+
+        const filtreli = tumDuyurular
+            .filter(d => d.kategori === "kampanya" || d.kategori === "indirim")
+            .slice(0, 3);
+
+        liste.innerHTML = "";
+
+        if (filtreli.length === 0) {
+            bosDurum.style.display = "block";
+            return;
+        }
+
+        filtreli.forEach(duyuru => {
+            liste.appendChild(kampanyaKartiOlustur(duyuru));
+        });
+
+    } catch (err) {
+        console.error("Kampanyalar yüklenemedi:", err);
+        bosDurum.style.display = "block";
+    } finally {
+        yukleniyor.style.display = "none";
+    }
+}
+
+function kampanyaKartiOlustur(duyuru) {
+    const div = document.createElement("div");
+    div.className = "kart tiklanabilir duyuru-kart";
+
+    const kategoriClass = duyuru.kategori === "indirim"
+        ? "etiket indirim"
+        : "etiket kampanya";
+
+    div.innerHTML = `
+        <div class="duyuru-kart-ust">
+            <span class="${kategoriClass}">
+                ${duyuru.kategori === "indirim" ? "İndirim" : "Kampanya"}
+            </span>
+            <time class="duyuru-tarih">
+                ${formatTarih(duyuru.tarih)}
+            </time>
+        </div>
+
+        <h3 class="kart-baslik">${duyuru.baslik}</h3>
+
+        <p class="kart-metin">
+            ${kisaltMetin(duyuru.ozet, 80)}
+        </p>
+    `;
+
+    div.addEventListener("click", () => {
+        if (typeof duyuruDetayGoster === "function") {
+            duyuruDetayGoster(duyuru);
+        }
+    });
+
+    return div;
+}
+
+function kisaltMetin(metin, max = 100) {
+    if (!metin) return "";
+    return metin.length > max
+        ? metin.substring(0, max) + "..."
+        : metin;
+}
+
+function formatTarih(tarih) {
+    if (!tarih) return "";
+
+    const d = new Date(tarih);
+    return d.toLocaleDateString("tr-TR", {
+        day: "2-digit",
+        month: "short"
+    });
+}

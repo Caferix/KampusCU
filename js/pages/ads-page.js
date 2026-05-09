@@ -190,6 +190,29 @@
         bosDurum.style.display = gorunenIlanSayisi === 0 ? "block" : "none";
     }
 
+    function gorselAlaniOlustur(ilan) {
+        const kategoriEmoji = {
+            satis: "🛍️",
+            kiralik: "🏠",
+            "ev-arkadas": "🏠",
+            "is-arkadas": "📚",
+            kayip: "🔍",
+        };
+
+        if (ilan.gorsel) {
+            const gorselYolu = "../assets/img/" + ilan.gorsel;
+            const altMetni = guvenliMetin(ilan.baslik) + " görseli";
+            return `<img
+                src="${gorselYolu}"
+                alt="${altMetni}"
+                loading="lazy"
+                onerror="this.parentElement.innerHTML='${kategoriEmoji[ilan.kategori] || "📦"}'"
+            >`;
+        }
+
+        return kategoriEmoji[ilan.kategori] || "📦";
+    }
+
     function ilanKartiOlustur(ilan) {
         const kategoriAdi = ilan.kategoriAdi || kategoriAdlari[ilan.kategori] || "İlan";
         const gorselMetni = ilanGorselMetniOlustur(ilan.baslik, ilan.kategori);
@@ -205,9 +228,10 @@
         ilanKart.dataset.aciklama = ilan.aciklama;
         ilanKart.dataset.kullaniciIlani = "true";
         ilanKart.dataset.id = ilan.id;
+        ilanKart.dataset.gorsel = ilan.gorsel || "";
 
         ilanKart.innerHTML = `
-                <div class="kart-resim-alani" aria-hidden="true">${guvenliMetin(gorselMetni)}</div>
+                <div class="kart-resim-alani" aria-hidden="true">${gorselAlaniOlustur(ilan)}</div>
                 <span class="etiket ${guvenliMetin(ilan.kategori)}">${guvenliMetin(kategoriAdi)}</span>
                 <h3 class="kart-baslik">${guvenliMetin(ilan.baslik)}</h3>
                 <p class="kart-metin">${guvenliMetin(ilan.aciklama)}</p>
@@ -254,6 +278,24 @@
         detayKonum.textContent = "Konum: " + ilan.dataset.konum;
         detayTarih.textContent = ilan.dataset.tarih;
         detayFiyat.textContent = ilan.dataset.fiyat;
+
+        /* Görsel alanını doldur */
+        const gorselAlani = document.getElementById("detay-gorsel-alani");
+        if (gorselAlani) {
+            const gorsel = ilan.dataset.gorsel;
+            if (gorsel) {
+                gorselAlani.style.display = "block";
+                gorselAlani.innerHTML = `<img
+                    src="../assets/img/${gorsel}"
+                    alt="${ilan.dataset.baslik} görseli"
+                    loading="lazy"
+                    onerror="this.parentElement.style.display='none'"
+                >`;
+            } else {
+                gorselAlani.style.display = "none";
+                gorselAlani.innerHTML = "";
+            }
+        }
 
         detayIletisim.textContent = "İletişime Geç";
         detayModal.classList.add("acik");

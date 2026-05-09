@@ -10,15 +10,22 @@
         kayip: "Kayıp",
     };
 
+    /*
+        gorsel alanı: assets/img/ klasöründeki dosya adı.
+        Görseli değiştirmek için assets/img/ klasörüne
+        aynı isimde dosyayı koy, kod otomatik kullanır.
+        Görsel yoksa kategori rengiyle emoji gösterilir (fallback).
+    */
     const seedIlanlar = [
         {
             id: "seed-1",
-            baslik: "Algoritma ve Veri Yapıları Kitabı",
+            baslik: "Javascript Kitabı",
             kategori: "satis",
             fiyat: "250 ₺",
             konum: "Mühendislik Fakültesi",
             tarih: "Bugün eklendi",
-            aciklama: "Bilgisayar mühendisliği derslerinde kullanılabilecek temiz durumda kaynak kitap.",
+            aciklama: "İnternet teknolojileri dersinde kullanılabilecek temiz durumda kaynak kitap.",
+            gorsel: "javascript-kitabı.jpg",
         },
         {
             id: "seed-2",
@@ -28,6 +35,7 @@
             konum: "Kampüs çevresi",
             tarih: "Bugün eklendi",
             aciklama: "Kampüse yürüme mesafesinde, öğrenciler için uygun, eşyalı kiralık oda.",
+            gorsel: "student-room.jpg",
         },
         {
             id: "seed-3",
@@ -37,6 +45,7 @@
             konum: "Kampüs çevresi",
             tarih: "1 gün önce eklendi",
             aciklama: "Üniversiteye ulaşımı kolay, düzenli ve sakin bir ev için ev arkadaşı aranmaktadır.",
+            gorsel: "ogrenci-evi.jpg",
         },
         {
             id: "seed-4",
@@ -46,6 +55,7 @@
             konum: "Merkezi Yemekhane",
             tarih: "2 gün önce eklendi",
             aciklama: "Merkezi yemekhane yakınında siyah renkli sırt çantası kaybolmuştur.",
+            gorsel: "siyah-canta.jpg",
         },
         {
             id: "seed-5",
@@ -55,6 +65,7 @@
             konum: "Merkez Kütüphane",
             tarih: "3 gün önce eklendi",
             aciklama: "Vize öncesi algoritma analizi çalışmak için çalışma arkadaşı aranmaktadır.",
+            gorsel: "calisma-arkadasi.jpg",
         },
         {
             id: "seed-6",
@@ -64,16 +75,18 @@
             konum: "Merkez Kampüs",
             tarih: "4 gün önce eklendi",
             aciklama: "Az kullanılmış, ders ve günlük kullanım için uygun kablosuz mouse satılıktır.",
+            gorsel: "kablosuz-mouse.jpg",
         },
         {
             id: "seed-7",
-            baslik: "Lacivert Mont Bulundu",
+            baslik: "Gri Kot Ceket Bulundu",
             kategori: "kayip",
             kategoriAdi: "Buluntu",
             fiyat: "Buluntu",
             konum: "Fen Fakültesi",
             tarih: "5 gün önce eklendi",
-            aciklama: "Fen Fakültesi girişinde unutulan lacivert mont sahibine teslim edilmek üzere bekletilmektedir.",
+            aciklama: "Fen Fakültesi girişinde unutulan gri kot ceket sahibine teslim edilmek üzere bekletilmektedir.",
+            gorsel: "gri-kot-ceket.jpg",
         },
     ];
 
@@ -110,6 +123,37 @@
         }
     }
 
+    function gorselAlaniOlustur(ilan) {
+        /*
+            Görsel varsa <img> göster, yoksa kategori emojisiyle fallback.
+        */
+        const kategoriEmoji = {
+            satis: "🛍️",
+            kiralik: "🏠",
+            "ev-arkadas": "🏠",
+            "is-arkadas": "📚",
+            kayip: "🔍",
+        };
+
+        if (ilan.gorsel) {
+            /* Sayfanın konumuna göre doğru yolu bul */
+            const isPages = window.location.pathname.includes("/pages/");
+            const kok = isPages ? "../assets/img/" : "assets/img/";
+            const gorselYolu = kok + ilan.gorsel;
+            const altMetni = guvenliMetin((ilan.aciklama || ilan.baslik).substring(0, 60));
+
+            return `<img
+                src="${gorselYolu}"
+                alt="${altMetni}"
+                loading="lazy"
+                onerror="this.parentElement.innerHTML='${kategoriEmoji[ilan.kategori] || "📦"}'"
+            >`;
+        }
+
+        /* Görsel yoksa emoji göster */
+        return kategoriEmoji[ilan.kategori] || "📦";
+    }
+
     function createHomeIlanKarti(ilan) {
         const kategori = ilan.kategori;
         const kategoriAdi = ilan.kategoriAdi || kategoriAdlari[kategori] || "İlan";
@@ -120,7 +164,7 @@
         kart.dataset.kategori = kategori;
 
         kart.innerHTML = `
-            <div class="kart-resim-alani" aria-hidden="true">${guvenliMetin(gorselMetni)}</div>
+            <div class="kart-resim-alani" aria-hidden="true">${gorselAlaniOlustur(ilan)}</div>
             <span class="etiket ${guvenliMetin(kategori)}">${guvenliMetin(kategoriAdi)}</span>
             <h3 class="kart-baslik">${guvenliMetin(ilan.baslik)}</h3>
             <p class="kart-metin">${guvenliMetin(ilan.aciklama)}</p>
@@ -152,7 +196,7 @@
 
         const kayitli = kayitliIlanlariGetir();
         const tumIlanlar = [...kayitli, ...seedIlanlar];
-        const gosterilecek = tumIlanlar.slice(0, 4);
+        const gosterilecek = tumIlanlar.slice(0, 8);
 
         gosterilecek.forEach((ilan) => {
             container.appendChild(createHomeIlanKarti(ilan));

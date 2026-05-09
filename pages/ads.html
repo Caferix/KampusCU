@@ -14,6 +14,8 @@
 </head>
 <body>
 
+    <a href="#anaIcerik" class="skip-link">İçeriğe geç</a>
+
     <header class="header">
         <div class="container">
             <nav class="nav-icerik">
@@ -150,6 +152,9 @@
     <div id="detay-modal" class="modal-arkaplan" role="dialog" aria-modal="true" aria-labelledby="detay-baslik">
         <div class="modal-kutu">
             <button type="button" class="modal-kapat" id="detay-kapat" aria-label="İlan detayını kapat">×</button>
+
+            <!-- Görsel alanı — JS tarafından doldurulur, görsel yoksa gizlenir -->
+            <div id="detay-gorsel-alani" class="detay-gorsel-alani" aria-hidden="true"></div>
 
             <span id="detay-kategori" class="etiket satis">Satılık</span>
             <h2 id="detay-baslik">İlan Başlığı</h2>

@@ -4,7 +4,7 @@
 .hero {
     background-image:
         linear-gradient(135deg, var(--koyu-renk) 0%, #1a252f 60%, #3d1a16 100%),
-        url("../assets/img/01_kampüs.jpg");
+        url("../assets/img/01_kampüs.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -433,7 +433,7 @@
 }
 
 .home-ilan-kart .kart-resim-alani {
-    height: 120px;
+    height: 200px;
     margin-bottom: var(--space-sm);
 }
 
@@ -484,3 +484,4 @@
         width: 100%;
     }
 }
+

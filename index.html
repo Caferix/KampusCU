@@ -6,15 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ana Sayfa — KampüsCÜ</title>
 
+    <meta name="description" content="KampüsCÜ — Sivas Cumhuriyet Üniversitesi öğrencileri için ilan, etkinlik, duyuru ve kampüs rehberi platformu.">
+
+
     <!-- CSS -->
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/variables.css" as="style">
+    <link rel="stylesheet" href="css/base.css" as="style">
+    <link rel="stylesheet" href="css/layout.css" as="style">
+    <link rel="stylesheet" href="css/components.css" as="style">
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
+
+    <a href="#anaIcerik" class="skip-link">İçeriğe geç</a>
 
     <!-- Navbar -->
     <header class="header">
@@ -93,7 +98,7 @@
 
 
     <!-- İçerik -->
-    <main class="container">
+    <main class="container" id="anaIcerik">
 
         <!-- Hızlı erişim -->
         <section>
@@ -132,6 +137,13 @@
                     <strong class="hizli-kart-ad">Mekanlar</strong>
                     <span class="hizli-kart-aciklama">Kampüs haritası</span>
                 </a>
+
+                <a href="pages/announcements.html?kategori=indirim" class="hizli-kart">
+                    <span class="hizli-kart-ikon">🏷️</span>
+                    <strong class="hizli-kart-ad">Kampanya & İndirimler</strong>
+                    <span class="hizli-kart-aciklama">Öğrenci avantajları</span>
+                </a>
+
             </div>
         </section>
 
@@ -157,6 +169,10 @@
                 </div>
 
             </section>
+
+            
+
+            
 
 
             <!-- Kenar -->
@@ -223,7 +239,9 @@
 
             </aside>
 
-        </div><!-- /duzey-kenar -->
+            
+
+        </div><!-- /duzey-kenar --> 
 
     </main>
 

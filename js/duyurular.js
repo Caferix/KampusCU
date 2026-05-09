@@ -76,8 +76,10 @@
     }
 
     function etiketSinifi(kategori) {
-        return kategori === "indirim" ? "indirim" : "duyuru";
-    }
+    if (kategori === "indirim") return "indirim";
+    if (kategori === "kampanya") return "kampanya";
+    return "duyuru";
+}
 
     function duyuruHrefOlustur(duyuru) {
         // Detay yok: kategoriye göre listele
@@ -260,3 +262,7 @@
         init();
     }
 })();
+
+window.duyurulariGetir = async function () {
+    return window.KampuscuSeedDuyurular;
+};
