@@ -6,7 +6,7 @@
     <meta name="description" content="Sivas Cumhuriyet Üniversitesi kampüs etkinlikleri — kulüp etkinlikleri, konserler, seminerler ve daha fazlası.">
     <title>Etkinlikler — KampüsCÜ</title>
 
-    <!-- CSS sırası önemli, değiştirme -->
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/layout.css">
@@ -15,15 +15,18 @@
 </head>
 <body>
 
-    <!-- ==================== NAVBAR ==================== -->
+    <a href="#anaIcerik" class="skip-link">İçeriğe geç</a>
+
+    <!-- Navbar -->
     <header class="header">
         <div class="container">
             <nav class="nav-icerik">
-                <a href="../index.html" class="nav-logo">🎓 KampüsCÜ</a>
+                <a href="../index.html" class="nav-logo" aria-label="KampüsCÜ ana sayfasına git">Kampüs<span class="logo-vurgu">CÜ</span></a>
 
                 <ul class="nav-linkler" id="navMenu">
+                    <li><a href="../index.html">Ana Sayfa</a></li>
                     <li><a href="ads.html">İlanlar</a></li>
-                    <li><a href="events.html" class="aktif">Etkinlikler</a></li>
+                    <li><a href="events.html" class="aktif" aria-current="page">Etkinlikler</a></li>
                     <li><a href="announcements.html">Duyurular</a></li>
                     <li><a href="map.html">Mekanlar</a></li>
                     <li><a href="about.html">Hakkımızda</a></li>
@@ -39,7 +42,7 @@
     </header>
 
 
-    <!-- ==================== ANA İÇERİK ==================== -->
+    <!-- İçerik -->
     <main class="container">
 
         <!-- Sayfa başlığı -->
@@ -67,7 +70,7 @@
         <!-- Etkinlik kartları -->
         <div class="izgara-3" id="etkinlikListesi">
 
-            <!-- ======== YAKLAŞAN ETKİNLİKLER ======== -->
+            <!-- Yaklaşan etkinlikler -->
 
             <article class="kart tiklanabilir etkinlik-kart" data-durum="yaklasan">
                 <div class="etkinlik-ust">
@@ -195,7 +198,7 @@
                 </div>
             </article>
 
-            <!-- ======== GEÇMİŞ ETKİNLİKLER ======== -->
+            <!-- Geçmiş etkinlikler -->
 
             <article class="kart tiklanabilir etkinlik-kart gecmis-kart" data-durum="gecmis">
                 <div class="etkinlik-ust">
@@ -260,7 +263,7 @@
                 </div>
             </article>
 
-            <!-- ======== EK YAKLAŞAN ETKİNLİKLER ======== -->
+            <!-- Ek yaklaşan etkinlikler -->
 
             <article class="kart tiklanabilir etkinlik-kart" data-durum="yaklasan">
                 <div class="etkinlik-ust">
@@ -409,7 +412,7 @@
                 </div>
             </article>
 
-            <!-- ======== EK GEÇMİŞ ETKİNLİKLER ======== -->
+            <!-- Ek geçmiş etkinlikler -->
 
             <article class="kart tiklanabilir etkinlik-kart gecmis-kart" data-durum="gecmis">
                 <div class="etkinlik-ust">
@@ -485,114 +488,25 @@
     </main>
 
 
-    <!-- ==================== FOOTER ==================== -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>© 2026 KampüsCÜ · Sivas Cumhuriyet Üniversitesi Bilgisayar Mühendisliği Ekibi</p>
             <p>
-                <a href="pages/about.html">Hakkımızda</a> ·
-                <a href="#">İletişim</a> ·
+                <a href="about.html">Hakkımızda</a> ·
+                <a href="about.html#iletisim">İletişim</a> ·
                 <a href="#">Gizlilik</a>
             </p>
         </div>
     </footer>
 
 
-    <!-- ==================== SCRIPTS ==================== -->
-    <script>
-        // Hamburger menü
-        document.getElementById('hamburger').addEventListener('click', function () {
-            document.getElementById('navMenu').classList.toggle('acik');
-        });
-
-        // Sekme + arama filtreleme
-        document.addEventListener('DOMContentLoaded', function () {
-            var sekmeler = document.querySelectorAll('.sekme');
-            var liste = document.getElementById('etkinlikListesi');
-            var bosDurum = document.getElementById('bosDurum');
-            var ozet = document.getElementById('etkinlikOzet');
-            var aramaInput = document.getElementById('etkinlikArama');
-
-            var aktifFiltre = 'tumu';
-            var aktifArama = '';
-
-            // Türkçe ay → sayı haritası (sıralama için)
-            var ayHarita = {
-                'Ocak': 1, 'Şubat': 2, 'Mart': 3, 'Nisan': 4,
-                'Mayıs': 5, 'Haziran': 6, 'Temmuz': 7, 'Ağustos': 8,
-                'Eylül': 9, 'Ekim': 10, 'Kasım': 11, 'Aralık': 12
-            };
-
-            // Karttan sıralanabilir tarih değeri üret (ay*100 + gün)
-            function tarihDegeri(kart) {
-                var gun = parseInt(kart.querySelector('.etkinlik-gun').textContent, 10) || 0;
-                var ayMetin = kart.querySelector('.etkinlik-ay').textContent.trim();
-                var ay = ayHarita[ayMetin] || 0;
-                return ay * 100 + gun;
-            }
-
-            // Tüm kartları tarihe göre sırala:
-            // - Yaklaşan etkinlikler önce, tarih artan (yakın olan üstte)
-            // - Geçmiş etkinlikler sonra, tarih artan (eski → yeni)
-            var tumKartlar = Array.prototype.slice.call(
-                liste.querySelectorAll('.etkinlik-kart')
-            );
-            tumKartlar.sort(function (a, b) {
-                var dA = a.getAttribute('data-durum');
-                var dB = b.getAttribute('data-durum');
-                if (dA !== dB) {
-                    return dA === 'yaklasan' ? -1 : 1;
-                }
-                return tarihDegeri(a) - tarihDegeri(b);
-            });
-            tumKartlar.forEach(function (kart) { liste.appendChild(kart); });
-
-            var kartlar = tumKartlar;
-
-            function uygula() {
-                var gorunen = 0;
-                kartlar.forEach(function (kart) {
-                    var durum = kart.getAttribute('data-durum');
-                    var baslik = kart.querySelector('.kart-baslik').textContent.toLowerCase();
-                    var aciklama = kart.querySelector('.kart-metin').textContent.toLowerCase();
-
-                    var filtreUyar = (aktifFiltre === 'tumu' || durum === aktifFiltre);
-                    var aramaUyar = (aktifArama === '' || baslik.includes(aktifArama) || aciklama.includes(aktifArama));
-
-                    if (filtreUyar && aramaUyar) {
-                        kart.style.display = '';
-                        gorunen++;
-                    } else {
-                        kart.style.display = 'none';
-                    }
-                });
-
-                if (gorunen === 0) {
-                    bosDurum.style.display = '';
-                    liste.style.display = 'none';
-                    ozet.textContent = 'Sonuç bulunamadı.';
-                } else {
-                    bosDurum.style.display = 'none';
-                    liste.style.display = '';
-                    ozet.textContent = 'Toplam ' + gorunen + ' etkinlik gösteriliyor.';
-                }
-            }
-
-            sekmeler.forEach(function (sekme) {
-                sekme.addEventListener('click', function () {
-                    sekmeler.forEach(function (s) { s.classList.remove('aktif'); });
-                    sekme.classList.add('aktif');
-                    aktifFiltre = sekme.getAttribute('data-filtre');
-                    uygula();
-                });
-            });
-
-            aramaInput.addEventListener('input', function () {
-                aktifArama = aramaInput.value.trim().toLowerCase();
-                uygula();
-            });
-        });
-    </script>
+    <!-- Scriptler -->
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/common-page.js"></script>
+    <script src="../js/pages/events-page.js"></script>
 
 </body>
 </html>

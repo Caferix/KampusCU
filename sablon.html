@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sayfa Adı — Kampüs</title>
 
-    <!-- CSS sırası önemli, değiştirme -->
+    <!-- CSS -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
-    <!-- Sayfana özel CSS buraya gelir: -->
+    <!-- Sayfaya özel CSS -->
     <!-- <link rel="stylesheet" href="css/ilanlar.css"> -->
 </head>
 <body>
 
-    <!-- NAVBAR — dokunma, layout.css ile stillendi -->
+    <a href="#anaIcerik" class="skip-link">İçeriğe geç</a>
+
+    <!-- Navbar -->
     <header class="header">
         <div class="container">
             <nav class="nav-icerik">
-                <a href="index.html" class="nav-logo">🎓 Kampüs</a>
+                <a href="index.html" class="nav-logo" aria-label="KampüsCÜ ana sayfasına git">Kampüs<span class="logo-vurgu">CÜ</span></a>
 
                 <ul class="nav-linkler" id="navMenu">
                     <li><a href="ads.html">İlanlar</a></li>
@@ -28,51 +30,50 @@
                     <li><a href="map.html">Mekanlar</a></li>
                 </ul>
 
-                <!-- auth.js bu alana kullanıcı bilgisini/giriş butonunu yazar -->
+                <!-- auth.js burayı doldurur -->
                 <div class="nav-kullanici" id="navKullanici"></div>
 
-                <!-- Mobil hamburger -->
                 <button class="hamburger" id="hamburger" aria-label="Menüyü aç">☰</button>
             </nav>
         </div>
     </header>
 
-    <!-- SAYFA İÇERİĞİ -->
+    <!-- İçerik -->
     <main class="container">
 
-        <!-- Sayfa başlığı -->
+        <!-- Başlık -->
         <div class="sayfa-basligi">
             <h1>Sayfa Başlığı</h1>
             <p>Kısa açıklama buraya gelir</p>
         </div>
 
-        <!-- İçerik buraya -->
+        <!-- ... -->
 
     </main>
 
-    <!-- FOOTER — dokunma -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© 2026 Kampüs · Sivas Cumhuriyet Üniversitesi </p>
+            <p>© 2026 KampüsCÜ · Sivas Cumhuriyet Üniversitesi Bilgisayar Mühendisliği Ekibi</p>
+            <p>
+                <a href="pages/about.html">Hakkımızda</a> ·
+                <a href="pages/about.html#iletisim">İletişim</a> ·
+                <a href="#">Gizlilik</a>
+            </p>
         </div>
     </footer>
 
-    <!-- Toast bildirimi kapsayıcısı — ui.js kullanır -->
+    <!-- Toast alanı (ui.js) -->
     <div class="toast-kapsayici" id="toastKapsayici"></div>
 
-    <!-- JS sırası önemli -->
+    <!-- JS -->
     <script src="js/firebase-config.js"></script>
-    <script src="js/auth.js"></script>
     <script src="js/ui.js"></script>
-    <!-- Sayfana özel JS buraya gelir: -->
+    <script src="js/auth.js"></script>
+    <!-- Sayfaya özel JS -->
     <!-- <script src="js/ilanlar.js"></script> -->
 
-    <!-- Hamburger menü — tüm sayfalarda çalışır -->
-    <script>
-        document.getElementById('hamburger').addEventListener('click', () => {
-            document.getElementById('navMenu').classList.toggle('acik');
-        });
-    </script>
+    <script src="js/common-page.js"></script>
 
 </body>
 </html>

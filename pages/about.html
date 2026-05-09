@@ -14,11 +14,13 @@
 </head>
 <body>
 
-    <!-- ==================== NAVBAR ==================== -->
+    <a href="#anaIcerik" class="skip-link">İçeriğe geç</a>
+
+    <!-- Navbar -->
     <header class="header">
         <div class="container">
             <nav class="nav-icerik">
-                <a href="../index.html" class="nav-logo">🎓 KampüsCÜ</a>
+                <a href="../index.html" class="nav-logo" aria-label="KampüsCÜ ana sayfasına git">Kampüs<span class="logo-vurgu">CÜ</span></a>
 
                 <ul class="nav-linkler" id="navMenu">
                     <li><a href="../index.html">Ana Sayfa</a></li>
@@ -39,7 +41,7 @@
     </header>
 
 
-    <!-- ==================== ANA İÇERİK ==================== -->
+    <!-- İçerik -->
     <main class="container">
 
         <div class="sayfa-basligi">
@@ -48,7 +50,7 @@
         </div>
 
 
-        <!-- ---- 1. BÖLÜM: PROJE TANITIMI ---- -->
+    <!-- Proje -->
         <section aria-label="Proje hakkında">
             <div class="tanitim-alani">
 
@@ -69,8 +71,6 @@
                         Bilgisayar Mühendisliği öğrencileri tarafından
                         geliştirilmiştir.
                     </p>
-
-                    <!-- .tanitim-butonlar about.css'de tanımlı -->
                     <div class="tanitim-butonlar">
                         <a href="../pages/ads.html" class="buton">İlanlara Bak</a>
                         <a href="../pages/events.html" class="buton ikincil">Etkinlikleri Keşfet</a>
@@ -103,13 +103,11 @@
         </section>
 
 
-        <!-- ---- AYRAÇ ---- -->
-        <!-- .bolum-ayrac about.css'de tanımlı -->
+    <!-- Ayraç -->
         <hr class="bolum-ayrac">
 
 
-        <!-- ---- 2. BÖLÜM: VİZYON & MİSYON ---- -->
-        <!-- .vizyon-misyon about.css'de tanımlı — margin-bottom oraya taşındı -->
+    <!-- Vizyon / Misyon -->
         <section aria-label="Vizyon ve misyon" class="vizyon-misyon">
             <div class="bolum-basligi">
                 <h2>Vizyon & Misyon</h2>
@@ -119,7 +117,6 @@
 
                 <div class="kart">
                     <span class="etiket duyuru">Vizyonumuz</span>
-                    <!-- .vizyon-misyon .kart-baslik → margin-top about.css'de -->
                     <h3 class="kart-baslik">
                         Kampüs yaşamının dijital merkezi
                     </h3>
@@ -148,12 +145,7 @@
         </section>
 
 
-        <!-- ---- 3. BÖLÜM: PLATFORM ÖZELLİKLERİ ---- -->
-        <!--
-            Her kart bir platform özelliğini temsil ediyor.
-            Kart içindeki link ilgili sayfaya yönlendiriyor — SEO ve UX için iyi.
-            .izgara-3 layout.css'den geliyor, 3'lü grid sağlar.
-        -->
+        <!-- Özellikler -->
         <section aria-label="Platform özellikleri" class="ozellikler">
             <div class="bolum-basligi">
                 <h2>Neler Yapabilirsin?</h2>
@@ -225,25 +217,13 @@
         </section>
 
 
-        <!-- ---- 4. BÖLÜM: SSS ---- -->
-        <!--
-            Accordion yapısı: her soru bir <details> etiketi.
-            <details> ve <summary> HTML'in yerleşik accordion'ı —
-            JS yazmadan açılıp kapanır.
-            Ama biz JS ile de kontrol ediyoruz: aynı anda sadece bir tane açık kalsın.
-        -->
+        <!-- SSS -->
         <section aria-label="Sık sorulan sorular" class="sss">
             <div class="bolum-basligi">
                 <h2>Sık Sorulan Sorular</h2>
             </div>
 
             <div class="sss-liste">
-
-                <!--
-                    <details>: tıklanınca içeriği gösterir/gizler — tarayıcı desteklidir.
-                    <summary>: her zaman görünen başlık kısmı.
-                    open attribute: sayfada açık başlamak için eklenir.
-                -->
                 <details class="sss-madde" open>
                     <summary class="sss-soru">
                         KampüsCÜ'yü kimler kullanabilir?
@@ -321,8 +301,8 @@
         </section>
 
 
-        <!-- ---- 5. BÖLÜM: İLETİŞİM ---- -->
-        <section aria-label="İletişim">
+        <!-- İletişim -->
+        <section aria-label="İletişim" id="iletisim">
             <div class="iletisim-alani">
                 <h2>İletişime Geç</h2>
                 <p>
@@ -343,13 +323,13 @@
     </main>
 
 
-    <!-- ==================== FOOTER ==================== -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>© 2026 KampüsCÜ · Sivas Cumhuriyet Üniversitesi Bilgisayar Mühendisliği Ekibi</p>
             <p>
-                <a href="pages/about.html">Hakkımızda</a> ·
-                <a href="#">İletişim</a> ·
+                <a href="about.html">Hakkımızda</a> ·
+                <a href="about.html#iletisim">İletişim</a> ·
                 <a href="#">Gizlilik</a>
             </p>
         </div>
@@ -363,9 +343,6 @@
             <button class="modal-kapat" onclick="modalKapat('girisModal')">✕</button>
             <h2 id="girisModalBaslik">Giriş Yap</h2>
             <p class="kart-metin">KampüsCÜ topluluğuna katıl</p>
-            <button class="buton tam" id="googleGirisBtn">🔵 Google ile Devam Et</button>
-            <!-- .modal-ayrac-metin about.css'de tanımlı -->
-            <p class="kart-metin modal-ayrac-metin">veya e-posta ile</p>
             <div class="form-alani">
                 <label for="girisEmail">E-posta</label>
                 <input type="email" id="girisEmail" placeholder="ornek@cumhuriyet.edu.tr">
@@ -375,30 +352,19 @@
                 <input type="password" id="girisSifre" placeholder="••••••••">
             </div>
             <button class="buton tam" id="emailGirisBtn">Giriş Yap</button>
+
+            <p class="kart-metin" style="text-align:center; margin-top: var(--space-md);">
+                Hesabın yok mu? <a href="auth.html">Kayıt ol</a>
+            </p>
         </div>
     </div>
 
 
-    <!-- ==================== JS ==================== -->
-    <script>
-        document.getElementById('hamburger').addEventListener('click', () => {
-            document.getElementById('navMenu').classList.toggle('acik');
-        });
-
-        function modalAc(id) {
-            document.getElementById(id).classList.add('acik');
-        }
-
-        function modalKapat(id) {
-            document.getElementById(id).classList.remove('acik');
-        }
-
-        document.querySelectorAll('.modal-arkaplan').forEach(modal => {
-            modal.addEventListener('click', function(e) {
-                if (e.target === this) modalKapat(this.id);
-            });
-        });
-    </script>
+    <!-- Scriptler -->
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/common-page.js"></script>
 
 </body>
 </html>

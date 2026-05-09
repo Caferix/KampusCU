@@ -1,4 +1,4 @@
-<!--Kullanıcı Profil Sayfası-->
+<!-- Kullanıcı profil sayfası -->
 
 <!DOCTYPE html>
 <html lang="tr">
@@ -16,19 +16,30 @@
 </head>
 <body>
 
-    <header class="header">
-        <div class="container nav-icerik">
-            <a href="../index.html" class="nav-logo" aria-label="KampüsCÜ ana sayfasına git">
-                KampüsCÜ
-            </a>
+    <a href="#anaIcerik" class="skip-link">İçeriğe geç</a>
 
-            <nav class="nav-linkler" aria-label="Ana menü">
-                <a href="../index.html">Ana Sayfa</a>
-                <a href="ads.html">İlanlar</a>
-                <a href="events.html">Etkinlikler</a>
-                <a href="map.html">Mekanlar</a>
-                <a href="about.html">Hakkımızda</a>
-                <a href="profile.html" class="aktif" aria-current="page">Profil</a>
+    <header class="header">
+        <div class="container">
+            <nav class="nav-icerik">
+                <a href="../index.html" class="nav-logo" aria-label="KampüsCÜ ana sayfasına git">
+                    Kampüs<span class="logo-vurgu">CÜ</span>
+                </a>
+
+                <ul class="nav-linkler" id="navMenu" aria-label="Ana menü">
+                    <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li><a href="ads.html">İlanlar</a></li>
+                    <li><a href="events.html">Etkinlikler</a></li>
+                    <li><a href="announcements.html">Duyurular</a></li>
+                    <li><a href="map.html">Mekanlar</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="profile.html" class="aktif" aria-current="page">Profil</a></li>
+                </ul>
+
+                <div class="nav-kullanici" id="navKullanici">
+                    <a href="auth.html" class="buton kucuk">Giriş Yap</a>
+                </div>
+
+                <button class="hamburger" id="hamburger" aria-label="Menüyü aç">☰</button>
             </nav>
         </div>
     </header>
@@ -48,15 +59,19 @@
 
         <section class="profil-ozet" aria-labelledby="profil-ozet-baslik">
             <article class="kart profil-karti">
-                <div class="avatar buyuk" aria-hidden="true">ES</div>
+                <div class="avatar buyuk" id="profilAvatar" aria-hidden="true">ES</div>
 
                 <div class="profil-bilgileri">
                     <h2 id="profil-ozet-baslik">Elif Su</h2>
+                    <p id="profilDurumMetni" class="kart-metin" style="margin: 0;"></p>
                     <p>Bilgisayar Mühendisliği Öğrencisi</p>
-                    <p>elifsu@cumhuriyet.edu.tr</p>
+                    <p id="profilEmail">elifsu@cumhuriyet.edu.tr</p>
                 </div>
 
-                <button type="button" class="buton ikincil">Profili Düzenle</button>
+                <div class="profil-aksiyonlar">
+                    <button type="button" class="buton ikincil">Profili Düzenle</button>
+                    <button type="button" class="buton ikincil" id="profilCikisBtn">Çıkış Yap</button>
+                </div>
             </article>
 
             <div class="izgara-3 profil-istatistikleri" aria-label="Kullanıcı istatistikleri">
@@ -158,114 +173,25 @@
                 </article>
             </div>
         </section>
-
-        <section class="bos-durum" aria-labelledby="profil-not-baslik">
-            <div class="bos-durum-ikon" aria-hidden="true">ℹ️</div>
-            <h2 id="profil-not-baslik">Bilgilendirme</h2>
-            <p>
-                Profil sayfası bu proje kapsamında sembolik olarak hazırlanmıştır. Gerçek kullanıcı verileri
-                ilerleyen aşamalarda JavaScript veya backend bağlantısı ile geliştirilebilir.
-            </p>
-        </section>
     </main>
 
     <footer class="footer">
         <div class="container">
-            <p>© 2026 KampüsCÜ. Sivas Cumhuriyet Üniversitesi öğrencileri için hazırlanmıştır.</p>
+            <p>© 2026 KampüsCÜ · Sivas Cumhuriyet Üniversitesi Bilgisayar Mühendisliği Ekibi</p>
+            <p>
+                <a href="about.html">Hakkımızda</a> ·
+                <a href="about.html#iletisim">İletişim</a> ·
+                <a href="#">Gizlilik</a>
+            </p>
         </div>
     </footer>
 
-    <script>
-        const LOCAL_STORAGE_KEY = "kampuscu_kullanici_ilanlari";
-        const profilIlanListesi = document.querySelector("#profil-ilan-listesi");
-        const aktifIlanSayisi = document.querySelector("#aktif-ilan-sayisi");
+    <div class="toast-kapsayici" id="toastKapsayici"></div>
 
-        const kategoriAdlari = {
-            "satis": "Satılık",
-            "kiralik": "Kiralık",
-            "ev-arkadas": "Ev Arkadaşı",
-            "is-arkadas": "Çalışma Arkadaşı",
-            "kayip": "Kayıp"
-        };
-
-        function guvenliMetin(metin) {
-            return String(metin)
-                .replaceAll("&", "&amp;")
-                .replaceAll("<", "&lt;")
-                .replaceAll(">", "&gt;")
-                .replaceAll('"', "&quot;")
-                .replaceAll("'", "&#039;");
-        }
-
-        function kayitliIlanlariGetir() {
-            const veriler = localStorage.getItem(LOCAL_STORAGE_KEY);
-            return veriler ? JSON.parse(veriler) : [];
-        }
-
-        function kayitliIlanlariKaydet(ilanlar) {
-            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(ilanlar));
-        }
-
-        function profilIlanKartiOlustur(ilan) {
-            const kategoriAdi = kategoriAdlari[ilan.kategori] || "İlan";
-
-            const ilanKart = document.createElement("article");
-            ilanKart.className = "kart profil-ilan-karti";
-            ilanKart.dataset.id = ilan.id;
-
-            ilanKart.innerHTML = `
-                <div>
-                    <span class="etiket ${guvenliMetin(ilan.kategori)}">${guvenliMetin(kategoriAdi)}</span>
-                    <h3 class="kart-baslik">${guvenliMetin(ilan.baslik)}</h3>
-                    <p class="kart-metin">${guvenliMetin(ilan.aciklama)}</p>
-
-                    <div class="profil-ilan-bilgileri">
-                        <span>Durum: Yayında</span>
-                        <span>Fiyat: ${guvenliMetin(ilan.fiyat)}</span>
-                        <span>Konum: ${guvenliMetin(ilan.konum)}</span>
-                    </div>
-                </div>
-
-                <div class="profil-ilan-aksiyonlari">
-                    <a href="ads.html" class="buton ikincil kucuk">İlanı Gör</a>
-                    <button type="button" class="buton tehlike kucuk kullanici-ilan-sil">İlanı Sil</button>
-                </div>
-            `;
-
-            return ilanKart;
-        }
-
-        function profilIlanlariniYukle() {
-            const kayitliIlanlar = kayitliIlanlariGetir();
-
-            kayitliIlanlar.forEach(function (ilan) {
-                profilIlanListesi.prepend(profilIlanKartiOlustur(ilan));
-            });
-
-            aktifIlanSayisi.textContent = 2 + kayitliIlanlar.length;
-        }
-
-        profilIlanListesi.addEventListener("click", function (event) {
-            const silButonu = event.target.closest(".kullanici-ilan-sil");
-
-            if (!silButonu) {
-                return;
-            }
-
-            const ilanKarti = silButonu.closest(".profil-ilan-karti");
-            const ilanId = ilanKarti.dataset.id;
-
-            const kalanIlanlar = kayitliIlanlariGetir().filter(function (ilan) {
-                return ilan.id !== ilanId;
-            });
-
-            kayitliIlanlariKaydet(kalanIlanlar);
-            ilanKarti.remove();
-
-            aktifIlanSayisi.textContent = 2 + kalanIlanlar.length;
-        });
-
-        profilIlanlariniYukle();
-    </script>
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/common-page.js"></script>
+    <script src="../js/pages/profile-page.js"></script>
 </body>
 </html>

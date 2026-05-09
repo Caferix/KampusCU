@@ -44,6 +44,52 @@
     margin-bottom: var(--space-lg);
 }
 
+/* ----- DETAY MODAL GÖRSELİ ----- */
+/*
+    Sabit px kullanıyoruz — modal-kutu padding 40px.
+    Görsel yoksa JS display:none yapar.
+*/
+.detay-gorsel-alani {
+    width: calc(100% + 80px);
+    margin: -40px -40px 20px -40px;
+    height: 240px;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+    background-color: var(--arkaplan);
+    display: none;
+}
+
+.detay-gorsel-alani img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* ----- İLAN IZGARASI SABİT KOLON ----- */
+
+#ilan-listesi {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--standart-bosluk);
+}
+
+/* ----- KART GÖRSEL TAŞMA DÜZELTMESİ ----- */
+
+#ilan-listesi .kart-resim-alani {
+    height: 160px;
+    overflow: hidden;
+}
+
+#ilan-listesi .kart-resim-alani img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
 @media (max-width: 768px) {
     .ilan-basligi {
         flex-direction: column;
@@ -62,5 +108,19 @@
 
     .kart-alt .buton {
         width: 100%;
+    }
+
+    .detay-gorsel-alani {
+        height: 180px;
+    }
+
+    #ilan-listesi {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    #ilan-listesi {
+        grid-template-columns: 1fr;
     }
 }

@@ -1,7 +1,4 @@
-/* ============================================================
-   variables.css — Tüm ekip buradan beslenecek, başka yerde
-   sabit renk/boyut/boşluk değeri YAZILMAZ.
-   ============================================================ */
+/* variables.css — Tasarım değişkenleri */
 
 :root {
 
@@ -10,7 +7,7 @@
     --ana-renk-hover:    #8B1A10;   /* Hover durumu için koyu tonu */
     --koyu-renk:         #2C3E50;   /* Başlıklar ve footer */
     --metin-renk:        #333333;   /* Gövde metni */
-    --metin-soluk:       #6B7280;   /* İkincil / yardımcı metin */
+    --metin-soluk:       #31353b;   /* İkincil / yardımcı metin */
     --arkaplan:          #F8F9FA;   /* Sayfa arka planı */
     --kutu-arkaplan:     #FFFFFF;   /* Kart ve form arka planı */
     --kenarlik-renk:     #E1E8ED;   /* Çizgiler ve input kenarlıkları */
@@ -44,7 +41,7 @@
     --space-2xl:         64px;
 
     /* --- 4. ÖLÇÜLER --- */
-    --max-genislik:      1100px;
+    --max-genislik:      1600px;
     --kutu-yari-cap:     8px;
     --standart-bosluk:   20px;      /* Geriye dönük uyumluluk için korundu */
 

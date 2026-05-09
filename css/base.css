@@ -1,6 +1,4 @@
-/* ============================================================
-   base.css — Reset ve global element stilleri
-   ============================================================ */
+/* base.css — Reset + temel stiller */
 
 * {
     margin: 0;
@@ -37,4 +35,30 @@ ul {
 img {
     max-width: 100%;
     display: block;
+}
+
+/* --- ERİŞİLEBİLİRLİK --- */
+*:focus-visible {
+    outline: 2px solid var(--ana-renk);
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: var(--space-md);
+    background: var(--ana-renk);
+    color: white;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--kutu-yari-cap);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    z-index: 9999;
+    transition: top 0.2s;
+}
+
+.skip-link:focus {
+    top: var(--space-sm);
+    outline: 2px solid white;
+    outline-offset: 2px;
 }

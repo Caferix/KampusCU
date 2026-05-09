@@ -1,7 +1,4 @@
-/* ============================================================
-   components.css — Paylaşılan bileşenler
-   Yeni bileşen eklemek için ekip lideriyle konuş.
-   ============================================================ */
+/* components.css — Paylaşılan bileşenler */
 
 
 /* ---- 1. KART ---- */
@@ -390,6 +387,75 @@
 
 .arama-kutusu button:hover {
     background-color: var(--ana-renk-hover);
+}
+
+/* Navbar'daki arama kutusu — daha küçük ve çerçeveli */
+.arama-kutusu.nav-arama {
+    border-color: var(--ana-renk);
+    border-width: 2px;
+}
+
+.arama-kutusu.nav-arama input {
+    padding: 6px 10px;
+    font-size: var(--text-xs);
+}
+
+.arama-kutusu.nav-arama button {
+    padding: 6px 10px;
+    font-size: var(--text-sm);
+    background-color: var(--kutu-arkaplan);
+    color: var(--metin-soluk);
+    border-left: 2px solid var(--ana-renk);
+}
+
+.arama-kutusu.nav-arama button:hover {
+    background-color: var(--arkaplan);
+    color: var(--ana-renk);
+}
+
+.nav-arama-durum {
+    font-size: var(--text-xs);
+    color: var(--metin-soluk);
+    white-space: nowrap;
+}
+
+/* Arama önerileri dropdown */
+.arama-oneriler {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    width: 100%;
+    max-width: 260px;
+    background-color: var(--kutu-arkaplan);
+    border: 1px solid var(--kenarlik-renk);
+    border-radius: var(--kutu-yari-cap);
+    box-shadow: var(--orta-golge);
+    overflow: hidden;
+    z-index: 200;
+}
+
+.arama-oneriler .arama-oneri {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding: 10px 12px;
+    text-decoration: none;
+    color: var(--metin-renk);
+    border-bottom: 1px solid var(--kenarlik-renk);
+}
+
+.arama-oneriler .arama-oneri:last-child {
+    border-bottom: none;
+}
+
+.arama-oneriler .arama-oneri:hover {
+    background-color: var(--arkaplan);
+    opacity: 1;
+}
+
+.arama-oneriler .arama-oneri small {
+    color: var(--metin-soluk);
+    white-space: nowrap;
 }
 
 
